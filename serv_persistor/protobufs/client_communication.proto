@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+message EmptyMessage{}
+
+message PingClientCommunicationResponse{
+    string ack = 1;
+}
+
+service ClientCommunication{
+    rpc PingClientCommunication(EmptyMessage) returns(PingClientCommunicationResponse);
+}
