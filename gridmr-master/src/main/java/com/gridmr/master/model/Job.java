@@ -48,47 +48,105 @@ public class Job {
     }
     
     // Getters y Setters básicos
-    public String getJobId() { return jobId; }
-    public String getClientId() { return clientId; }
-    public JobStatus getStatus() { return status; }
-    public void setStatus(JobStatus status) { this.status = status; }
+    public String getJobId() {
+        return jobId;
+    }
+    public String getClientId() {
+        return clientId;
+    }
+    public JobStatus getStatus() {
+        return status;
+    }
+    public void setStatus(JobStatus status) {
+        this.status = status;
+    }
     
-    public LocalDateTime getCreatedAt() { return createdAt; }
-    public LocalDateTime getStartedAt() { return startedAt; }
-    public void setStartedAt(LocalDateTime startedAt) { this.startedAt = startedAt; }
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+    public LocalDateTime getStartedAt() {
+        return startedAt;
+    }
+    public void setStartedAt(LocalDateTime startedAt) {
+        this.startedAt = startedAt;
+    }
     
-    public LocalDateTime getCompletedAt() { return completedAt; }
-    public void setCompletedAt(LocalDateTime completedAt) { this.completedAt = completedAt; }
+    public LocalDateTime getCompletedAt() {
+        return completedAt;
+    }
+    public void setCompletedAt(LocalDateTime completedAt) {
+        this.completedAt = completedAt;
+    }
     
-    public List<String> getInputFiles() { return inputFiles; }
-    public void addInputFile(String inputFile) { this.inputFiles.add(inputFile); }
+    public List<String> getInputFiles() {
+        return inputFiles;
+    }
+    public void addInputFile(String inputFile) {
+        this.inputFiles.add(inputFile);
+    }
     
-    public String getOutputDirectory() { return outputDirectory; }
-    public void setOutputDirectory(String outputDirectory) { this.outputDirectory = outputDirectory; }
+    public String getOutputDirectory() {
+        return outputDirectory;
+    }
+    public void setOutputDirectory(String outputDirectory) {
+        this.outputDirectory = outputDirectory;
+    }
     
-    public int getNumMappers() { return numMappers; }
-    public void setNumMappers(int numMappers) { this.numMappers = numMappers; }
+    public int getNumMappers() {
+        return numMappers;
+    }
+    public void setNumMappers(int numMappers) {
+        this.numMappers = numMappers;
+    }
     
-    public int getNumReducers() { return numReducers; }
-    public void setNumReducers(int numReducers) { this.numReducers = numReducers; }
+    public int getNumReducers() {
+        return numReducers;
+    }
+    public void setNumReducers(int numReducers) {
+        this.numReducers = numReducers;
+    }
     
-    public String getMapFunction() { return mapFunction; }
-    public void setMapFunction(String mapFunction) { this.mapFunction = mapFunction; }
+    public String getMapFunction() {
+        return mapFunction;
+    }
+    public void setMapFunction(String mapFunction) {
+        this.mapFunction = mapFunction;
+    }
     
-    public String getReduceFunction() { return reduceFunction; }
-    public void setReduceFunction(String reduceFunction) { this.reduceFunction = reduceFunction; }
+    public String getReduceFunction() {
+        return reduceFunction;
+    }
+    public void setReduceFunction(String reduceFunction) {
+        this.reduceFunction = reduceFunction;
+    }
     
-    public List<Task> getMapTasks() { return mapTasks; }
-    public void addMapTask(Task task) { this.mapTasks.add(task); }
+    public List<Task> getMapTasks() {
+        return mapTasks;
+    }
+    public void addMapTask(Task task) {
+        this.mapTasks.add(task);
+    }
     
-    public List<Task> getReduceTasks() { return reduceTasks; }
-    public void addReduceTask(Task task) { this.reduceTasks.add(task); }
+    public List<Task> getReduceTasks() {
+        return reduceTasks;
+    }
+    public void addReduceTask(Task task) {
+        this.reduceTasks.add(task);
+    }
     
-    public List<String> getIntermediateResults() { return intermediateResults; }
-    public void addIntermediateResult(String result) { this.intermediateResults.add(result); }
+    public List<String> getIntermediateResults() {
+        return intermediateResults;
+    }
+    public void addIntermediateResult(String result) {
+        this.intermediateResults.add(result);
+    }
     
-    public List<String> getFinalResults() { return finalResults; }
-    public void addFinalResult(String result) { this.finalResults.add(result); }
+    public List<String> getFinalResults() {
+        return finalResults;
+    }
+    public void addFinalResult(String result) {
+        this.finalResults.add(result);
+    }
     
     // Verifica si el trabajo está completado
     public boolean isCompleted() {

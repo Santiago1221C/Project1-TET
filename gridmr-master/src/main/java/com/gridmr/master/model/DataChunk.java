@@ -2,10 +2,7 @@ package com.gridmr.master.model;
 
 import java.time.LocalDateTime;
 
-/**
- * Representa un fragmento (chunk) de datos para procesamiento
- * Los datos se dividen en chunks para distribuir entre workers
- */
+// Representa un fragmento (chunk) de datos para procesamiento, los datos se dividen en chunks para distribuir entre workers
 public class DataChunk {
     
     private String chunkId;
@@ -67,9 +64,15 @@ public class DataChunk {
         }
     }
     
-    public LocalDateTime getCreatedAt() { return createdAt; }
-    public LocalDateTime getAssignedAt() { return assignedAt; }
-    public LocalDateTime getProcessedAt() { return processedAt; }
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+    public LocalDateTime getAssignedAt() {
+        return assignedAt;
+    }
+    public LocalDateTime getProcessedAt() {
+        return processedAt;
+    }
     
     public String getContent() { return content; }
     public void setContent(String content) { 
