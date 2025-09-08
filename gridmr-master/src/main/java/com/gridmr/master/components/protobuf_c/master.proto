@@ -1,0 +1,372 @@
+syntax = "proto3";
+
+package gridmr.master;
+
+option java_multiple_files = true;
+option java_package = "com.gridmr.master";
+option java_outer_classname = "MasterProto";
+
+// import "common.proto";
+
+// ============================================================================
+// SERVICIO PRINCIPAL DEL MASTER (para clientes)
+// ============================================================================
+
+service GridMRMasterService {
+  // Gestión de trabajos
+  rpc SubmitJob(SubmitJobRequest) returns (SubmitJobResponse);
+  rpc GetJobStatus(GetJobStatusRequest) returns (GetJobStatusResponse);
+  rpc GetJobProgress(GetJobProgressRequest) returns (GetJobProgressResponse);
+  rpc CancelJob(CancelJobRequest) returns (CancelJobResponse);
+  rpc ListJobs(ListJobsRequest) returns (ListJobsResponse);
+  
+  // Gestión de resultados
+  rpc GetJobResults(GetJobResultsRequest) returns (GetJobResultsResponse);
+  rpc DownloadResultFile(DownloadResultFileRequest) returns (stream gridmr.common.FileChunk);
+  
+  // Gestión de archivos de entrada
+  rpc UploadInputFile(stream gridmr.common.FileChunk) returns (UploadInputFileResponse);
+  rpc ListInputFiles(ListInputFilesRequest) returns (ListInputFilesResponse);
+  
+  // Monitoreo del sistema
+  rpc GetSystemStatus(GetSystemStatusRequest) returns (GetSystemStatusResponse);
+  rpc GetWorkerNodes(GetWorkerNodesRequest) returns (GetWorkerNodesResponse);
+  
+  // Health check
+  rpc Ping(EmptyMessage) returns (gridmr.common.PingResponse);
+}
+
+// ============================================================================
+// SERVICIO INTERNO DEL MASTER (para workers)
+// ============================================================================
+
+service MasterInternalService {
+  // Registro y gestión de workers
+  rpc RegisterWorker(RegisterWorkerRequest) returns (RegisterWorkerResponse);
+  rpc UnregisterWorker(UnregisterWorkerRequest) returns (UnregisterWorkerResponse);
+  rpc UpdateWorkerStatus(UpdateWorkerStatusRequest) returns (UpdateWorkerStatusResponse);
+  rpc Heartbeat(HeartbeatRequest) returns (HeartbeatResponse);
+  
+  // Gestión de tareas
+  rpc RequestTask(RequestTaskRequest) returns (RequestTaskResponse);
+  rpc ReportTaskProgress(ReportTaskProgressRequest) returns (ReportTaskProgressResponse);
+  rpc ReportTaskCompletion(ReportTaskCompletionRequest) returns (ReportTaskCompletionResponse);
+  rpc ReportTaskFailure(ReportTaskFailureRequest) returns (ReportTaskFailureResponse);
+  
+  // Transferencia de datos
+  rpc RequestDataChunk(RequestDataChunkRequest) returns (RequestDataChunkResponse);
+  rpc UploadDataChunk(stream gridmr.common.DataChunk) returns (UploadDataChunkResponse);
+  rpc RequestFileTransfer(FileTransferRequest) returns (FileTransferResponse);
+  
+  // Gestión de recursos
+  rpc ReportResourceMetrics(ReportResourceMetricsRequest) returns (ReportResourceMetricsResponse);
+  rpc RequestResourceAllocation(RequestResourceAllocationRequest) returns (RequestResourceAllocationResponse);
+}
+
+// ============================================================================
+// REQUEST/RESPONSE MESSAGES PARA CLIENTES
+// ============================================================================
+
+message SubmitJobRequest {
+  string client_id = 1;
+  string job_name = 2;
+  string job_description = 3;
+  repeated string input_files = 4;
+  repeated string output_files = 5;
+  bytes map_code = 6;
+  bytes reduce_code = 7;
+  int32 num_mappers = 8;
+  int32 num_reducers = 9;
+  map<string, string> parameters = 10;
+  int64 priority = 11;
+  int64 timeout_seconds = 12;
+}
+
+message SubmitJobResponse {
+  string job_id = 1;
+  bool success = 2;
+  string message = 3;
+  gridmr.common.ErrorResponse error = 4;
+  int64 estimated_start_time = 5;
+}
+
+message GetJobStatusRequest {
+  string job_id = 1;
+}
+
+message GetJobStatusResponse {
+  string job_id = 1;
+  gridmr.common.JobStatus status = 2;
+  string status_message = 3;
+  int64 last_updated = 4;
+  gridmr.common.ErrorResponse error = 5;
+}
+
+message GetJobProgressRequest {
+  string job_id = 1;
+}
+
+message GetJobProgressResponse {
+  string job_id = 1;
+  gridmr.common.JobProgress progress = 2;
+  gridmr.common.ErrorResponse error = 3;
+}
+
+message CancelJobRequest {
+  string job_id = 1;
+  string reason = 2;
+}
+
+message CancelJobResponse {
+  string job_id = 1;
+  bool success = 2;
+  string message = 3;
+  gridmr.common.ErrorResponse error = 4;
+}
+
+message ListJobsRequest {
+  string client_id = 1;
+  gridmr.common.JobStatus status_filter = 2;
+  int32 limit = 3;
+  int32 offset = 4;
+}
+
+message ListJobsResponse {
+  repeated gridmr.common.Job jobs = 1;
+  int32 total_count = 2;
+  gridmr.common.ErrorResponse error = 3;
+}
+
+message GetJobResultsRequest {
+  string job_id = 1;
+}
+
+message GetJobResultsResponse {
+  string job_id = 1;
+  repeated string result_files = 2;
+  map<string, string> metadata = 3;
+  gridmr.common.ErrorResponse error = 4;
+}
+
+message DownloadResultFileRequest {
+  string job_id = 1;
+  string file_name = 2;
+}
+
+message UploadInputFileRequest {
+  string file_name = 1;
+  int64 file_size = 2;
+  string checksum = 3;
+  map<string, string> metadata = 4;
+}
+
+message UploadInputFileResponse {
+  string file_id = 1;
+  bool success = 2;
+  string message = 3;
+  gridmr.common.ErrorResponse error = 4;
+}
+
+message ListInputFilesRequest {
+  string client_id = 1;
+}
+
+message ListInputFilesResponse {
+  repeated string files = 1;
+  gridmr.common.ErrorResponse error = 2;
+}
+
+message GetSystemStatusRequest {}
+
+message GetSystemStatusResponse {
+  int32 total_workers = 1;
+  int32 active_workers = 2;
+  int32 total_jobs = 3;
+  int32 running_jobs = 4;
+  int32 queued_jobs = 5;
+  double system_load = 6;
+  int64 uptime_seconds = 7;
+  gridmr.common.ErrorResponse error = 8;
+}
+
+message GetWorkerNodesRequest {}
+
+message GetWorkerNodesResponse {
+  repeated gridmr.common.WorkerInfo workers = 1;
+  gridmr.common.ErrorResponse error = 2;
+}
+
+// ============================================================================
+// REQUEST/RESPONSE MESSAGES PARA WORKERS
+// ============================================================================
+
+message RegisterWorkerRequest {
+  gridmr.common.WorkerInfo worker_info = 1;
+  repeated string capabilities = 2;
+  map<string, string> configuration = 3;
+}
+
+message RegisterWorkerResponse {
+  string worker_id = 1;
+  bool success = 2;
+  string message = 3;
+  gridmr.common.ErrorResponse error = 4;
+  map<string, string> master_configuration = 5;
+}
+
+message UnregisterWorkerRequest {
+  string worker_id = 1;
+  string reason = 2;
+}
+
+message UnregisterWorkerResponse {
+  bool success = 1;
+  string message = 2;
+  gridmr.common.ErrorResponse error = 3;
+}
+
+message UpdateWorkerStatusRequest {
+  string worker_id = 1;
+  gridmr.common.WorkerStatus status = 2;
+  gridmr.common.ResourceMetrics metrics = 3;
+}
+
+message UpdateWorkerStatusResponse {
+  bool success = 1;
+  string message = 2;
+  gridmr.common.ErrorResponse error = 3;
+}
+
+message HeartbeatRequest {
+  string worker_id = 1;
+  gridmr.common.ResourceMetrics metrics = 2;
+  int64 timestamp = 3;
+}
+
+message HeartbeatResponse {
+  bool success = 1;
+  string message = 2;
+  bool should_shutdown = 3;
+  gridmr.common.ErrorResponse error = 4;
+}
+
+message RequestTaskRequest {
+  string worker_id = 1;
+  repeated string capabilities = 2;
+  gridmr.common.ResourceMetrics current_metrics = 3;
+}
+
+message RequestTaskResponse {
+  gridmr.common.Task task = 1;
+  bool has_task = 2;
+  string message = 3;
+  gridmr.common.ErrorResponse error = 4;
+}
+
+message ReportTaskProgressRequest {
+  string task_id = 1;
+  string worker_id = 2;
+  double progress_percentage = 3;
+  map<string, string> metadata = 4;
+  int64 timestamp = 5;
+}
+
+message ReportTaskProgressResponse {
+  bool success = 1;
+  string message = 2;
+  gridmr.common.ErrorResponse error = 3;
+}
+
+message ReportTaskCompletionRequest {
+  string task_id = 1;
+  string worker_id = 2;
+  gridmr.common.TaskResult result = 3;
+}
+
+message ReportTaskCompletionResponse {
+  bool success = 1;
+  string message = 2;
+  gridmr.common.ErrorResponse error = 3;
+}
+
+message ReportTaskFailureRequest {
+  string task_id = 1;
+  string worker_id = 2;
+  string error_message = 3;
+  string stack_trace = 4;
+  map<string, string> context = 5;
+}
+
+message ReportTaskFailureResponse {
+  bool success = 1;
+  string message = 2;
+  gridmr.common.ErrorResponse error = 3;
+}
+
+message RequestDataChunkRequest {
+  string chunk_id = 1;
+  string worker_id = 2;
+}
+
+message RequestDataChunkResponse {
+  gridmr.common.DataChunk chunk = 1;
+  bool found = 2;
+  gridmr.common.ErrorResponse error = 3;
+}
+
+message UploadDataChunkRequest {
+  gridmr.common.DataChunk chunk = 1;
+  string worker_id = 2;
+}
+
+message UploadDataChunkResponse {
+  bool success = 1;
+  string message = 2;
+  gridmr.common.ErrorResponse error = 3;
+}
+
+message FileTransferRequest {
+  string request_id = 1;
+  string source_worker = 2;
+  string target_worker = 3;
+  string file_path = 4;
+  int64 file_size = 5;
+  gridmr.common.DataTransferMode mode = 6;
+  map<string, string> metadata = 7;
+}
+
+message FileTransferResponse {
+  string request_id = 1;
+  bool success = 2;
+  string message = 3;
+  gridmr.common.ErrorResponse error = 4;
+}
+
+message ReportResourceMetricsRequest {
+  string worker_id = 1;
+  gridmr.common.ResourceMetrics metrics = 2;
+}
+
+message ReportResourceMetricsResponse {
+  bool success = 1;
+  string message = 2;
+  gridmr.common.ErrorResponse error = 3;
+}
+
+message RequestResourceAllocationRequest {
+  string worker_id = 1;
+  int32 requested_cpu_cores = 2;
+  int64 requested_memory_mb = 3;
+  int64 requested_disk_gb = 4;
+  int32 requested_tasks = 5;
+}
+
+message RequestResourceAllocationResponse {
+  bool success = 1;
+  string message = 2;
+  int32 allocated_cpu_cores = 3;
+  int64 allocated_memory_mb = 4;
+  int64 allocated_disk_gb = 5;
+  int32 allocated_tasks = 6;
+  gridmr.common.ErrorResponse error = 7;
+}

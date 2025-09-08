@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package gridmr.common;
+option java_package = "com.gridmr.master.grpc.generated.common";
+option java_outer_classname = "JobTypesProto";
+
+enum JobType {
+    WORDCOUNT = 0;
+    SORT = 1;
+    GREP = 2;
+    LINECOUNT = 3;
+}
+
+enum JobStatus {
+    PENDING = 0;
+    RUNNING = 1;
+    COMPLETED = 2;
+    FAILED = 3;
+    CANCELLED = 4;
+}

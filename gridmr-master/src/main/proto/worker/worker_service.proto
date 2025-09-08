@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package gridmr.worker;
+
+option java_package = "com.gridmr.master.grpc.generated.worker";
+option java_outer_classname = "WorkerServiceProto";
+
+import "common/job_types.proto";
+import "common/task_types.proto";
+
+service WorkerService {
+    rpc ExecuteMapTask(MapTaskRequest) returns (TaskResponse);
+    rpc ExecuteReduceTask(ReduceTaskRequest) returns (TaskResponse);
+    rpc GetWorkerStatus(StatusRequest) returns (WorkerStatusResponse);
+    rpc Heartbeat(HeartbeatRequest) returns (HeartbeatResponse);
+}

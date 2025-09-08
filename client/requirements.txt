@@ -1,0 +1,16 @@
+
+# GridMR Client Dependencies
+requests>=2.28.0
+pathlib2>=2.3.7; python_version<"3.4"
+
+# Optional: Para mejor manejo de JSON y validación
+jsonschema>=4.0.0
+
+# Optional: Para progress bars más avanzadas
+tqdm>=4.64.0
+
+# Development dependencies (opcional)
+pytest>=7.0.0
+pytest-cov>=4.0.0
+black>=22.0.0
+flake8>=5.0.0
