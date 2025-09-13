@@ -10,9 +10,13 @@ from pathlib import Path
 
 
 class GridMRClient:
-    def __init__(self, master_host="localhost", master_port=8080, nfs_path="/mnt/gridmr_nfs"):
-        self.master_url = f"http://{master_host}:{master_port}"
-        self.nfs_path = Path(nfs_path)
+    def __init__(self, master_host=None, master_port=8080, nfs_path=None):
+        # Usar variables de entorno o parámetros
+        self.master_host = master_host or os.getenv("GRIDMR_MASTER_HOST", "localhost")
+        self.master_port = master_port or int(os.getenv("GRIDMR_MASTER_PORT", "8080"))
+        self.nfs_path = Path(nfs_path or os.getenv("GRIDMR_NFS_PATH", "/mnt/gridmr_nfs"))
+        
+        self.master_url = f"http://{self.master_host}:{self.master_port}"
         self.session = requests.Session()
         
         # Configurar logging
@@ -20,7 +24,7 @@ class GridMRClient:
             level=logging.INFO, 
             format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
         )
-        self.logger = logging.getLogger(f"GridMRClient-{master_host}:{master_port}")
+        self.logger = logging.getLogger(f"GridMRClient-{self.master_host}:{self.master_port}")
         
         # Configurar timeout por defecto para todas las requests
         self.session.timeout = 30
@@ -32,7 +36,11 @@ class GridMRClient:
     
     def _setup_nfs_path(self):
         """Configurar la ruta NFS, usar directorio local si no está montado"""
-        if not self.nfs_path.exists() or not os.path.ismount(str(self.nfs_path)):
+        # Verificar si es EFS de AWS (mejor detección)
+        if self._is_efs_or_network_mount():
+            self.logger.info(f"Usando almacenamiento de red: {self.nfs_path}")
+        elif not self.nfs_path.exists() or not os.path.ismount(str(self.nfs_path)):
+            # Fallback a directorio local
             script_dir = Path(__file__).parent.absolute()
             local_nfs = script_dir.parent / "nfs_shared"
             
@@ -48,6 +56,29 @@ class GridMRClient:
                 self.logger.warning(f"Creado directorio NFS local: {self.nfs_path}")
         else:
             self.logger.info(f"Usando NFS montado: {self.nfs_path}")
+    
+    def _is_efs_or_network_mount(self) -> bool:
+        """Detectar si es EFS de AWS o mount de red"""
+        try:
+            if not self.nfs_path.exists():
+                return False
+                
+            # Verificar /proc/mounts para EFS o NFS4
+            with open('/proc/mounts', 'r') as f:
+                for line in f:
+                    if str(self.nfs_path) in line and ('nfs4' in line or 'efs' in line):
+                        return True
+            
+            # Verificación adicional para EFS
+            try:
+                stat_result = os.statvfs(str(self.nfs_path))
+                return stat_result.f_fsid != 0
+            except:
+                pass
+                
+            return os.path.ismount(str(self.nfs_path))
+        except:
+            return False
             
     def upload_file(self, local_file: str, remote_name: Optional[str] = None) -> str:
         """Subir archivo al NFS compartido"""
@@ -119,7 +150,10 @@ class GridMRClient:
                 
         except requests.exceptions.ConnectionError as e:
             self.logger.error(f"No se puede conectar al master en {self.master_url}")
-            self.logger.error("Verificar que el master esté ejecutándose")
+            self.logger.error("Verificar:")
+            self.logger.error("1. ¿Está el master ejecutándose?")
+            self.logger.error("2. ¿Es correcta la dirección del master?")
+            self.logger.error("3. ¿Están los puertos abiertos (Security Groups en AWS)?")
             raise ConnectionError(f"No se puede conectar al master: {e}")
         except requests.exceptions.Timeout as e:
             self.logger.error("Timeout conectando al master")
@@ -377,9 +411,9 @@ def create_sample_input(filename: str = "test_input.txt", content_type: str = "w
 
 def main():
     parser = argparse.ArgumentParser(description="Cliente GridMR - Comunicación REST con Master")
-    parser.add_argument("--master-host", default="localhost", help="Host del master")
+    parser.add_argument("--master-host", default=None, help="Host del master (usa GRIDMR_MASTER_HOST si no se especifica)")
     parser.add_argument("--master-port", type=int, default=8080, help="Puerto del master")
-    parser.add_argument("--nfs-path", default="/mnt/gridmr_nfs", help="Ruta del NFS")
+    parser.add_argument("--nfs-path", default=None, help="Ruta del NFS (usa GRIDMR_NFS_PATH si no se especifica)")
     parser.add_argument("--input-file", help="Archivo de entrada")
     parser.add_argument("--job-type", choices=["wordcount", "sort", "grep", "linecount", "unique"], 
                        default="wordcount", help="Tipo de trabajo")
@@ -407,10 +441,20 @@ def main():
     if not args.monitor_only and not args.input_file:
         parser.error("Se requiere --input-file o --create-sample o --monitor-only")
     
+    # Mostrar configuración que se va a usar
+    master_host = args.master_host or os.getenv("GRIDMR_MASTER_HOST", "localhost")
+    nfs_path = args.nfs_path or os.getenv("GRIDMR_NFS_PATH", "/mnt/gridmr_nfs")
+    
+    print("=== GridMR Client (REST API) ===")
+    print(f"Master: {master_host}:{args.master_port}")
+    print(f"NFS: {nfs_path}")
+    print(f"Variables de entorno disponibles:")
+    print(f"  GRIDMR_MASTER_HOST: {os.getenv('GRIDMR_MASTER_HOST', 'no configurado')}")
+    print(f"  GRIDMR_NFS_PATH: {os.getenv('GRIDMR_NFS_PATH', 'no configurado')}")
+    
     # Crear cliente REST usando context manager
     try:
         with GridMRClient(args.master_host, args.master_port, args.nfs_path) as client:
-            print("=== GridMR Client (REST API) ===")
             
             # Solo monitorear trabajo existente
             if args.monitor_only:
@@ -435,7 +479,7 @@ def main():
                 print(f"Tiempo de actividad: {health.get('uptime', 'N/A')}")
             except Exception as e:
                 print(f"ERROR: No se puede conectar al master: {e}")
-                print(f"Verificar que el master esté ejecutándose en http://{args.master_host}:{args.master_port}")
+                print(f"Verificar que el master esté ejecutándose en http://{master_host}:{args.master_port}")
                 return 1
             
             # 2. Verificar workers activos
@@ -539,7 +583,7 @@ def main():
                     
                     # Mostrar preview de los resultados
                     if downloaded_files:
-                        print(f"\n📄 Preview del resultado ({args.job_type}):")
+                        print(f"\n Preview del resultado ({args.job_type}):")
                         try:
                             with open(downloaded_files[0], 'r') as f:
                                 lines_shown = 0
