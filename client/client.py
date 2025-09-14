@@ -442,8 +442,8 @@ def main():
         parser.error("Se requiere --input-file o --create-sample o --monitor-only")
     
     # Mostrar configuración que se va a usar
-    master_host = args.master_host or os.getenv("GRIDMR_MASTER_HOST", "localhost")
-    nfs_path = args.nfs_path or os.getenv("GRIDMR_NFS_PATH", "/mnt/gridmr_nfs")
+    master_host = args.master_host or os.getenv("GRIDMR_MASTER_HOST", "NO CONFIGURADO")
+    nfs_path = args.nfs_path or os.getenv("GRIDMR_NFS_PATH", "/mnt/efs/gridmr")
     
     print("=== GridMR Client (REST API) ===")
     print(f"Master: {master_host}:{args.master_port}")
@@ -583,7 +583,7 @@ def main():
                     
                     # Mostrar preview de los resultados
                     if downloaded_files:
-                        print(f"\n Preview del resultado ({args.job_type}):")
+                        print(f"\n📄 Preview del resultado ({args.job_type}):")
                         try:
                             with open(downloaded_files[0], 'r') as f:
                                 lines_shown = 0
