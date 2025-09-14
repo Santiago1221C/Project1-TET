@@ -1,5 +1,5 @@
-<!-- Configuración Maven con dependencias gRPC -->
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- Configuración Maven con dependencias gRPC -->
 <project xmlns="http://maven.apache.org/POM/4.0.0"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
@@ -21,6 +21,20 @@
     </properties>
 
     <dependencies>
+        <!-- Spring Boot Starter Web -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <version>3.2.12</version>
+        </dependency>
+
+        <!-- Spring Boot Starter -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+            <version>3.2.12</version>
+        </dependency>
+
         <!-- gRPC Core -->
         <dependency>
             <groupId>io.grpc</groupId>
@@ -133,6 +147,9 @@
                     <pluginArtifact>io.grpc:protoc-gen-grpc-java:1.58.0:exe:${os.detected.classifier}</pluginArtifact>
                     <protoSourceRoot>protobuf</protoSourceRoot>
                     <clearOutputDirectory>false</clearOutputDirectory>
+                    <includes>
+                        <include>master.proto</include>
+                    </includes>
                 </configuration>
                 <executions>
                     <execution>
@@ -174,6 +191,23 @@
                 </configuration>
             </plugin>
 
+            <!-- Spring Boot Maven Plugin -->
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>3.2.12</version>
+                <configuration>
+                    <mainClass>com.gridmr.master.GridMRMasterApplication</mainClass>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
             <!-- Shade Plugin para JAR ejecutable -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -202,7 +236,7 @@
                 <artifactId>exec-maven-plugin</artifactId>
                 <version>3.1.0</version>
                 <configuration>
-                    <mainClass>com.gridmr.master.GridMRMaster</mainClass>
+                    <mainClass>com.gridmr.master.GridMRMasterApplication</mainClass>
                 </configuration>
             </plugin>
         </plugins>

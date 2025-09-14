@@ -423,4 +423,78 @@ public class Scheduler {
     public int getTotalTasksFailed() {
         return totalTasksFailed;
     }
+    
+    /**
+     * Marca una tarea como completada
+     * @param taskId ID de la tarea
+     * @param workerId ID del worker que completó la tarea
+     * @return true si la tarea fue marcada como completada
+     */
+    public boolean markTaskCompleted(String taskId, String workerId) {
+        try {
+            Worker worker = assignedTasks.get(taskId);
+            if (worker != null && worker.getWorkerId().equals(workerId)) {
+                // Marcar tarea como completada
+                Task task = assignedTaskReferences.get(taskId);
+                if (task != null) {
+                    task.setStatus(TaskStatus.COMPLETED);
+                    task.setCompletedAt(java.time.LocalDateTime.now());
+                }
+                
+                // Liberar worker
+                resourceManager.markWorkerAvailable(workerId);
+                
+                // Remover de tareas asignadas
+                assignedTasks.remove(taskId);
+                assignedTaskReferences.remove(taskId);
+                
+                totalTasksCompleted++;
+                
+                System.out.println("✅ Tarea " + taskId + " completada por worker " + workerId);
+                return true;
+            }
+            return false;
+        } catch (Exception e) {
+            System.err.println("❌ Error marcando tarea como completada: " + e.getMessage());
+            return false;
+        }
+    }
+    
+    /**
+     * Marca una tarea como fallida
+     * @param taskId ID de la tarea
+     * @param workerId ID del worker que falló
+     * @param errorMessage Mensaje de error
+     * @return true si la tarea fue marcada como fallida
+     */
+    public boolean markTaskFailed(String taskId, String workerId, String errorMessage) {
+        try {
+            Worker worker = assignedTasks.get(taskId);
+            if (worker != null && worker.getWorkerId().equals(workerId)) {
+                // Marcar tarea como fallida
+                Task task = assignedTaskReferences.get(taskId);
+                if (task != null) {
+                    task.setStatus(TaskStatus.FAILED);
+                    task.setErrorMessage(errorMessage);
+                    task.setCompletedAt(java.time.LocalDateTime.now());
+                }
+                
+                // Liberar worker
+                resourceManager.markWorkerAvailable(workerId);
+                
+                // Remover de tareas asignadas
+                assignedTasks.remove(taskId);
+                assignedTaskReferences.remove(taskId);
+                
+                totalTasksFailed++;
+                
+                System.out.println("❌ Tarea " + taskId + " falló en worker " + workerId + ": " + errorMessage);
+                return true;
+            }
+            return false;
+        } catch (Exception e) {
+            System.err.println("❌ Error marcando tarea como fallida: " + e.getMessage());
+            return false;
+        }
+    }
 }

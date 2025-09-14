@@ -465,4 +465,24 @@ public class ResourceManager {
     public int getTotalTasksAssigned() {
         return totalTasksAssigned;
     }
+    
+    /**
+     * Marca un worker como disponible
+     * @param workerId ID del worker
+     * @return true si el worker fue marcado como disponible
+     */
+    public boolean markWorkerAvailable(String workerId) {
+        try {
+            Worker worker = busyWorkers.remove(workerId);
+            if (worker != null) {
+                availableWorkers.put(workerId, worker);
+                System.out.println("✅ Worker " + workerId + " marcado como disponible");
+                return true;
+            }
+            return false;
+        } catch (Exception e) {
+            System.err.println("❌ Error marcando worker como disponible: " + e.getMessage());
+            return false;
+        }
+    }
 }

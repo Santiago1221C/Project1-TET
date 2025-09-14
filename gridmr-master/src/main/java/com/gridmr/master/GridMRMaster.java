@@ -19,7 +19,7 @@ public class GridMRMaster {
         this.resourceManager = new ResourceManager();
         this.chunkManager = new ChunkManager();
         this.scheduler = new Scheduler(resourceManager); // Pasar ResourceManager al Scheduler
-        this.jobManager = new JobManager(scheduler, chunkManager);
+        this.jobManager = new JobManager(scheduler);
         this.domainAuthentication = new DomainAuthentication();
     }
     

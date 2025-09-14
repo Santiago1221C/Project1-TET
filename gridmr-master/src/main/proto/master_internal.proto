@@ -1,0 +1,85 @@
+syntax = "proto3";
+
+package gridmr.master.internal;
+
+option java_multiple_files = true;
+option java_package = "com.gridmr.master.grpc.generated.internal";
+option java_outer_classname = "MasterInternalProto";
+
+// Servicio interno del Master para comunicación con Workers
+service MasterInternalService {
+    // Registro de workers
+    rpc RegisterWorker(RegisterWorkerRequest) returns (RegisterWorkerResponse);
+    rpc UnregisterWorker(UnregisterWorkerRequest) returns (UnregisterWorkerResponse);
+    
+    // Heartbeats
+    rpc SendHeartbeat(HeartbeatRequest) returns (HeartbeatResponse);
+    
+    // Reportes de tareas
+    rpc ReportTaskCompletion(TaskCompletionRequest) returns (TaskCompletionResponse);
+    rpc ReportTaskFailure(TaskFailureRequest) returns (TaskFailureResponse);
+}
+
+// Mensajes para registro de workers
+message RegisterWorkerRequest {
+    string worker_id = 1;
+    string host = 2;
+    int32 port = 3;
+    int32 max_tasks = 4;
+    repeated string capabilities = 5;
+}
+
+message RegisterWorkerResponse {
+    bool success = 1;
+    string message = 2;
+    string master_id = 3;
+}
+
+message UnregisterWorkerRequest {
+    string worker_id = 1;
+}
+
+message UnregisterWorkerResponse {
+    bool success = 1;
+    string message = 2;
+}
+
+// Mensajes para heartbeats
+message HeartbeatRequest {
+    string worker_id = 1;
+    int32 active_tasks = 2;
+    int32 available_tasks = 3;
+    map<string, string> metrics = 4;
+}
+
+message HeartbeatResponse {
+    bool success = 1;
+    string message = 2;
+    int64 timestamp = 3;
+}
+
+// Mensajes para reportes de tareas
+message TaskCompletionRequest {
+    string task_id = 1;
+    string worker_id = 2;
+    string output_file = 3;
+    int64 processing_time = 4;
+    map<string, string> metadata = 5;
+}
+
+message TaskCompletionResponse {
+    bool success = 1;
+    string message = 2;
+}
+
+message TaskFailureRequest {
+    string task_id = 1;
+    string worker_id = 2;
+    string error_message = 3;
+    string error_type = 4;
+}
+
+message TaskFailureResponse {
+    bool success = 1;
+    string message = 2;
+}
