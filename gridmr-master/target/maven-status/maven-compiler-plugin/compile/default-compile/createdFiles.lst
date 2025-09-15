@@ -1,5 +1,7 @@
 com\gridmr\master\grpc\GrpcMessages$UnregisterWorkerResponse.class
 com\gridmr\master\components\JobManager.class
+com\gridmr\master\components\MasterPersistenceManager$1.class
+com\gridmr\master\model\MasterInfo.class
 com\gridmr\master\grpc\GrpcMessages$RequestTaskRequest.class
 com\gridmr\master\grpc\GrpcMessages$RequestTaskResponse.class
 com\gridmr\master\components\NodeManager.class
@@ -9,7 +11,9 @@ com\gridmr\master\grpc\GrpcMessages$RegisterWorkerRequest.class
 com\gridmr\master\grpc\GrpcMessages$TaskCompletionResponse.class
 com\gridmr\master\components\DomainAuthentication$1.class
 com\gridmr\master\controller\TestController.class
+com\gridmr\master\model\MasterState.class
 com\gridmr\master\grpc\GrpcMessages.class
+com\gridmr\master\components\MasterPersistenceManager.class
 com\gridmr\master\grpc\GrpcMessages$TaskCompletionRequest.class
 com\gridmr\master\components\DomainAuthentication$SessionInfo.class
 com\gridmr\master\model\Task.class
@@ -25,6 +29,7 @@ com\gridmr\master\components\ResourceManager.class
 com\gridmr\master\model\WorkerStatus.class
 com\gridmr\master\grpc\GrpcMessages$TaskFailureResponse.class
 com\gridmr\master\grpc\MasterGrpcService.class
+com\gridmr\master\model\MasterRole.class
 com\gridmr\master\model\TaskStatus.class
 com\gridmr\master\GridMRMasterApplication.class
 com\gridmr\master\model\NodeInfo.class
@@ -34,6 +39,8 @@ com\gridmr\master\components\Scheduler.class
 com\gridmr\master\model\NodeStatus.class
 com\gridmr\master\controller\GridMRRestController.class
 com\gridmr\master\GridMRMaster.class
+com\gridmr\master\components\MasterFailoverManager.class
 com\gridmr\master\grpc\GrpcMessages$HeartbeatRequest.class
 com\gridmr\master\components\DomainAuthentication.class
 com\gridmr\master\grpc\GrpcMessages$HeartbeatResponse.class
+com\gridmr\master\model\MasterStatus.class

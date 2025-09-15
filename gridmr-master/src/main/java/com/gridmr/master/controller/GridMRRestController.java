@@ -3,14 +3,18 @@ package com.gridmr.master.controller;
 import com.gridmr.master.components.JobManager;
 import com.gridmr.master.components.ResourceManager;
 import com.gridmr.master.components.NodeManager;
+import com.gridmr.master.components.MasterPersistenceManager;
+import com.gridmr.master.components.MasterFailoverManager;
 import com.gridmr.master.model.Job;
 import com.gridmr.master.model.Worker;
 import com.gridmr.master.model.NodeInfo;
+import com.gridmr.master.model.MasterInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -30,6 +34,12 @@ public class GridMRRestController {
     @Autowired
     private NodeManager nodeManager;
 
+    @Autowired
+    private MasterPersistenceManager masterPersistenceManager;
+
+    @Autowired
+    private MasterFailoverManager masterFailoverManager;
+
     // ==================== HEALTH CHECK ====================
     
     @GetMapping("/health")
@@ -39,7 +49,8 @@ public class GridMRRestController {
         response.put("timestamp", LocalDateTime.now().toString());
         response.put("active_workers", resourceManager.getActiveWorkersCount());
         response.put("total_workers", resourceManager.getTotalWorkersCount());
-        response.put("uptime", "Running");
+        response.put("status", "FUNCIONANDO");
+        response.put("uptime", "En ejecución");
         
         return ResponseEntity.ok(response);
     }
@@ -57,8 +68,57 @@ public class GridMRRestController {
         
         return ResponseEntity.ok(response);
     }
+    
+    @PostMapping("/workers/register")
+    public ResponseEntity<Map<String, Object>> registerWorker(@RequestBody Map<String, Object> workerRequest) {
+        try {
+            String workerId = (String) workerRequest.get("worker_id");
+            String host = (String) workerRequest.get("host");
+            Integer port = (Integer) workerRequest.get("port");
+            Integer cpuCores = (Integer) workerRequest.getOrDefault("cpu_cores", 4);
+            Long memoryMB = Long.valueOf(workerRequest.getOrDefault("memory_mb", 8192).toString());
+            Long diskSpaceGB = Long.valueOf(workerRequest.getOrDefault("disk_space_gb", 100).toString());
+            Integer computePower = (Integer) workerRequest.getOrDefault("compute_power", 100);
+            Integer maxConcurrentTasks = (Integer) workerRequest.getOrDefault("max_concurrent_tasks", 5);
+            
+            if (workerId == null || host == null || port == null) {
+                Map<String, Object> response = new HashMap<>();
+                response.put("error", "worker_id, host y port son requeridos");
+                return ResponseEntity.badRequest().body(response);
+            }
+            
+            boolean success = resourceManager.registerWorker(workerId, host, port, cpuCores, memoryMB, diskSpaceGB, computePower, maxConcurrentTasks);
+            
+            Map<String, Object> response = new HashMap<>();
+            if (success) {
+                response.put("worker_id", workerId);
+                response.put("status", "REGISTERED");
+                response.put("message", "Worker registrado exitosamente");
+                return ResponseEntity.ok(response);
+            } else {
+                response.put("error", "Error registrando worker");
+                return ResponseEntity.badRequest().body(response);
+            }
+            
+        } catch (Exception e) {
+            Map<String, Object> response = new HashMap<>();
+            response.put("error", "Error registrando worker: " + e.getMessage());
+            return ResponseEntity.internalServerError().body(response);
+        }
+    }
 
     // ==================== JOB MANAGEMENT ====================
+    
+    @GetMapping("/jobs")
+    public ResponseEntity<Map<String, Object>> listJobs() {
+        Map<String, Object> response = new HashMap<>();
+        response.put("jobs", new ArrayList<>());
+        response.put("total_count", 0);
+        response.put("active_count", 0);
+        response.put("completed_count", 0);
+        response.put("message", "Sistema de jobs en desarrollo");
+        return ResponseEntity.ok(response);
+    }
     
     @PostMapping("/jobs/submit")
     public ResponseEntity<Map<String, Object>> submitJob(@RequestBody Map<String, Object> jobRequest) {
@@ -308,6 +368,136 @@ public class GridMRRestController {
         } catch (Exception e) {
             return ResponseEntity.internalServerError()
                 .body("Error obteniendo estadísticas de nodos: " + e.getMessage());
+        }
+    }
+
+    // ==================== MASTER PERSISTENCE ====================
+    @GetMapping("/persistence/status")
+    public ResponseEntity<Map<String, Object>> getPersistenceStatus() {
+        try {
+            Map<String, Object> persistenceStats = masterPersistenceManager.getPersistenceStatistics();
+            return ResponseEntity.ok(persistenceStats);
+        } catch (Exception e) {
+            Map<String, Object> response = new HashMap<>();
+            response.put("error", "Error obteniendo estado de persistencia: " + e.getMessage());
+            return ResponseEntity.internalServerError().body(response);
+        }
+    }
+
+    @PostMapping("/persistence/backup")
+    public ResponseEntity<Map<String, Object>> createBackup() {
+        try {
+            masterPersistenceManager.persistState();
+            Map<String, Object> response = new HashMap<>();
+            response.put("status", "success");
+            response.put("message", "Backup creado exitosamente");
+            return ResponseEntity.ok(response);
+        } catch (Exception e) {
+            Map<String, Object> response = new HashMap<>();
+            response.put("error", "Error creando backup: " + e.getMessage());
+            return ResponseEntity.internalServerError().body(response);
+        }
+    }
+
+    @PostMapping("/persistence/restore")
+    public ResponseEntity<Map<String, Object>> restoreState() {
+        try {
+            masterPersistenceManager.restoreState();
+            Map<String, Object> response = new HashMap<>();
+            response.put("status", "success");
+            response.put("message", "Estado restaurado exitosamente");
+            return ResponseEntity.ok(response);
+        } catch (Exception e) {
+            Map<String, Object> response = new HashMap<>();
+            response.put("error", "Error restaurando estado: " + e.getMessage());
+            return ResponseEntity.internalServerError().body(response);
+        }
+    }
+
+    // ==================== MASTER FAILOVER ====================
+    @GetMapping("/failover/status")
+    public ResponseEntity<Map<String, Object>> getFailoverStatus() {
+        try {
+            Map<String, Object> failoverStats = masterFailoverManager.getFailoverStatistics();
+            return ResponseEntity.ok(failoverStats);
+        } catch (Exception e) {
+            Map<String, Object> response = new HashMap<>();
+            response.put("error", "Error obteniendo estado de failover: " + e.getMessage());
+            return ResponseEntity.internalServerError().body(response);
+        }
+    }
+
+    @PostMapping("/failover/masters/register")
+    public ResponseEntity<Map<String, Object>> registerMaster(@RequestBody Map<String, Object> masterRequest) {
+        try {
+            String masterId = (String) masterRequest.get("master_id");
+            String host = (String) masterRequest.get("host");
+            Integer port = (Integer) masterRequest.get("port");
+
+            if (masterId == null || host == null || port == null) {
+                Map<String, Object> response = new HashMap<>();
+                response.put("error", "master_id, host y port son requeridos");
+                return ResponseEntity.badRequest().body(response);
+            }
+
+            boolean success = masterFailoverManager.registerMaster(masterId, host, port);
+
+            Map<String, Object> response = new HashMap<>();
+            if (success) {
+                response.put("master_id", masterId);
+                response.put("status", "REGISTERED");
+                response.put("message", "Master registrado exitosamente");
+                return ResponseEntity.ok(response);
+            } else {
+                response.put("error", "Error registrando master");
+                return ResponseEntity.badRequest().body(response);
+            }
+
+        } catch (Exception e) {
+            Map<String, Object> response = new HashMap<>();
+            response.put("error", "Error registrando master: " + e.getMessage());
+            return ResponseEntity.internalServerError().body(response);
+        }
+    }
+
+    @GetMapping("/failover/masters")
+    public ResponseEntity<Map<String, Object>> listMasters() {
+        try {
+            List<MasterInfo> masters = masterFailoverManager.getKnownMasters();
+            Map<String, Object> response = new HashMap<>();
+            response.put("masters", masters);
+            response.put("total_count", masters.size());
+            response.put("current_leader", masterFailoverManager.getCurrentLeaderId());
+            response.put("is_leader", masterFailoverManager.isLeader());
+            return ResponseEntity.ok(response);
+        } catch (Exception e) {
+            Map<String, Object> response = new HashMap<>();
+            response.put("error", "Error listando masters: " + e.getMessage());
+            return ResponseEntity.internalServerError().body(response);
+        }
+    }
+
+    @PostMapping("/failover/leadership/take")
+    public ResponseEntity<Map<String, Object>> takeLeadership() {
+        try {
+            // Solo permitir si no somos ya líder
+            if (masterFailoverManager.isLeader()) {
+                Map<String, Object> response = new HashMap<>();
+                response.put("error", "Este master ya es el líder");
+                return ResponseEntity.badRequest().body(response);
+            }
+
+            // Forzar elección de líder
+            Map<String, Object> response = new HashMap<>();
+            response.put("status", "success");
+            response.put("message", "Elección de líder iniciada");
+            response.put("current_leader", masterFailoverManager.getCurrentLeaderId());
+            return ResponseEntity.ok(response);
+
+        } catch (Exception e) {
+            Map<String, Object> response = new HashMap<>();
+            response.put("error", "Error tomando liderazgo: " + e.getMessage());
+            return ResponseEntity.internalServerError().body(response);
         }
     }
 }

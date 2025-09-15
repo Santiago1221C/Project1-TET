@@ -22,6 +22,16 @@ public class GridMRConfiguration {
     }
 
     @Bean
+    public MasterPersistenceManager masterPersistenceManager() {
+        return new MasterPersistenceManager();
+    }
+
+    @Bean
+    public MasterFailoverManager masterFailoverManager() {
+        return new MasterFailoverManager("master-001", "localhost", 8080);
+    }
+
+    @Bean
     public ChunkManager chunkManager() {
         ChunkManager cm = new ChunkManager();
         cm.start();
