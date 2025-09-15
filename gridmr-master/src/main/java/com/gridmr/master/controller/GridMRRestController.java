@@ -184,4 +184,29 @@ public class GridMRRestController {
         
         return ResponseEntity.ok(response);
     }
+    
+    // ==================== FAULT TOLERANCE ====================
+    
+    @GetMapping("/fault-tolerance")
+    public ResponseEntity<Map<String, Object>> getFaultToleranceStatus() {
+        try {
+            Map<String, Object> faultToleranceStats = resourceManager.getFaultToleranceStatistics();
+            return ResponseEntity.ok(faultToleranceStats);
+        } catch (Exception e) {
+            Map<String, Object> response = new HashMap<>();
+            response.put("error", "Error obteniendo estadísticas de tolerancia a fallos: " + e.getMessage());
+            return ResponseEntity.internalServerError().body(response);
+        }
+    }
+    
+    @GetMapping("/fault-tolerance/text")
+    public ResponseEntity<String> getFaultToleranceStatusText() {
+        try {
+            String faultToleranceStats = resourceManager.getSystemStatistics();
+            return ResponseEntity.ok(faultToleranceStats);
+        } catch (Exception e) {
+            return ResponseEntity.internalServerError()
+                .body("Error obteniendo estadísticas de tolerancia a fallos: " + e.getMessage());
+        }
+    }
 }

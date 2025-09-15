@@ -6,10 +6,6 @@ import com.gridmr.master.components.JobManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-/**
- * Servicio gRPC del Master para comunicación con Workers
- * Este servicio maneja todas las comunicaciones gRPC entre Master y Workers
- */
 @Service
 public class MasterGrpcService {
     
@@ -118,8 +114,7 @@ public class MasterGrpcService {
      */
     public GrpcMessages.TaskFailureResponse reportTaskFailure(GrpcMessages.TaskFailureRequest request) {
         try {
-            System.out.println("❌ Tarea falló: " + request.getTaskId() + " por worker: " + request.getWorkerId() + 
-                             " - Error: " + request.getErrorMessage());
+            System.out.println("❌ Tarea falló: " + request.getTaskId() + " por worker: " + request.getWorkerId() + " - Error: " + request.getErrorMessage());
             
             // Notificar al scheduler que la tarea falló
             boolean success = scheduler.markTaskFailed(request.getTaskId(), request.getWorkerId(), request.getErrorMessage());
@@ -135,9 +130,7 @@ public class MasterGrpcService {
         }
     }
     
-    /**
-     * Solicita una tarea para un worker
-     */
+    // Solicita una tarea para un worker
     public GrpcMessages.RequestTaskResponse requestTask(GrpcMessages.RequestTaskRequest request) {
         try {
             System.out.println("📋 Worker solicitando tarea: " + request.getWorkerId());

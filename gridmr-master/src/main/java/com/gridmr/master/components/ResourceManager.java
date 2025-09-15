@@ -25,36 +25,42 @@ public class ResourceManager {
     // Scheduler para tareas periódicas (heartbeats, limpieza)
     private ScheduledExecutorService scheduler;
     
-    // Configuración
-    private static final int HEARTBEAT_INTERVAL_SECONDS = 10;
-    private static final int WORKER_TIMEOUT_SECONDS = 30;
-    private static final int CLEANUP_INTERVAL_SECONDS = 60;
+    // Configuración mejorada para tolerancia a fallos
+    private static final int HEARTBEAT_INTERVAL_SECONDS = 5; // Reducido de 10 a 5 segundos
+    private static final int WORKER_TIMEOUT_SECONDS = 10; // Reducido de 30 a 10 segundos
+    private static final int CLEANUP_INTERVAL_SECONDS = 15; // Reducido de 60 a 15 segundos
+    private static final int MAX_RETRY_ATTEMPTS = 3; // Máximo de reintentos por worker
+    private static final int HEALTH_CHECK_INTERVAL_SECONDS = 3; // Health checks cada 3 segundos
     
     // Estadísticas
     private int totalWorkersRegistered;
     private int totalWorkersActive;
     private int totalTasksAssigned;
     
+    // Contador de reintentos por worker para tolerancia a fallos
+    private final Map<String, Integer> workerRetryCount;
+    
     public ResourceManager() {
         this.registeredWorkers = new ConcurrentHashMap<>();
         this.availableWorkers = new ConcurrentHashMap<>();
         this.busyWorkers = new ConcurrentHashMap<>();
         this.inactiveWorkers = new ConcurrentHashMap<>();
+        this.workerRetryCount = new ConcurrentHashMap<>();
         
         this.totalWorkersRegistered = 0;
         this.totalWorkersActive = 0;
         this.totalTasksAssigned = 0;
         
-        System.out.println("ResourceManager inicializado");
+        System.out.println("ResourceManager inicializado con tolerancia a fallos mejorada");
     }
     
     public void start() {
-        System.out.println("Iniciando ResourceManager...");
+        System.out.println("Iniciando ResourceManager con tolerancia a fallos...");
         
         // Iniciar scheduler para tareas periódicas
-        this.scheduler = Executors.newScheduledThreadPool(2);
+        this.scheduler = Executors.newScheduledThreadPool(3); // Aumentado para health checks
         
-        // Tarea periódica para verificar heartbeats
+        // Tarea periódica para verificar heartbeats (más frecuente)
         scheduler.scheduleAtFixedRate(
             this::checkWorkerHeartbeats,
             HEARTBEAT_INTERVAL_SECONDS,
@@ -62,7 +68,15 @@ public class ResourceManager {
             TimeUnit.SECONDS
         );
         
-        // Tarea periódica para limpieza de workers inactivos
+        // Tarea periódica para health checks proactivos
+        scheduler.scheduleAtFixedRate(
+            this::performProactiveHealthChecks,
+            HEALTH_CHECK_INTERVAL_SECONDS,
+            HEALTH_CHECK_INTERVAL_SECONDS,
+            TimeUnit.SECONDS
+        );
+        
+        // Tarea periódica para limpieza de workers inactivos (más frecuente)
         scheduler.scheduleAtFixedRate(
             this::cleanupInactiveWorkers,
             CLEANUP_INTERVAL_SECONDS,
@@ -70,7 +84,11 @@ public class ResourceManager {
             TimeUnit.SECONDS
         );
         
-        System.out.println("ResourceManager iniciado - Monitoreo de workers activo");
+        System.out.println("✅ ResourceManager iniciado - Monitoreo avanzado activo:");
+        System.out.println("   - Heartbeats cada " + HEARTBEAT_INTERVAL_SECONDS + "s");
+        System.out.println("   - Health checks cada " + HEALTH_CHECK_INTERVAL_SECONDS + "s");
+        System.out.println("   - Timeout: " + WORKER_TIMEOUT_SECONDS + "s");
+        System.out.println("   - Cleanup cada " + CLEANUP_INTERVAL_SECONDS + "s");
     }
     
     public void stop() {
@@ -157,17 +175,21 @@ public class ResourceManager {
     }
     
     /**
-     * Actualiza el heartbeat de un worker
+     * Actualiza el heartbeat de un worker con tolerancia a fallos mejorada
      * @param workerId ID del worker
      * @return true si el worker existe y se actualizó el heartbeat
      */
     public boolean updateWorkerHeartbeat(String workerId) {
         Worker worker = registeredWorkers.get(workerId);
         if (worker == null) {
+            System.out.println("⚠️ Heartbeat de worker inexistente: " + workerId);
             return false;
         }
         
         worker.updateHeartbeat();
+        
+        // Resetear contador de reintentos al recibir heartbeat
+        workerRetryCount.put(workerId, 0);
         
         // Si el worker estaba inactivo, moverlo a disponible
         if (worker.getStatus() == WorkerStatus.OFFLINE) {
@@ -175,7 +197,9 @@ public class ResourceManager {
             inactiveWorkers.remove(workerId);
             availableWorkers.put(workerId, worker);
             totalWorkersActive++;
-            System.out.println("Worker " + workerId + " reactivado");
+            System.out.println("✅ Worker " + workerId + " reactivado exitosamente");
+        } else {
+            System.out.println("💓 Heartbeat recibido de worker " + workerId + " - Estado: " + worker.getStatus());
         }
         
         return true;
@@ -350,31 +374,118 @@ public class ResourceManager {
         }
         
         if (!inactiveWorkerIds.isEmpty()) {
-            System.out.println("Workers inactivos detectados: " + inactiveWorkerIds);
+            System.out.println("⚠️ Workers inactivos detectados: " + inactiveWorkerIds);
         }
     }
     
     /**
-     * Marca un worker como inactivo
+     * Realiza health checks proactivos para detectar problemas temprano
+     * Se ejecuta más frecuentemente que el check de heartbeats
+     */
+    private void performProactiveHealthChecks() {
+        try {
+            long currentTime = System.currentTimeMillis();
+            List<String> problematicWorkers = new ArrayList<>();
+            
+            // Verificar workers disponibles
+            for (Map.Entry<String, Worker> entry : availableWorkers.entrySet()) {
+                String workerId = entry.getKey();
+                Worker worker = entry.getValue();
+                
+                if (isWorkerProblematic(worker, currentTime)) {
+                    problematicWorkers.add(workerId);
+                    incrementRetryCount(workerId);
+                }
+            }
+            
+            // Verificar workers ocupados
+            for (Map.Entry<String, Worker> entry : busyWorkers.entrySet()) {
+                String workerId = entry.getKey();
+                Worker worker = entry.getValue();
+                
+                if (isWorkerProblematic(worker, currentTime)) {
+                    problematicWorkers.add(workerId);
+                    incrementRetryCount(workerId);
+                }
+            }
+            
+            // Manejar workers problemáticos
+            for (String workerId : problematicWorkers) {
+                handleProblematicWorker(workerId);
+            }
+            
+        } catch (Exception e) {
+            System.err.println("❌ Error en health check proactivo: " + e.getMessage());
+        }
+    }
+    
+    /**
+     * Verifica si un worker tiene problemas
+     */
+    private boolean isWorkerProblematic(Worker worker, long currentTime) {
+        if (worker == null || worker.getLastHeartbeat() == null) {
+            return true;
+        }
+        
+        long timeSinceLastHeartbeat = currentTime - worker.getLastHeartbeat().atZone(java.time.ZoneId.systemDefault()).toInstant().toEpochMilli();
+        return timeSinceLastHeartbeat > (WORKER_TIMEOUT_SECONDS * 1000);
+    }
+    
+    /**
+     * Incrementa el contador de reintentos de un worker
+     */
+    private void incrementRetryCount(String workerId) {
+        int currentRetries = workerRetryCount.getOrDefault(workerId, 0);
+        workerRetryCount.put(workerId, currentRetries + 1);
+        System.out.println("⚠️ Worker " + workerId + " - Reintento #" + (currentRetries + 1));
+    }
+    
+    /**
+     * Maneja un worker problemático según su número de reintentos
+     */
+    private void handleProblematicWorker(String workerId) {
+        int retryCount = workerRetryCount.getOrDefault(workerId, 0);
+        
+        if (retryCount >= MAX_RETRY_ATTEMPTS) {
+            System.out.println("❌ Worker " + workerId + " excedió reintentos máximos (" + MAX_RETRY_ATTEMPTS + ") - Marcando como inactivo");
+            markWorkerAsInactive(workerId);
+            workerRetryCount.remove(workerId);
+        } else {
+            System.out.println("⚠️ Worker " + workerId + " problemático - Reintento " + retryCount + "/" + MAX_RETRY_ATTEMPTS);
+        }
+    }
+    
+    /**
+     * Marca un worker como inactivo con información de tolerancia a fallos
      * @param workerId ID del worker
      */
     private void markWorkerAsInactive(String workerId) {
         Worker worker = registeredWorkers.get(workerId);
         if (worker == null) {
+            System.out.println("⚠️ Intento de marcar worker inexistente como inactivo: " + workerId);
             return;
         }
+        
+        // Obtener información de reintentos
+        int retryCount = workerRetryCount.getOrDefault(workerId, 0);
         
         // Cambiar estado a OFFLINE
         worker.setStatus(WorkerStatus.OFFLINE);
         
         // Mover de disponible/ocupado a inactivo
-        availableWorkers.remove(workerId);
-        busyWorkers.remove(workerId);
+        boolean wasAvailable = availableWorkers.remove(workerId) != null;
+        boolean wasBusy = busyWorkers.remove(workerId) != null;
         inactiveWorkers.put(workerId, worker);
         
         totalWorkersActive--;
         
-        System.out.println("Worker " + workerId + " marcado como inactivo");
+        // Limpiar contador de reintentos
+        workerRetryCount.remove(workerId);
+        
+        System.out.println("❌ Worker " + workerId + " marcado como inactivo:");
+        System.out.println("   - Estado anterior: " + (wasAvailable ? "disponible" : (wasBusy ? "ocupado" : "desconocido")));
+        System.out.println("   - Reintentos fallidos: " + retryCount);
+        System.out.println("   - Workers activos restantes: " + totalWorkersActive);
     }
     
     /**
@@ -406,12 +517,12 @@ public class ResourceManager {
     // MÉTODOS DE ESTADÍSTICAS
     
     /**
-     * Obtiene estadísticas del sistema
+     * Obtiene estadísticas del sistema con información de tolerancia a fallos
      * @return String con estadísticas detalladas
      */
     public String getSystemStatistics() {
         StringBuilder stats = new StringBuilder();
-        stats.append("=== ESTADÍSTICAS DEL SISTEMA ===\n");
+        stats.append("=== ESTADÍSTICAS DEL SISTEMA (TOLERANCIA A FALLOS) ===\n");
         stats.append("Workers registrados: ").append(totalWorkersRegistered).append("\n");
         stats.append("Workers activos: ").append(totalWorkersActive).append("\n");
         stats.append("Workers disponibles: ").append(availableWorkers.size()).append("\n");
@@ -419,15 +530,29 @@ public class ResourceManager {
         stats.append("Workers inactivos: ").append(inactiveWorkers.size()).append("\n");
         stats.append("Tareas asignadas: ").append(totalTasksAssigned).append("\n");
         
-        // Estadísticas por worker
+        // Configuración de tolerancia a fallos
+        stats.append("\n=== CONFIGURACIÓN DE TOLERANCIA A FALLOS ===\n");
+        stats.append("Heartbeat interval: ").append(HEARTBEAT_INTERVAL_SECONDS).append("s\n");
+        stats.append("Worker timeout: ").append(WORKER_TIMEOUT_SECONDS).append("s\n");
+        stats.append("Health check interval: ").append(HEALTH_CHECK_INTERVAL_SECONDS).append("s\n");
+        stats.append("Cleanup interval: ").append(CLEANUP_INTERVAL_SECONDS).append("s\n");
+        stats.append("Max retry attempts: ").append(MAX_RETRY_ATTEMPTS).append("\n");
+        
+        // Estadísticas por worker con información de reintentos
         stats.append("\n=== DETALLES POR WORKER ===\n");
         for (Worker worker : registeredWorkers.values()) {
+            int retryCount = workerRetryCount.getOrDefault(worker.getWorkerId(), 0);
+            boolean isHealthy = worker.getLastHeartbeat() != null && 
+                              (System.currentTimeMillis() - worker.getLastHeartbeat().atZone(java.time.ZoneId.systemDefault()).toInstant().toEpochMilli()) < (WORKER_TIMEOUT_SECONDS * 1000);
+            
             stats.append("Worker ").append(worker.getWorkerId())
                 .append(" - Estado: ").append(worker.getStatus())
+                .append(", Salud: ").append(isHealthy ? "✅" : "❌")
                 .append(", Carga: ").append(worker.getCurrentLoad())
                 .append("/").append(worker.getMaxConcurrentTasks())
                 .append(", Score: ").append(String.format("%.2f", worker.getPriorityScore()))
                 .append(", Tareas completadas: ").append(worker.getCompletedTasks())
+                .append(", Reintentos: ").append(retryCount)
                 .append("\n");
         }
         
@@ -476,6 +601,8 @@ public class ResourceManager {
             Worker worker = busyWorkers.remove(workerId);
             if (worker != null) {
                 availableWorkers.put(workerId, worker);
+                // Resetear contador de reintentos al marcar como disponible
+                workerRetryCount.put(workerId, 0);
                 System.out.println("✅ Worker " + workerId + " marcado como disponible");
                 return true;
             }
@@ -484,5 +611,65 @@ public class ResourceManager {
             System.err.println("❌ Error marcando worker como disponible: " + e.getMessage());
             return false;
         }
+    }
+    
+    /**
+     * Obtiene estadísticas de tolerancia a fallos en formato JSON
+     * @return Map con estadísticas detalladas
+     */
+    public Map<String, Object> getFaultToleranceStatistics() {
+        Map<String, Object> stats = new HashMap<>();
+        
+        // Estadísticas básicas
+        stats.put("totalWorkers", totalWorkersRegistered);
+        stats.put("activeWorkers", totalWorkersActive);
+        stats.put("availableWorkers", availableWorkers.size());
+        stats.put("busyWorkers", busyWorkers.size());
+        stats.put("inactiveWorkers", inactiveWorkers.size());
+        stats.put("totalTasksAssigned", totalTasksAssigned);
+        
+        // Configuración de tolerancia a fallos
+        Map<String, Object> config = new HashMap<>();
+        config.put("heartbeatIntervalSeconds", HEARTBEAT_INTERVAL_SECONDS);
+        config.put("workerTimeoutSeconds", WORKER_TIMEOUT_SECONDS);
+        config.put("healthCheckIntervalSeconds", HEALTH_CHECK_INTERVAL_SECONDS);
+        config.put("cleanupIntervalSeconds", CLEANUP_INTERVAL_SECONDS);
+        config.put("maxRetryAttempts", MAX_RETRY_ATTEMPTS);
+        stats.put("faultToleranceConfig", config);
+        
+        // Estadísticas por worker
+        List<Map<String, Object>> workerStats = new ArrayList<>();
+        for (Worker worker : registeredWorkers.values()) {
+            Map<String, Object> workerInfo = new HashMap<>();
+            workerInfo.put("id", worker.getWorkerId());
+            workerInfo.put("status", worker.getStatus().toString());
+            workerInfo.put("host", worker.getHost());
+            workerInfo.put("port", worker.getPort());
+            workerInfo.put("cpuCores", worker.getCpuCores());
+            workerInfo.put("memoryMB", worker.getMemoryMB());
+            workerInfo.put("computePower", worker.getComputePower());
+            workerInfo.put("currentLoad", worker.getCurrentLoad());
+            workerInfo.put("maxConcurrentTasks", worker.getMaxConcurrentTasks());
+            workerInfo.put("completedTasks", worker.getCompletedTasks());
+            workerInfo.put("priorityScore", worker.getPriorityScore());
+            workerInfo.put("retryCount", workerRetryCount.getOrDefault(worker.getWorkerId(), 0));
+            
+            // Verificar salud del worker
+            boolean isHealthy = worker.getLastHeartbeat() != null && 
+                              (System.currentTimeMillis() - worker.getLastHeartbeat().atZone(java.time.ZoneId.systemDefault()).toInstant().toEpochMilli()) < (WORKER_TIMEOUT_SECONDS * 1000);
+            workerInfo.put("isHealthy", isHealthy);
+            
+            if (worker.getLastHeartbeat() != null) {
+                long timeSinceHeartbeat = System.currentTimeMillis() - worker.getLastHeartbeat().atZone(java.time.ZoneId.systemDefault()).toInstant().toEpochMilli();
+                workerInfo.put("timeSinceLastHeartbeatMs", timeSinceHeartbeat);
+            } else {
+                workerInfo.put("timeSinceLastHeartbeatMs", -1);
+            }
+            
+            workerStats.add(workerInfo);
+        }
+        stats.put("workers", workerStats);
+        
+        return stats;
     }
 }
