@@ -84,7 +84,7 @@ public class ResourceManager {
             TimeUnit.SECONDS
         );
         
-        System.out.println("✅ ResourceManager iniciado - Monitoreo avanzado activo:");
+        System.out.println("[OK] ResourceManager iniciado - Monitoreo avanzado activo:");
         System.out.println("   - Heartbeats cada " + HEARTBEAT_INTERVAL_SECONDS + "s");
         System.out.println("   - Health checks cada " + HEALTH_CHECK_INTERVAL_SECONDS + "s");
         System.out.println("   - Timeout: " + WORKER_TIMEOUT_SECONDS + "s");
@@ -182,7 +182,7 @@ public class ResourceManager {
     public boolean updateWorkerHeartbeat(String workerId) {
         Worker worker = registeredWorkers.get(workerId);
         if (worker == null) {
-            System.out.println("⚠️ Heartbeat de worker inexistente: " + workerId);
+            System.out.println("[WARN] Heartbeat de worker inexistente: " + workerId);
             return false;
         }
         
@@ -197,9 +197,9 @@ public class ResourceManager {
             inactiveWorkers.remove(workerId);
             availableWorkers.put(workerId, worker);
             totalWorkersActive++;
-            System.out.println("✅ Worker " + workerId + " reactivado exitosamente");
+            System.out.println("[OK] Worker " + workerId + " reactivado exitosamente");
         } else {
-            System.out.println("💓 Heartbeat recibido de worker " + workerId + " - Estado: " + worker.getStatus());
+            System.out.println("[INFO] Heartbeat recibido de worker " + workerId + " - Estado: " + worker.getStatus());
         }
         
         return true;
@@ -374,7 +374,7 @@ public class ResourceManager {
         }
         
         if (!inactiveWorkerIds.isEmpty()) {
-            System.out.println("⚠️ Workers inactivos detectados: " + inactiveWorkerIds);
+            System.out.println("[WARN] Workers inactivos detectados: " + inactiveWorkerIds);
         }
     }
     
@@ -437,7 +437,7 @@ public class ResourceManager {
     private void incrementRetryCount(String workerId) {
         int currentRetries = workerRetryCount.getOrDefault(workerId, 0);
         workerRetryCount.put(workerId, currentRetries + 1);
-        System.out.println("⚠️ Worker " + workerId + " - Reintento #" + (currentRetries + 1));
+        System.out.println("[WARN] Worker " + workerId + " - Reintento #" + (currentRetries + 1));
     }
     
     /**
@@ -447,11 +447,11 @@ public class ResourceManager {
         int retryCount = workerRetryCount.getOrDefault(workerId, 0);
         
         if (retryCount >= MAX_RETRY_ATTEMPTS) {
-            System.out.println("❌ Worker " + workerId + " excedió reintentos máximos (" + MAX_RETRY_ATTEMPTS + ") - Marcando como inactivo");
+            System.out.println("[ERROR] Worker " + workerId + " excedió reintentos máximos (" + MAX_RETRY_ATTEMPTS + ") - Marcando como inactivo");
             markWorkerAsInactive(workerId);
             workerRetryCount.remove(workerId);
         } else {
-            System.out.println("⚠️ Worker " + workerId + " problemático - Reintento " + retryCount + "/" + MAX_RETRY_ATTEMPTS);
+            System.out.println("[WARN] Worker " + workerId + " problemático - Reintento " + retryCount + "/" + MAX_RETRY_ATTEMPTS);
         }
     }
     
@@ -462,7 +462,7 @@ public class ResourceManager {
     private void markWorkerAsInactive(String workerId) {
         Worker worker = registeredWorkers.get(workerId);
         if (worker == null) {
-            System.out.println("⚠️ Intento de marcar worker inexistente como inactivo: " + workerId);
+            System.out.println("[WARN] Intento de marcar worker inexistente como inactivo: " + workerId);
             return;
         }
         
@@ -482,7 +482,7 @@ public class ResourceManager {
         // Limpiar contador de reintentos
         workerRetryCount.remove(workerId);
         
-        System.out.println("❌ Worker " + workerId + " marcado como inactivo:");
+        System.out.println("[ERROR] Worker " + workerId + " marcado como inactivo:");
         System.out.println("   - Estado anterior: " + (wasAvailable ? "disponible" : (wasBusy ? "ocupado" : "desconocido")));
         System.out.println("   - Reintentos fallidos: " + retryCount);
         System.out.println("   - Workers activos restantes: " + totalWorkersActive);
@@ -603,12 +603,12 @@ public class ResourceManager {
                 availableWorkers.put(workerId, worker);
                 // Resetear contador de reintentos al marcar como disponible
                 workerRetryCount.put(workerId, 0);
-                System.out.println("✅ Worker " + workerId + " marcado como disponible");
+                System.out.println("[OK] Worker " + workerId + " marcado como disponible");
                 return true;
             }
             return false;
         } catch (Exception e) {
-            System.err.println("❌ Error marcando worker como disponible: " + e.getMessage());
+            System.err.println("[ERROR] Error marcando worker como disponible: " + e.getMessage());
             return false;
         }
     }

@@ -2,8 +2,10 @@ package com.gridmr.master.controller;
 
 import com.gridmr.master.components.JobManager;
 import com.gridmr.master.components.ResourceManager;
+import com.gridmr.master.components.NodeManager;
 import com.gridmr.master.model.Job;
 import com.gridmr.master.model.Worker;
+import com.gridmr.master.model.NodeInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -24,6 +26,9 @@ public class GridMRRestController {
 
     @Autowired
     private ResourceManager resourceManager;
+
+    @Autowired
+    private NodeManager nodeManager;
 
     // ==================== HEALTH CHECK ====================
     
@@ -207,6 +212,102 @@ public class GridMRRestController {
         } catch (Exception e) {
             return ResponseEntity.internalServerError()
                 .body("Error obteniendo estadísticas de tolerancia a fallos: " + e.getMessage());
+        }
+    }
+    
+    // ==================== NODE MANAGEMENT ====================
+    
+    @GetMapping("/nodes")
+    public ResponseEntity<Map<String, Object>> listNodes() {
+        Map<String, Object> response = new HashMap<>();
+        List<NodeInfo> nodes = nodeManager.getAllNodes();
+        
+        response.put("nodes", nodes);
+        response.put("total_count", nodes.size());
+        response.put("active_count", nodeManager.getActiveNodesCount());
+        response.put("inactive_count", nodeManager.getInactiveNodesCount());
+        
+        return ResponseEntity.ok(response);
+    }
+    
+    @PostMapping("/nodes/register")
+    public ResponseEntity<Map<String, Object>> registerNode(@RequestBody Map<String, Object> nodeRequest) {
+        try {
+            String nodeId = (String) nodeRequest.get("node_id");
+            String host = (String) nodeRequest.get("host");
+            Integer port = (Integer) nodeRequest.get("port");
+            Integer maxWorkers = (Integer) nodeRequest.getOrDefault("max_workers", 10);
+            String nodeType = (String) nodeRequest.getOrDefault("node_type", "WORKER");
+            
+            if (nodeId == null || host == null || port == null) {
+                Map<String, Object> response = new HashMap<>();
+                response.put("error", "node_id, host y port son requeridos");
+                return ResponseEntity.badRequest().body(response);
+            }
+            
+            boolean success = nodeManager.registerNode(nodeId, host, port, maxWorkers, nodeType);
+            
+            Map<String, Object> response = new HashMap<>();
+            if (success) {
+                response.put("node_id", nodeId);
+                response.put("status", "REGISTERED");
+                response.put("message", "Nodo registrado exitosamente");
+                return ResponseEntity.ok(response);
+            } else {
+                response.put("error", "Error registrando nodo");
+                return ResponseEntity.badRequest().body(response);
+            }
+            
+        } catch (Exception e) {
+            Map<String, Object> response = new HashMap<>();
+            response.put("error", "Error registrando nodo: " + e.getMessage());
+            return ResponseEntity.internalServerError().body(response);
+        }
+    }
+    
+    @PostMapping("/nodes/{nodeId}/heartbeat")
+    public ResponseEntity<Map<String, Object>> updateNodeHeartbeat(@PathVariable String nodeId) {
+        try {
+            boolean success = nodeManager.updateNodeHeartbeat(nodeId);
+            
+            Map<String, Object> response = new HashMap<>();
+            if (success) {
+                response.put("node_id", nodeId);
+                response.put("status", "HEARTBEAT_UPDATED");
+                response.put("message", "Heartbeat actualizado exitosamente");
+                return ResponseEntity.ok(response);
+            } else {
+                response.put("error", "Nodo no encontrado");
+                return ResponseEntity.notFound().build();
+            }
+            
+        } catch (Exception e) {
+            Map<String, Object> response = new HashMap<>();
+            response.put("error", "Error actualizando heartbeat: " + e.getMessage());
+            return ResponseEntity.internalServerError().body(response);
+        }
+    }
+    
+    @GetMapping("/nodes/statistics")
+    public ResponseEntity<Map<String, Object>> getNodeStatistics() {
+        try {
+            Map<String, Object> nodeStats = nodeManager.getNodeStatisticsJson();
+            return ResponseEntity.ok(nodeStats);
+        } catch (Exception e) {
+            Map<String, Object> response = new HashMap<>();
+            response.put("error", "Error obteniendo estadísticas de nodos: " + e.getMessage());
+            return ResponseEntity.internalServerError().body(response);
+        }
+    }
+    
+    @GetMapping("/nodes/statistics/text")
+    public ResponseEntity<String> getNodeStatisticsText() {
+        try {
+            String nodeStats = nodeManager.getNodeStatistics();
+            return ResponseEntity.ok(nodeStats);
+        } catch (Exception e) {
+            return ResponseEntity.internalServerError()
+                .body("Error obteniendo estadísticas de nodos: " + e.getMessage());
         }
     }
 }

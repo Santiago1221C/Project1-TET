@@ -15,6 +15,13 @@ public class GridMRConfiguration {
     }
 
     @Bean
+    public NodeManager nodeManager() {
+        NodeManager nm = new NodeManager();
+        nm.start();
+        return nm;
+    }
+
+    @Bean
     public ChunkManager chunkManager() {
         ChunkManager cm = new ChunkManager();
         cm.start();
