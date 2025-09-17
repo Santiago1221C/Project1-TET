@@ -1,0 +1,10 @@
+^C:\USERS\USUARIO\DESKTOP\UNIVERSIDAD\SEPTIMO SEMESTRE 2\TÓPICOS ESPECIALES EN TELEMÁTICA\PROYECTO1 GRID_MR\PROJECT1-TET\WORKERS\BUILD\CMAKEFILES\7F2E3221F67B07C28E335B9D6DE7C5E3\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" "-SC:/Users/USUARIO/Desktop/UNIVERSIDAD/Septimo Semestre 2/Tópicos Especiales En Telemática/Proyecto1 Grid_MR/Project1-TET/workers" "-BC:/Users/USUARIO/Desktop/UNIVERSIDAD/Septimo Semestre 2/Tópicos Especiales En Telemática/Proyecto1 Grid_MR/Project1-TET/workers/build" --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file "C:/Users/USUARIO/Desktop/UNIVERSIDAD/Septimo Semestre 2/Tópicos Especiales En Telemática/Proyecto1 Grid_MR/Project1-TET/workers/build/Worker.sln"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

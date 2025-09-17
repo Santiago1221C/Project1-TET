@@ -1,0 +1,56 @@
+syntax = "proto3";
+
+package worker;
+
+// Servicio principal del Worker
+service WorkerService {
+    rpc ProcessMap(MapRequest) returns (MapResponse);
+    rpc ProcessReduce(ReduceRequest) returns (ReduceResponse);
+    rpc CheckHealth(HealthCheckRequest) returns (HealthCheckResponse);
+}
+
+// Mensajes para Map phase
+message MapRequest {
+    string task_id = 1;
+    string input_file = 2;
+    string function_name = 3;
+    map<string, string> parameters = 4;
+}
+
+message MapResponse {
+    string task_id = 1;
+    string worker_id = 2;
+    string output_file = 3;
+    string status = 4;
+    string error_message = 5;
+    int64 processing_time = 6;
+}
+
+// Mensajes para Reduce phase
+message ReduceRequest {
+    string task_id = 1;
+    repeated string input_files = 2;
+    string function_name = 3;
+    map<string, string> parameters = 4;
+}
+
+message ReduceResponse {
+    string task_id = 1;
+    string worker_id = 2;
+    string output_file = 3;
+    string status = 4;
+    string error_message = 5;
+    int64 processing_time = 6;
+}
+
+// Health check
+message HealthCheckRequest {
+    string timestamp = 1;
+}
+
+message HealthCheckResponse {
+    string worker_id = 1;
+    string status = 2;
+    int64 timestamp = 3;
+    map<string, string> metrics = 4;
+}

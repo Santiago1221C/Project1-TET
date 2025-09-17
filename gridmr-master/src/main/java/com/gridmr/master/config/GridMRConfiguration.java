@@ -39,8 +39,8 @@ public class GridMRConfiguration {
     }
 
     @Bean
-    public Scheduler scheduler(ResourceManager resourceManager) {
-        Scheduler scheduler = new Scheduler(resourceManager);
+    public Scheduler scheduler() {
+        Scheduler scheduler = new Scheduler();
         scheduler.start();
         return scheduler;
     }

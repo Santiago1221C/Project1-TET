@@ -5,6 +5,7 @@
 #include <map>
 #include <sstream>
 #include <algorithm>
+#include <ctime>
 #include <grpcpp/grpcpp.h>
 #include "../generated/cpp/worker.grpc.pb.h"
 
@@ -14,7 +15,7 @@ using grpc::ServerContext;
 using grpc::Status;
 
 // Clase principal del Worker
-class GridMRWorker final : public WorkerService::Service {
+class GridMRWorker final : public worker::WorkerService::Service {
 private:
     std::string worker_id;
     std::string nfs_path;
@@ -23,36 +24,37 @@ public:
     GridMRWorker(std::string id, std::string nfs) : worker_id(id), nfs_path(nfs) {}
     
     // Ejecutar tarea MAP
-    Status ExecuteMapTask(ServerContext* context, 
-                         const MapTaskRequest* request,
-                         MapTaskResponse* response) override {
+    Status ProcessMap(ServerContext* context, 
+                    const worker::MapRequest* request,
+                    worker::MapResponse* response) override {
         
         std::cout << "Ejecutando Map Task: " << request->task_id() << std::endl;
         
         try {
-            if (request->job_type() == "wordcount") {
+            if (request->function_name() == "wordcount") {
                 execute_wordcount_map(request->task_id(), request->input_file());
-            } else if (request->job_type() == "sort") {
+            } else if (request->function_name() == "sort") {
                 execute_sort_map(request->task_id(), request->input_file());
             }
             
             response->set_task_id(request->task_id());
-            response->set_success(true);
-            response->set_message("Map task completed");
-            response->add_output_files("intermediate/" + request->task_id() + ".txt");
+            response->set_worker_id(worker_id);
+            response->set_output_file("intermediate/" + request->task_id() + ".txt");
+            response->set_status("completed");
+            response->set_processing_time(0);
             
         } catch (const std::exception& e) {
-            response->set_success(false);
-            response->set_message("Error: " + std::string(e.what()));
+            response->set_status("error");
+            response->set_error_message("Error: " + std::string(e.what()));
         }
         
         return Status::OK;
     }
     
     // Ejecutar tarea REDUCE
-    Status ExecuteReduceTask(ServerContext* context,
-                            const ReduceTaskRequest* request,
-                            ReduceTaskResponse* response) override {
+    Status ProcessReduce(ServerContext* context,
+                        const worker::ReduceRequest* request,
+                        worker::ReduceResponse* response) override {
         
         std::cout << "Ejecutando Reduce Task: " << request->task_id() << std::endl;
         
@@ -62,21 +64,34 @@ public:
                 input_files.push_back(request->input_files(i));
             }
             
-            if (request->job_type() == "wordcount") {
-                execute_wordcount_reduce(request->task_id(), input_files, request->output_file());
-            } else if (request->job_type() == "sort") {
-                execute_sort_reduce(request->task_id(), input_files, request->output_file());
+            if (request->function_name() == "wordcount") {
+                execute_wordcount_reduce(request->task_id(), input_files, "output/" + request->task_id() + "_final.txt");
+            } else if (request->function_name() == "sort") {
+                execute_sort_reduce(request->task_id(), input_files, "output/" + request->task_id() + "_final.txt");
             }
             
             response->set_task_id(request->task_id());
-            response->set_success(true);
-            response->set_message("Reduce task completed");
-            response->set_output_file(request->output_file());
+            response->set_worker_id(worker_id);
+            response->set_output_file("output/" + request->task_id() + "_final.txt");
+            response->set_status("completed");
+            response->set_processing_time(0);
             
         } catch (const std::exception& e) {
-            response->set_success(false);
-            response->set_message("Error: " + std::string(e.what()));
+            response->set_status("error");
+            response->set_error_message("Error: " + std::string(e.what()));
         }
+        
+        return Status::OK;
+    }
+    
+    // Health check
+    Status CheckHealth(ServerContext* context,
+                    const worker::HealthCheckRequest* request,
+                    worker::HealthCheckResponse* response) override {
+        
+        response->set_worker_id(worker_id);
+        response->set_status("healthy");
+        response->set_timestamp(std::time(nullptr));
         
         return Status::OK;
     }
@@ -133,8 +148,8 @@ private:
     // ===== FUNCIONES REDUCE =====
     
     void execute_wordcount_reduce(const std::string& task_id, 
-                                 const std::vector<std::string>& input_files,
-                                 const std::string& output_file) {
+                                const std::vector<std::string>& input_files,
+                                const std::string& output_file) {
         std::map<std::string, int> final_count;
         
         // Procesar todos los archivos intermedios

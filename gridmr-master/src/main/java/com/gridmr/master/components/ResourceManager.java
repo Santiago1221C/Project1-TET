@@ -2,12 +2,15 @@ package com.gridmr.master.components;
 
 import com.gridmr.master.model.Worker;
 import com.gridmr.master.model.WorkerStatus;
+import jakarta.annotation.PostConstruct;
+import org.springframework.stereotype.Component;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
+@Component
 public class ResourceManager {
     
     // Mapa de workers registrados (workerId -> Worker)
@@ -26,15 +29,14 @@ public class ResourceManager {
     private ScheduledExecutorService scheduler;
     
     // Configuración mejorada para tolerancia a fallos
-    private static final int HEARTBEAT_INTERVAL_SECONDS = 5; // Reducido de 10 a 5 segundos
-    private static final int WORKER_TIMEOUT_SECONDS = 10; // Reducido de 30 a 10 segundos
-    private static final int CLEANUP_INTERVAL_SECONDS = 15; // Reducido de 60 a 15 segundos
+    private static final int HEARTBEAT_INTERVAL_SECONDS = 30; // Aumentado para testing
+    private static final int WORKER_TIMEOUT_SECONDS = 60; // Aumentado para testing
+    private static final int CLEANUP_INTERVAL_SECONDS = 120; // Aumentado para testing
     private static final int MAX_RETRY_ATTEMPTS = 3; // Máximo de reintentos por worker
-    private static final int HEALTH_CHECK_INTERVAL_SECONDS = 3; // Health checks cada 3 segundos
+    private static final int HEALTH_CHECK_INTERVAL_SECONDS = 30; // Aumentado para testing
     
     // Estadísticas
     private int totalWorkersRegistered;
-    private int totalWorkersActive;
     private int totalTasksAssigned;
     
     // Contador de reintentos por worker para tolerancia a fallos
@@ -48,10 +50,16 @@ public class ResourceManager {
         this.workerRetryCount = new ConcurrentHashMap<>();
         
         this.totalWorkersRegistered = 0;
-        this.totalWorkersActive = 0;
         this.totalTasksAssigned = 0;
         
         System.out.println("ResourceManager inicializado con tolerancia a fallos mejorada");
+    }
+    
+    @PostConstruct
+    public void init() {
+        System.out.println("[DEBUG] @PostConstruct ejecutándose - Inicializando ResourceManager...");
+        start();
+        System.out.println("[DEBUG] ResourceManager inicializado completamente");
     }
     
     public void start() {
@@ -125,6 +133,10 @@ public class ResourceManager {
      */
     public boolean registerWorker(String workerId, String host, int port, int cpuCores, long memoryMB, long diskSpaceGB, int computePower, int maxConcurrentTasks) {
         
+        System.out.println("[DEBUG] Intentando registrar worker: " + workerId);
+        System.out.println("[DEBUG] Workers registrados antes: " + registeredWorkers.size());
+        System.out.println("[DEBUG] Workers disponibles antes: " + availableWorkers.size());
+        
         // Verificar si el worker ya está registrado
         if (registeredWorkers.containsKey(workerId)) {
             System.out.println("Worker " + workerId + " ya está registrado");
@@ -140,12 +152,16 @@ public class ResourceManager {
         worker.setMaxConcurrentTasks(maxConcurrentTasks);
         worker.setStatus(WorkerStatus.READY);
         
+        // Establecer heartbeat inicial para evitar que se marque como inactivo inmediatamente
+        worker.updateHeartbeat();
+        
         registeredWorkers.put(workerId, worker);
         availableWorkers.put(workerId, worker);
         
         totalWorkersRegistered++;
-        totalWorkersActive++;
         
+        System.out.println("[DEBUG] Workers registrados después: " + registeredWorkers.size());
+        System.out.println("[DEBUG] Workers disponibles después: " + availableWorkers.size());
         System.out.println("Worker registrado: " + workerId + " (" + host + ":" + port + ") - CPU: " + cpuCores + ", Memoria: " + memoryMB + "MB, " + "Poder: " + computePower + ", MaxTareas: " + maxConcurrentTasks);
         
         return true;
@@ -167,8 +183,6 @@ public class ResourceManager {
         availableWorkers.remove(workerId);
         busyWorkers.remove(workerId);
         inactiveWorkers.remove(workerId);
-        
-        totalWorkersActive--;
         
         System.out.println("Worker dado de baja: " + workerId);
         return true;
@@ -196,7 +210,6 @@ public class ResourceManager {
             worker.setStatus(WorkerStatus.READY);
             inactiveWorkers.remove(workerId);
             availableWorkers.put(workerId, worker);
-            totalWorkersActive++;
             System.out.println("[OK] Worker " + workerId + " reactivado exitosamente");
         } else {
             System.out.println("[INFO] Heartbeat recibido de worker " + workerId + " - Estado: " + worker.getStatus());
@@ -219,6 +232,9 @@ public class ResourceManager {
      * @return Lista de workers
      */
     public List<Worker> getAllWorkers() {
+        System.out.println("[DEBUG] getAllWorkers() - Workers registrados: " + registeredWorkers.size());
+        System.out.println("[DEBUG] getAllWorkers() - Workers disponibles: " + availableWorkers.size());
+        System.out.println("[DEBUG] getAllWorkers() - Workers ocupados: " + busyWorkers.size());
         return new ArrayList<>(registeredWorkers.values());
     }
     
@@ -363,12 +379,13 @@ public class ResourceManager {
         List<String> inactiveWorkerIds = new ArrayList<>();
         
         for (Worker worker : registeredWorkers.values()) {
-            if (!worker.isActive(WORKER_TIMEOUT_SECONDS)) {
+            // NO marcar como inactivo si está procesando tareas
+            if (!worker.isActive(WORKER_TIMEOUT_SECONDS) && worker.getCurrentLoad() == 0) {
                 inactiveWorkerIds.add(worker.getWorkerId());
             }
         }
         
-        // Marcar workers inactivos
+        // Marcar workers inactivos solo si no están procesando tareas
         for (String workerId : inactiveWorkerIds) {
             markWorkerAsInactive(workerId);
         }
@@ -424,11 +441,15 @@ public class ResourceManager {
      */
     private boolean isWorkerProblematic(Worker worker, long currentTime) {
         if (worker == null || worker.getLastHeartbeat() == null) {
-            return true;
+            // NO marcar como problemático si está procesando tareas
+            return worker != null && worker.getCurrentLoad() == 0;
         }
         
         long timeSinceLastHeartbeat = currentTime - worker.getLastHeartbeat().atZone(java.time.ZoneId.systemDefault()).toInstant().toEpochMilli();
-        return timeSinceLastHeartbeat > (WORKER_TIMEOUT_SECONDS * 1000);
+        boolean isTimeout = timeSinceLastHeartbeat > (WORKER_TIMEOUT_SECONDS * 1000);
+        
+        // NO marcar como problemático si está procesando tareas
+        return isTimeout && worker.getCurrentLoad() == 0;
     }
     
     /**
@@ -477,15 +498,13 @@ public class ResourceManager {
         boolean wasBusy = busyWorkers.remove(workerId) != null;
         inactiveWorkers.put(workerId, worker);
         
-        totalWorkersActive--;
-        
         // Limpiar contador de reintentos
         workerRetryCount.remove(workerId);
         
         System.out.println("[ERROR] Worker " + workerId + " marcado como inactivo:");
         System.out.println("   - Estado anterior: " + (wasAvailable ? "disponible" : (wasBusy ? "ocupado" : "desconocido")));
         System.out.println("   - Reintentos fallidos: " + retryCount);
-        System.out.println("   - Workers activos restantes: " + totalWorkersActive);
+        System.out.println("   - Workers activos restantes: " + getActiveWorkersCount());
     }
     
     /**
@@ -524,7 +543,7 @@ public class ResourceManager {
         StringBuilder stats = new StringBuilder();
         stats.append("=== ESTADÍSTICAS DEL SISTEMA (TOLERANCIA A FALLOS) ===\n");
         stats.append("Workers registrados: ").append(totalWorkersRegistered).append("\n");
-        stats.append("Workers activos: ").append(totalWorkersActive).append("\n");
+        stats.append("Workers activos: ").append(getActiveWorkersCount()).append("\n");
         stats.append("Workers disponibles: ").append(availableWorkers.size()).append("\n");
         stats.append("Workers ocupados: ").append(busyWorkers.size()).append("\n");
         stats.append("Workers inactivos: ").append(inactiveWorkers.size()).append("\n");
@@ -572,7 +591,7 @@ public class ResourceManager {
      * @return Número de workers activos
      */
     public int getActiveWorkersCount() {
-        return totalWorkersActive;
+        return availableWorkers.size() + busyWorkers.size();
     }
     
     /**
@@ -622,7 +641,7 @@ public class ResourceManager {
         
         // Estadísticas básicas
         stats.put("totalWorkers", totalWorkersRegistered);
-        stats.put("activeWorkers", totalWorkersActive);
+        stats.put("activeWorkers", getActiveWorkersCount());
         stats.put("availableWorkers", availableWorkers.size());
         stats.put("busyWorkers", busyWorkers.size());
         stats.put("inactiveWorkers", inactiveWorkers.size());

@@ -1,0 +1,671 @@
+2025-09-14 14:57:22.734 [main] INFO  c.g.master.GridMRMasterApplication - Starting GridMRMasterApplication using Java 21.0.6 with PID 33136 (C:\Users\USUARIO\Desktop\UNIVERSIDAD\Septimo Semestre 2\Tópicos Especiales En Telemática\Proyecto1 Grid_MR\Project1-TET\gridmr-master\target\classes started by USUARIO in C:\Users\USUARIO\Desktop\UNIVERSIDAD\Septimo Semestre 2\Tópicos Especiales En Telemática\Proyecto1 Grid_MR\Project1-TET\gridmr-master)
+2025-09-14 14:57:22.737 [main] INFO  c.g.master.GridMRMasterApplication - No active profile set, falling back to 1 default profile: "default"
+2025-09-14 14:57:23.905 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-09-14 14:57:23.919 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-09-14 14:57:23.924 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-09-14 14:57:23.924 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.16]
+2025-09-14 14:57:24.014 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-09-14 14:57:24.018 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1225 ms
+2025-09-14 14:57:24.418 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - 9 mappings in 'requestMappingHandlerMapping'
+2025-09-14 14:57:24.567 [main] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping - Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2025-09-14 14:57:24.591 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerAdapter - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2025-09-14 14:57:24.626 [main] DEBUG o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+2025-09-14 14:57:24.744 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-09-14 14:57:24.798 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2025-09-14 14:57:24.808 [main] INFO  c.g.master.GridMRMasterApplication - Started GridMRMasterApplication in 2.453 seconds (process running for 2.95)
+2025-09-14 14:59:31.297 [main] INFO  c.g.master.GridMRMasterApplication - Starting GridMRMasterApplication using Java 21.0.6 with PID 3924 (C:\Users\USUARIO\Desktop\UNIVERSIDAD\Septimo Semestre 2\Tópicos Especiales En Telemática\Proyecto1 Grid_MR\Project1-TET\gridmr-master\target\classes started by USUARIO in C:\Users\USUARIO\Desktop\UNIVERSIDAD\Septimo Semestre 2\Tópicos Especiales En Telemática\Proyecto1 Grid_MR\Project1-TET\gridmr-master)
+2025-09-14 14:59:31.298 [main] INFO  c.g.master.GridMRMasterApplication - No active profile set, falling back to 1 default profile: "default"
+2025-09-14 14:59:32.214 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-09-14 14:59:32.222 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-09-14 14:59:32.225 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-09-14 14:59:32.227 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.16]
+2025-09-14 14:59:32.300 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-09-14 14:59:32.302 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 963 ms
+2025-09-14 14:59:32.470 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - 9 mappings in 'requestMappingHandlerMapping'
+2025-09-14 14:59:32.519 [main] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping - Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2025-09-14 14:59:32.541 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerAdapter - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2025-09-14 14:59:32.568 [main] DEBUG o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+2025-09-14 14:59:32.640 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-09-14 14:59:32.671 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2025-09-14 14:59:32.676 [main] INFO  c.g.master.GridMRMasterApplication - Started GridMRMasterApplication in 1.764 seconds (process running for 2.335)
+2025-09-14 14:59:50.891 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-09-14 14:59:50.891 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-09-14 14:59:50.892 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Detected StandardServletMultipartResolver
+2025-09-14 14:59:50.892 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Detected AcceptHeaderLocaleResolver
+2025-09-14 14:59:50.892 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Detected FixedThemeResolver
+2025-09-14 14:59:50.893 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@25075c44
+2025-09-14 14:59:50.893 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Detected org.springframework.web.servlet.support.SessionFlashMapManager@25822861
+2025-09-14 14:59:50.894 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2025-09-14 14:59:50.894 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 3 ms
+2025-09-14 14:59:50.906 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/health", parameters={}
+2025-09-14 14:59:50.917 [http-nio-8080-exec-1] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.gridmr.master.controller.GridMRRestController#health()
+2025-09-14 14:59:50.945 [http-nio-8080-exec-1] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-09-14 14:59:50.948 [http-nio-8080-exec-1] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [{total_workers=0, active_workers=0, status=UP, timestamp=2025-09-14T14:59:50.927549400, uptime=Runni (truncated)...]
+2025-09-14 14:59:50.971 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-09-14 14:59:59.120 [http-nio-8080-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/workers", parameters={}
+2025-09-14 14:59:59.121 [http-nio-8080-exec-2] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.gridmr.master.controller.GridMRRestController#listWorkers()
+2025-09-14 14:59:59.121 [http-nio-8080-exec-2] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-09-14 14:59:59.123 [http-nio-8080-exec-2] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [{total_count=0, active_count=0, workers=[]}]
+2025-09-14 14:59:59.125 [http-nio-8080-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-09-14 15:00:06.284 [http-nio-8080-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/status", parameters={}
+2025-09-14 15:00:06.284 [http-nio-8080-exec-3] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.gridmr.master.controller.GridMRRestController#getSystemStatus()
+2025-09-14 15:00:06.285 [http-nio-8080-exec-3] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-09-14 15:00:06.285 [http-nio-8080-exec-3] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [{total_jobs_failed=0, total_jobs_submitted=0, total_jobs_completed=0, total_workers=0, active_worker (truncated)...]
+2025-09-14 15:00:06.287 [http-nio-8080-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-09-14 15:00:28.990 [http-nio-8080-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/health", parameters={}
+2025-09-14 15:00:28.991 [http-nio-8080-exec-4] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.gridmr.master.controller.GridMRRestController#health()
+2025-09-14 15:00:28.992 [http-nio-8080-exec-4] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-09-14 15:00:28.993 [http-nio-8080-exec-4] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [{total_workers=0, active_workers=0, status=UP, timestamp=2025-09-14T15:00:28.991846500, uptime=Runni (truncated)...]
+2025-09-14 15:00:28.994 [http-nio-8080-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-09-14 15:00:28.997 [http-nio-8080-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/workers", parameters={}
+2025-09-14 15:00:28.998 [http-nio-8080-exec-5] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.gridmr.master.controller.GridMRRestController#listWorkers()
+2025-09-14 15:00:28.998 [http-nio-8080-exec-5] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-09-14 15:00:28.998 [http-nio-8080-exec-5] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [{total_count=0, active_count=0, workers=[]}]
+2025-09-14 15:00:29.000 [http-nio-8080-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-09-14 15:26:28.316 [http-nio-8080-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/health", parameters={}
+2025-09-14 15:26:28.333 [http-nio-8080-exec-9] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.gridmr.master.controller.GridMRRestController#health()
+2025-09-14 15:26:28.364 [http-nio-8080-exec-9] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-09-14 15:26:28.369 [http-nio-8080-exec-9] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [{total_workers=0, active_workers=0, status=UP, timestamp=2025-09-14T15:26:28.341341800, uptime=Runni (truncated)...]
+2025-09-14 15:26:28.381 [http-nio-8080-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-09-14 15:26:28.627 [http-nio-8080-exec-8] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/health", parameters={}
+2025-09-14 15:26:28.628 [http-nio-8080-exec-8] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.gridmr.master.controller.GridMRRestController#health()
+2025-09-14 15:26:28.628 [http-nio-8080-exec-8] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-09-14 15:26:28.629 [http-nio-8080-exec-8] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [{total_workers=0, active_workers=0, status=UP, timestamp=2025-09-14T15:26:28.628118400, uptime=Runni (truncated)...]
+2025-09-14 15:26:28.630 [http-nio-8080-exec-8] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-09-14 15:26:28.650 [http-nio-8080-exec-10] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/workers", parameters={}
+2025-09-14 15:26:28.651 [http-nio-8080-exec-10] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.gridmr.master.controller.GridMRRestController#listWorkers()
+2025-09-14 15:26:28.653 [http-nio-8080-exec-10] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-09-14 15:26:28.653 [http-nio-8080-exec-10] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [{total_count=0, active_count=0, workers=[]}]
+2025-09-14 15:26:28.654 [http-nio-8080-exec-10] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-09-14 15:26:28.676 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/status", parameters={}
+2025-09-14 15:26:28.677 [http-nio-8080-exec-1] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.gridmr.master.controller.GridMRRestController#getSystemStatus()
+2025-09-14 15:26:28.678 [http-nio-8080-exec-1] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-09-14 15:26:28.678 [http-nio-8080-exec-1] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [{total_jobs_failed=0, total_jobs_submitted=0, total_jobs_completed=0, total_workers=0, active_worker (truncated)...]
+2025-09-14 15:26:28.680 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-09-14 15:26:29.144 [http-nio-8080-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/health", parameters={}
+2025-09-14 15:26:29.144 [http-nio-8080-exec-2] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.gridmr.master.controller.GridMRRestController#health()
+2025-09-14 15:26:29.146 [http-nio-8080-exec-2] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-09-14 15:26:29.146 [http-nio-8080-exec-2] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [{total_workers=0, active_workers=0, status=UP, timestamp=2025-09-14T15:26:29.144965700, uptime=Runni (truncated)...]
+2025-09-14 15:26:29.147 [http-nio-8080-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-09-14 15:26:29.149 [http-nio-8080-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/workers", parameters={}
+2025-09-14 15:26:29.151 [http-nio-8080-exec-3] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.gridmr.master.controller.GridMRRestController#listWorkers()
+2025-09-14 15:26:29.152 [http-nio-8080-exec-3] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-09-14 15:26:29.152 [http-nio-8080-exec-3] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [{total_count=0, active_count=0, workers=[]}]
+2025-09-14 15:26:29.153 [http-nio-8080-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-09-14 17:17:09.931 [http-nio-8080-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/health", parameters={}
+2025-09-14 17:17:09.967 [http-nio-8080-exec-6] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.gridmr.master.controller.GridMRRestController#health()
+2025-09-14 17:17:09.994 [http-nio-8080-exec-6] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-09-14 17:17:10.003 [http-nio-8080-exec-6] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [{total_workers=0, active_workers=0, status=UP, timestamp=2025-09-14T17:17:09.976605, uptime=Running}]
+2025-09-14 17:17:10.019 [http-nio-8080-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-09-14 17:17:10.230 [http-nio-8080-exec-7] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/status", parameters={}
+2025-09-14 17:17:10.235 [http-nio-8080-exec-7] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.gridmr.master.controller.GridMRRestController#getSystemStatus()
+2025-09-14 17:17:10.238 [http-nio-8080-exec-7] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-09-14 17:17:10.239 [http-nio-8080-exec-7] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [{total_jobs_failed=0, total_jobs_submitted=0, total_jobs_completed=0, total_workers=0, active_worker (truncated)...]
+2025-09-14 17:17:10.246 [http-nio-8080-exec-7] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-09-14 17:17:10.271 [http-nio-8080-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/grpc/status", parameters={}
+2025-09-14 17:17:10.536 [http-nio-8080-exec-9] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping - Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2025-09-14 17:17:10.577 [http-nio-8080-exec-9] DEBUG o.s.w.s.r.ResourceHttpRequestHandler - Resource not found
+2025-09-14 17:17:10.629 [http-nio-8080-exec-9] DEBUG o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource api/grpc/status.]
+2025-09-14 17:17:10.629 [http-nio-8080-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - Completed 404 NOT_FOUND
+2025-09-14 17:17:10.662 [http-nio-8080-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - "ERROR" dispatch for GET "/error", parameters={}
+2025-09-14 17:17:10.669 [http-nio-8080-exec-9] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#error(HttpServletRequest)
+2025-09-14 17:17:10.716 [http-nio-8080-exec-9] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-09-14 17:17:10.723 [http-nio-8080-exec-9] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [{timestamp=Sun Sep 14 17:17:10 COT 2025, status=404, error=Not Found, path=/api/grpc/status}]
+2025-09-14 17:17:10.833 [http-nio-8080-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - Exiting from "ERROR" dispatch, status 404
+2025-09-14 17:17:21.944 [http-nio-8080-exec-10] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/grpc/status", parameters={}
+2025-09-14 17:17:21.944 [http-nio-8080-exec-10] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping - Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2025-09-14 17:17:21.954 [http-nio-8080-exec-10] DEBUG o.s.w.s.r.ResourceHttpRequestHandler - Resource not found
+2025-09-14 17:17:21.955 [http-nio-8080-exec-10] DEBUG o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource api/grpc/status.]
+2025-09-14 17:17:21.955 [http-nio-8080-exec-10] DEBUG o.s.web.servlet.DispatcherServlet - Completed 404 NOT_FOUND
+2025-09-14 17:17:21.956 [http-nio-8080-exec-10] DEBUG o.s.web.servlet.DispatcherServlet - "ERROR" dispatch for GET "/error", parameters={}
+2025-09-14 17:17:21.956 [http-nio-8080-exec-10] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#error(HttpServletRequest)
+2025-09-14 17:17:21.957 [http-nio-8080-exec-10] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-09-14 17:17:21.957 [http-nio-8080-exec-10] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [{timestamp=Sun Sep 14 17:17:21 COT 2025, status=404, error=Not Found, path=/api/grpc/status}]
+2025-09-14 17:17:21.959 [http-nio-8080-exec-10] DEBUG o.s.web.servlet.DispatcherServlet - Exiting from "ERROR" dispatch, status 404
+2025-09-14 17:17:34.117 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/health", parameters={}
+2025-09-14 17:17:34.118 [http-nio-8080-exec-1] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.gridmr.master.controller.GridMRRestController#health()
+2025-09-14 17:17:34.119 [http-nio-8080-exec-1] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-09-14 17:17:34.119 [http-nio-8080-exec-1] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [{total_workers=0, active_workers=0, status=UP, timestamp=2025-09-14T17:17:34.118163200, uptime=Runni (truncated)...]
+2025-09-14 17:17:34.120 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-09-14 17:17:49.016 [http-nio-8080-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/workers", parameters={}
+2025-09-14 17:17:49.018 [http-nio-8080-exec-2] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.gridmr.master.controller.GridMRRestController#listWorkers()
+2025-09-14 17:17:49.019 [http-nio-8080-exec-2] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-09-14 17:17:49.020 [http-nio-8080-exec-2] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [{total_count=0, active_count=0, workers=[]}]
+2025-09-14 17:17:49.022 [http-nio-8080-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-09-14 17:18:00.411 [http-nio-8080-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/grpc/status", parameters={}
+2025-09-14 17:18:00.412 [http-nio-8080-exec-3] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping - Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2025-09-14 17:18:00.414 [http-nio-8080-exec-3] DEBUG o.s.w.s.r.ResourceHttpRequestHandler - Resource not found
+2025-09-14 17:18:00.416 [http-nio-8080-exec-3] DEBUG o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource api/grpc/status.]
+2025-09-14 17:18:00.416 [http-nio-8080-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - Completed 404 NOT_FOUND
+2025-09-14 17:18:00.416 [http-nio-8080-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - "ERROR" dispatch for GET "/error", parameters={}
+2025-09-14 17:18:00.417 [http-nio-8080-exec-3] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#error(HttpServletRequest)
+2025-09-14 17:18:00.418 [http-nio-8080-exec-3] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-09-14 17:18:00.418 [http-nio-8080-exec-3] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [{timestamp=Sun Sep 14 17:18:00 COT 2025, status=404, error=Not Found, path=/api/grpc/status}]
+2025-09-14 17:18:00.419 [http-nio-8080-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - Exiting from "ERROR" dispatch, status 404
+2025-09-14 17:24:32.248 [main] INFO  c.g.master.GridMRMasterApplication - Starting GridMRMasterApplication using Java 21.0.6 with PID 16636 (C:\Users\USUARIO\Desktop\UNIVERSIDAD\Septimo Semestre 2\Tópicos Especiales En Telemática\Proyecto1 Grid_MR\Project1-TET\gridmr-master\target\classes started by USUARIO in C:\Users\USUARIO\Desktop\UNIVERSIDAD\Septimo Semestre 2\Tópicos Especiales En Telemática\Proyecto1 Grid_MR\Project1-TET\gridmr-master)
+2025-09-14 17:24:32.253 [main] INFO  c.g.master.GridMRMasterApplication - No active profile set, falling back to 1 default profile: "default"
+2025-09-14 17:24:33.467 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-09-14 17:24:33.481 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-09-14 17:24:33.485 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-09-14 17:24:33.486 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.16]
+2025-09-14 17:24:33.582 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-09-14 17:24:33.585 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1243 ms
+2025-09-14 17:24:33.886 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - 17 mappings in 'requestMappingHandlerMapping'
+2025-09-14 17:24:33.962 [main] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping - Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2025-09-14 17:24:33.996 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerAdapter - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2025-09-14 17:24:34.036 [main] DEBUG o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+2025-09-14 17:24:34.132 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-09-14 17:24:34.177 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2025-09-14 17:24:34.185 [main] INFO  c.g.master.GridMRMasterApplication - Started GridMRMasterApplication in 2.435 seconds (process running for 3.096)
+2025-09-14 17:25:54.789 [main] INFO  c.g.master.GridMRMasterApplication - Starting GridMRMasterApplication using Java 21.0.6 with PID 31972 (C:\Users\USUARIO\Desktop\UNIVERSIDAD\Septimo Semestre 2\Tópicos Especiales En Telemática\Proyecto1 Grid_MR\Project1-TET\gridmr-master\target\classes started by USUARIO in C:\Users\USUARIO\Desktop\UNIVERSIDAD\Septimo Semestre 2\Tópicos Especiales En Telemática\Proyecto1 Grid_MR\Project1-TET\gridmr-master)
+2025-09-14 17:25:54.792 [main] INFO  c.g.master.GridMRMasterApplication - No active profile set, falling back to 1 default profile: "default"
+2025-09-14 17:25:55.999 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-09-14 17:25:56.012 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-09-14 17:25:56.018 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-09-14 17:25:56.018 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.16]
+2025-09-14 17:25:56.095 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-09-14 17:25:56.098 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1248 ms
+2025-09-14 17:25:56.336 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - 17 mappings in 'requestMappingHandlerMapping'
+2025-09-14 17:25:56.398 [main] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping - Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2025-09-14 17:25:56.423 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerAdapter - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2025-09-14 17:25:56.457 [main] DEBUG o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+2025-09-14 17:25:56.531 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-09-14 17:25:56.564 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2025-09-14 17:25:56.572 [main] INFO  c.g.master.GridMRMasterApplication - Started GridMRMasterApplication in 2.563 seconds (process running for 3.408)
+2025-09-14 17:25:59.618 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-09-14 17:25:59.619 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-09-14 17:25:59.619 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Detected StandardServletMultipartResolver
+2025-09-14 17:25:59.619 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Detected AcceptHeaderLocaleResolver
+2025-09-14 17:25:59.619 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Detected FixedThemeResolver
+2025-09-14 17:25:59.620 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@32196072
+2025-09-14 17:25:59.620 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Detected org.springframework.web.servlet.support.SessionFlashMapManager@6f66da80
+2025-09-14 17:25:59.621 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2025-09-14 17:25:59.621 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2025-09-14 17:25:59.627 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/health", parameters={}
+2025-09-14 17:25:59.638 [http-nio-8080-exec-1] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.gridmr.master.controller.GridMRRestController#health()
+2025-09-14 17:25:59.665 [http-nio-8080-exec-1] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-09-14 17:25:59.667 [http-nio-8080-exec-1] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [{total_workers=0, active_workers=0, status=UP, timestamp=2025-09-14T17:25:59.645856300, uptime=Runni (truncated)...]
+2025-09-14 17:25:59.688 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-09-14 17:26:04.837 [http-nio-8080-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/grpc/status", parameters={}
+2025-09-14 17:26:04.838 [http-nio-8080-exec-2] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.gridmr.master.controller.MasterGrpcController#getGrpcStatus()
+2025-09-14 17:26:04.840 [http-nio-8080-exec-2] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'text/plain', given [*/*] and supported [text/plain, */*, application/json, application/*+json]
+2025-09-14 17:26:04.840 [http-nio-8080-exec-2] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing ["✅ Servicio gRPC del Master funcionando correctamente"]
+2025-09-14 17:26:04.843 [http-nio-8080-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-09-14 17:26:52.507 [http-nio-8080-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/grpc/status", parameters={}
+2025-09-14 17:26:52.509 [http-nio-8080-exec-3] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.gridmr.master.controller.MasterGrpcController#getGrpcStatus()
+2025-09-14 17:26:52.510 [http-nio-8080-exec-3] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'text/plain', given [*/*] and supported [text/plain, */*, application/json, application/*+json]
+2025-09-14 17:26:52.511 [http-nio-8080-exec-3] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing ["✅ Servicio gRPC del Master funcionando correctamente"]
+2025-09-14 17:26:52.512 [http-nio-8080-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-09-14 17:27:15.185 [http-nio-8080-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - POST "/api/grpc/register-worker", parameters={}
+2025-09-14 17:27:15.186 [http-nio-8080-exec-4] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.gridmr.master.controller.MasterGrpcController#registerWorker(RegisterWorkerRequest)
+2025-09-14 17:27:15.280 [http-nio-8080-exec-4] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Read "application/json;charset=UTF-8" to [com.gridmr.master.grpc.GrpcMessages$RegisterWorkerRequest@2b59c49]
+2025-09-14 17:27:15.333 [http-nio-8080-exec-4] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-09-14 17:27:15.334 [http-nio-8080-exec-4] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [com.gridmr.master.grpc.GrpcMessages$RegisterWorkerResponse@762580ca]
+2025-09-14 17:27:15.338 [http-nio-8080-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-09-14 17:27:20.790 [http-nio-8080-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - POST "/api/grpc/heartbeat", parameters={}
+2025-09-14 17:27:20.790 [http-nio-8080-exec-5] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.gridmr.master.controller.MasterGrpcController#sendHeartbeat(HeartbeatRequest)
+2025-09-14 17:27:20.794 [http-nio-8080-exec-5] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Read "application/json;charset=UTF-8" to [com.gridmr.master.grpc.GrpcMessages$HeartbeatRequest@76e3e29e]
+2025-09-14 17:27:20.796 [http-nio-8080-exec-5] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-09-14 17:27:20.796 [http-nio-8080-exec-5] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [com.gridmr.master.grpc.GrpcMessages$HeartbeatResponse@447c2d9e]
+2025-09-14 17:27:20.798 [http-nio-8080-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-09-14 17:27:29.949 [http-nio-8080-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/status", parameters={}
+2025-09-14 17:27:29.949 [http-nio-8080-exec-6] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.gridmr.master.controller.GridMRRestController#getSystemStatus()
+2025-09-14 17:27:29.950 [http-nio-8080-exec-6] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-09-14 17:27:29.950 [http-nio-8080-exec-6] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [{total_jobs_failed=0, total_jobs_submitted=0, total_jobs_completed=0, total_workers=1, active_worker (truncated)...]
+2025-09-14 17:27:29.951 [http-nio-8080-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-09-14 22:24:13.053 [main] INFO  c.g.master.GridMRMasterApplication - Starting GridMRMasterApplication using Java 21.0.6 with PID 4980 (C:\Users\USUARIO\Desktop\UNIVERSIDAD\Septimo Semestre 2\Tópicos Especiales En Telemática\Proyecto1 Grid_MR\Project1-TET\gridmr-master\target\classes started by USUARIO in C:\Users\USUARIO\Desktop\UNIVERSIDAD\Septimo Semestre 2\Tópicos Especiales En Telemática\Proyecto1 Grid_MR\Project1-TET\gridmr-master)
+2025-09-14 22:24:13.055 [main] INFO  c.g.master.GridMRMasterApplication - No active profile set, falling back to 1 default profile: "default"
+2025-09-14 22:24:13.824 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-09-14 22:24:13.838 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-09-14 22:24:13.841 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-09-14 22:24:13.841 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.33]
+2025-09-14 22:24:13.911 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-09-14 22:24:13.912 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 807 ms
+2025-09-14 22:24:14.085 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - 19 mappings in 'requestMappingHandlerMapping'
+2025-09-14 22:24:14.129 [main] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping - Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2025-09-14 22:24:14.149 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerAdapter - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2025-09-14 22:24:14.180 [main] DEBUG o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+2025-09-14 22:24:14.242 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-09-14 22:24:14.250 [main] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
+2025-09-14 22:24:14.262 [main] INFO  o.s.b.a.l.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-09-14 22:24:14.280 [main] ERROR o.s.b.d.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
+2025-09-14 22:25:42.444 [main] INFO  c.g.master.GridMRMasterApplication - Starting GridMRMasterApplication using Java 21.0.6 with PID 14932 (C:\Users\USUARIO\Desktop\UNIVERSIDAD\Septimo Semestre 2\Tópicos Especiales En Telemática\Proyecto1 Grid_MR\Project1-TET\gridmr-master\target\classes started by USUARIO in C:\Users\USUARIO\Desktop\UNIVERSIDAD\Septimo Semestre 2\Tópicos Especiales En Telemática\Proyecto1 Grid_MR\Project1-TET\gridmr-master)
+2025-09-14 22:25:42.446 [main] INFO  c.g.master.GridMRMasterApplication - No active profile set, falling back to 1 default profile: "default"
+2025-09-14 22:25:43.225 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-09-14 22:25:43.238 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-09-14 22:25:43.240 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-09-14 22:25:43.241 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.33]
+2025-09-14 22:25:43.301 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-09-14 22:25:43.302 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 819 ms
+2025-09-14 22:25:43.498 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - 19 mappings in 'requestMappingHandlerMapping'
+2025-09-14 22:25:43.560 [main] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping - Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2025-09-14 22:25:43.583 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerAdapter - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2025-09-14 22:25:43.613 [main] DEBUG o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+2025-09-14 22:25:43.691 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-09-14 22:25:43.724 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2025-09-14 22:25:43.732 [main] INFO  c.g.master.GridMRMasterApplication - Started GridMRMasterApplication in 1.643 seconds (process running for 2.202)
+2025-09-14 22:26:35.987 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-09-14 22:26:35.988 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-09-14 22:26:35.988 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Detected StandardServletMultipartResolver
+2025-09-14 22:26:35.988 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Detected AcceptHeaderLocaleResolver
+2025-09-14 22:26:35.988 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Detected FixedThemeResolver
+2025-09-14 22:26:35.989 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@27f3dc1d
+2025-09-14 22:26:35.990 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Detected org.springframework.web.servlet.support.SessionFlashMapManager@7c148528
+2025-09-14 22:26:35.990 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2025-09-14 22:26:35.990 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2025-09-14 22:26:35.998 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/fault-tolerance", parameters={}
+2025-09-14 22:26:36.009 [http-nio-8080-exec-1] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.gridmr.master.controller.GridMRRestController#getFaultToleranceStatus()
+2025-09-14 22:26:36.044 [http-nio-8080-exec-1] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-09-14 22:26:36.046 [http-nio-8080-exec-1] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [{availableWorkers=0, activeWorkers=0, busyWorkers=0, totalWorkers=0, inactiveWorkers=0, faultToleran (truncated)...]
+2025-09-14 22:26:36.064 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-09-14 22:26:43.131 [http-nio-8080-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/fault-tolerance", parameters={}
+2025-09-14 22:26:43.131 [http-nio-8080-exec-2] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.gridmr.master.controller.GridMRRestController#getFaultToleranceStatus()
+2025-09-14 22:26:43.132 [http-nio-8080-exec-2] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-09-14 22:26:43.133 [http-nio-8080-exec-2] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [{availableWorkers=0, activeWorkers=0, busyWorkers=0, totalWorkers=0, inactiveWorkers=0, faultToleran (truncated)...]
+2025-09-14 22:26:43.134 [http-nio-8080-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-09-14 22:27:33.629 [http-nio-8080-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/fault-tolerance/text", parameters={}
+2025-09-14 22:27:33.630 [http-nio-8080-exec-3] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.gridmr.master.controller.GridMRRestController#getFaultToleranceStatusText()
+2025-09-14 22:27:33.631 [http-nio-8080-exec-3] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'text/plain', given [*/*] and supported [text/plain, */*, application/json, application/*+json]
+2025-09-14 22:27:33.631 [http-nio-8080-exec-3] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing ["=== ESTADÍSTICAS DEL SISTEMA (TOLERANCIA A FALLOS) ===<EOL>Workers registrados: 0<EOL>Workers activos: 0<EOL>Wor (truncated)..."]
+2025-09-14 22:27:33.633 [http-nio-8080-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-09-14 22:35:51.798 [main] INFO  c.g.master.GridMRMasterApplication - Starting GridMRMasterApplication using Java 21.0.6 with PID 12484 (C:\Users\USUARIO\Desktop\UNIVERSIDAD\Septimo Semestre 2\Tópicos Especiales En Telemática\Proyecto1 Grid_MR\Project1-TET\gridmr-master\target\classes started by USUARIO in C:\Users\USUARIO\Desktop\UNIVERSIDAD\Septimo Semestre 2\Tópicos Especiales En Telemática\Proyecto1 Grid_MR\Project1-TET\gridmr-master)
+2025-09-14 22:35:51.803 [main] INFO  c.g.master.GridMRMasterApplication - No active profile set, falling back to 1 default profile: "default"
+2025-09-14 22:35:52.917 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-09-14 22:35:52.934 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-09-14 22:35:52.937 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-09-14 22:35:52.937 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.33]
+2025-09-14 22:35:53.013 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-09-14 22:35:53.014 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1149 ms
+2025-09-14 22:35:53.209 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - 24 mappings in 'requestMappingHandlerMapping'
+2025-09-14 22:35:53.255 [main] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping - Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2025-09-14 22:35:53.276 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerAdapter - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2025-09-14 22:35:53.307 [main] DEBUG o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+2025-09-14 22:35:53.372 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-09-14 22:35:53.401 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2025-09-14 22:35:53.407 [main] INFO  c.g.master.GridMRMasterApplication - Started GridMRMasterApplication in 2.166 seconds (process running for 2.853)
+2025-09-14 22:37:01.252 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-09-14 22:37:01.252 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-09-14 22:37:01.252 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Detected StandardServletMultipartResolver
+2025-09-14 22:37:01.253 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Detected AcceptHeaderLocaleResolver
+2025-09-14 22:37:01.253 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Detected FixedThemeResolver
+2025-09-14 22:37:01.253 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@780d92d9
+2025-09-14 22:37:01.254 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Detected org.springframework.web.servlet.support.SessionFlashMapManager@4aea0f4d
+2025-09-14 22:37:01.254 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2025-09-14 22:37:01.254 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2025-09-14 22:37:01.262 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/nodes/statistics/text", parameters={}
+2025-09-14 22:37:01.274 [http-nio-8080-exec-1] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.gridmr.master.controller.GridMRRestController#getNodeStatisticsText()
+2025-09-14 22:37:01.302 [http-nio-8080-exec-1] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'text/plain', given [*/*] and supported [text/plain, */*, application/json, application/*+json]
+2025-09-14 22:37:01.303 [http-nio-8080-exec-1] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing ["=== ESTADÍSTICAS DE NODOS (TOLERANCIA A FALLOS) ===<EOL>Nodos registrados: 0<EOL>Nodos activos: 0<EOL>Nodos inac (truncated)..."]
+2025-09-14 22:37:01.309 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-09-14 22:37:11.352 [http-nio-8080-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - POST "/api/nodes/register", parameters={}
+2025-09-14 22:37:11.353 [http-nio-8080-exec-2] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.gridmr.master.controller.GridMRRestController#registerNode(Map)
+2025-09-14 22:37:11.394 [http-nio-8080-exec-2] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Read "application/json;charset=UTF-8" to [{host=192.168.1.100, node_id=node-001, port=9090, max_workers=5, node_type=WORKER}]
+2025-09-14 22:37:11.412 [http-nio-8080-exec-2] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-09-14 22:37:11.413 [http-nio-8080-exec-2] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [{message=Nodo registrado exitosamente, node_id=node-001, status=REGISTERED}]
+2025-09-14 22:37:11.422 [http-nio-8080-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-09-14 22:38:08.555 [http-nio-8080-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/nodes/statistics/text", parameters={}
+2025-09-14 22:38:08.555 [http-nio-8080-exec-3] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.gridmr.master.controller.GridMRRestController#getNodeStatisticsText()
+2025-09-14 22:38:08.556 [http-nio-8080-exec-3] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'text/plain', given [*/*] and supported [text/plain, */*, application/json, application/*+json]
+2025-09-14 22:38:08.556 [http-nio-8080-exec-3] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing ["=== ESTADÍSTICAS DE NODOS (TOLERANCIA A FALLOS) ===<EOL>Nodos registrados: 1<EOL>Nodos activos: -2<EOL>Nodos ina (truncated)..."]
+2025-09-14 22:38:08.556 [http-nio-8080-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-09-14 22:38:25.034 [http-nio-8080-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - POST "/api/nodes/node-001/heartbeat", parameters={masked}
+2025-09-14 22:38:25.035 [http-nio-8080-exec-4] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.gridmr.master.controller.GridMRRestController#updateNodeHeartbeat(String)
+2025-09-14 22:38:25.039 [http-nio-8080-exec-4] DEBUG o.s.web.method.HandlerMethod - Could not resolve parameter [0] in public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> com.gridmr.master.controller.GridMRRestController.updateNodeHeartbeat(java.lang.String): Name for argument of type [java.lang.String] not specified, and parameter name information not available via reflection. Ensure that the compiler uses the '-parameters' flag.
+2025-09-14 22:38:25.042 [http-nio-8080-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - Failed to complete request: java.lang.IllegalArgumentException: Name for argument of type [java.lang.String] not specified, and parameter name information not available via reflection. Ensure that the compiler uses the '-parameters' flag.
+2025-09-14 22:38:25.042 [http-nio-8080-exec-4] ERROR o.a.c.c.C.[.[.[.[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: java.lang.IllegalArgumentException: Name for argument of type [java.lang.String] not specified, and parameter name information not available via reflection. Ensure that the compiler uses the '-parameters' flag.] with root cause
+java.lang.IllegalArgumentException: Name for argument of type [java.lang.String] not specified, and parameter name information not available via reflection. Ensure that the compiler uses the '-parameters' flag.
+	at org.springframework.web.method.annotation.AbstractNamedValueMethodArgumentResolver.updateNamedValueInfo(AbstractNamedValueMethodArgumentResolver.java:186)
+	at org.springframework.web.method.annotation.AbstractNamedValueMethodArgumentResolver.getNamedValueInfo(AbstractNamedValueMethodArgumentResolver.java:161)
+	at org.springframework.web.method.annotation.AbstractNamedValueMethodArgumentResolver.resolveArgument(AbstractNamedValueMethodArgumentResolver.java:107)
+	at org.springframework.web.method.support.HandlerMethodArgumentResolverComposite.resolveArgument(HandlerMethodArgumentResolverComposite.java:122)
+	at org.springframework.web.method.support.InvocableHandlerMethod.getMethodArgumentValues(InvocableHandlerMethod.java:224)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:178)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:926)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:831)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2025-09-14 22:38:25.052 [http-nio-8080-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - "ERROR" dispatch for POST "/error", parameters={masked}
+2025-09-14 22:38:25.054 [http-nio-8080-exec-4] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#error(HttpServletRequest)
+2025-09-14 22:38:25.057 [http-nio-8080-exec-4] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-09-14 22:38:25.058 [http-nio-8080-exec-4] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [{timestamp=Sun Sep 14 22:38:25 COT 2025, status=500, error=Internal Server Error, path=/api/nodes/no (truncated)...]
+2025-09-14 22:38:25.090 [http-nio-8080-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - Exiting from "ERROR" dispatch, status 500
+2025-09-14 22:38:34.033 [http-nio-8080-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/nodes", parameters={}
+2025-09-14 22:38:34.034 [http-nio-8080-exec-5] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.gridmr.master.controller.GridMRRestController#listNodes()
+2025-09-14 22:38:34.035 [http-nio-8080-exec-5] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-09-14 22:38:34.035 [http-nio-8080-exec-5] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [{nodes=[], total_count=0, inactive_count=0, active_count=-2}]
+2025-09-14 22:38:34.037 [http-nio-8080-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-09-14 22:39:11.349 [http-nio-8080-exec-7] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/nodes/statistics/text", parameters={}
+2025-09-14 22:39:11.350 [http-nio-8080-exec-7] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.gridmr.master.controller.GridMRRestController#getNodeStatisticsText()
+2025-09-14 22:39:11.351 [http-nio-8080-exec-7] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'text/plain', given [*/*] and supported [text/plain, */*, application/json, application/*+json]
+2025-09-14 22:39:11.351 [http-nio-8080-exec-7] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing ["=== ESTADÍSTICAS DE NODOS (TOLERANCIA A FALLOS) ===<EOL>Nodos registrados: 1<EOL>Nodos activos: -2<EOL>Nodos ina (truncated)..."]
+2025-09-14 22:39:11.351 [http-nio-8080-exec-7] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-09-14 22:44:31.785 [main] INFO  c.g.master.GridMRMasterApplication - Starting GridMRMasterApplication using Java 21.0.6 with PID 33744 (C:\Users\USUARIO\Desktop\UNIVERSIDAD\Septimo Semestre 2\Tópicos Especiales En Telemática\Proyecto1 Grid_MR\Project1-TET\gridmr-master\target\classes started by USUARIO in C:\Users\USUARIO\Desktop\UNIVERSIDAD\Septimo Semestre 2\Tópicos Especiales En Telemática\Proyecto1 Grid_MR\Project1-TET\gridmr-master)
+2025-09-14 22:44:31.788 [main] INFO  c.g.master.GridMRMasterApplication - No active profile set, falling back to 1 default profile: "default"
+2025-09-14 22:44:32.827 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-09-14 22:44:32.840 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-09-14 22:44:32.843 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-09-14 22:44:32.844 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.33]
+2025-09-14 22:44:32.924 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-09-14 22:44:32.926 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1087 ms
+2025-09-14 22:44:33.167 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - 24 mappings in 'requestMappingHandlerMapping'
+2025-09-14 22:44:33.225 [main] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping - Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2025-09-14 22:44:33.254 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerAdapter - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2025-09-14 22:44:33.288 [main] DEBUG o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+2025-09-14 22:44:33.369 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-09-14 22:44:33.403 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2025-09-14 22:44:33.410 [main] INFO  c.g.master.GridMRMasterApplication - Started GridMRMasterApplication in 2.086 seconds (process running for 2.691)
+2025-09-14 22:45:14.642 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-09-14 22:45:14.643 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-09-14 22:45:14.643 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Detected StandardServletMultipartResolver
+2025-09-14 22:45:14.643 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Detected AcceptHeaderLocaleResolver
+2025-09-14 22:45:14.643 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Detected FixedThemeResolver
+2025-09-14 22:45:14.644 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@5e4d3cf8
+2025-09-14 22:45:14.645 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Detected org.springframework.web.servlet.support.SessionFlashMapManager@3c5f95c
+2025-09-14 22:45:14.645 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2025-09-14 22:45:14.645 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2025-09-14 22:45:14.654 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/nodes/statistics/text", parameters={}
+2025-09-14 22:45:14.667 [http-nio-8080-exec-1] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.gridmr.master.controller.GridMRRestController#getNodeStatisticsText()
+2025-09-14 22:45:14.694 [http-nio-8080-exec-1] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'text/plain', given [*/*] and supported [text/plain, */*, application/json, application/*+json]
+2025-09-14 22:45:14.695 [http-nio-8080-exec-1] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing ["=== ESTADÍSTICAS DE NODOS (TOLERANCIA A FALLOS) ===<EOL>Nodos registrados: 0<EOL>Nodos activos: 0<EOL>Nodos inac (truncated)..."]
+2025-09-14 22:45:14.701 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-09-14 22:45:22.251 [http-nio-8080-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/nodes/statistics/text", parameters={}
+2025-09-14 22:45:22.251 [http-nio-8080-exec-2] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.gridmr.master.controller.GridMRRestController#getNodeStatisticsText()
+2025-09-14 22:45:22.253 [http-nio-8080-exec-2] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'text/plain', given [*/*] and supported [text/plain, */*, application/json, application/*+json]
+2025-09-14 22:45:22.253 [http-nio-8080-exec-2] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing ["=== ESTADÍSTICAS DE NODOS (TOLERANCIA A FALLOS) ===<EOL>Nodos registrados: 0<EOL>Nodos activos: 0<EOL>Nodos inac (truncated)..."]
+2025-09-14 22:45:22.254 [http-nio-8080-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-09-14 22:57:25.653 [main] INFO  c.g.master.GridMRMasterApplication - Starting GridMRMasterApplication using Java 21.0.6 with PID 33660 (C:\Users\USUARIO\Desktop\UNIVERSIDAD\Septimo Semestre 2\Tópicos Especiales En Telemática\Proyecto1 Grid_MR\Project1-TET\gridmr-master\target\classes started by USUARIO in C:\Users\USUARIO\Desktop\UNIVERSIDAD\Septimo Semestre 2\Tópicos Especiales En Telemática\Proyecto1 Grid_MR\Project1-TET\gridmr-master)
+2025-09-14 22:57:25.655 [main] INFO  c.g.master.GridMRMasterApplication - No active profile set, falling back to 1 default profile: "default"
+2025-09-14 22:57:26.675 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-09-14 22:57:26.687 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-09-14 22:57:26.690 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-09-14 22:57:26.690 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.33]
+2025-09-14 22:57:26.759 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-09-14 22:57:26.761 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1054 ms
+2025-09-14 22:57:26.809 [main] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'gridMRRestController' defined in file [C:\Users\USUARIO\Desktop\UNIVERSIDAD\Septimo Semestre 2\Tópicos Especiales En Telemática\Proyecto1 Grid_MR\Project1-TET\gridmr-master\target\classes\com\gridmr\master\controller\GridMRRestController.class]: Failed to instantiate [com.gridmr.master.controller.GridMRRestController]: Constructor threw exception
+2025-09-14 22:57:26.812 [main] INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat]
+2025-09-14 22:57:26.824 [main] INFO  o.s.b.a.l.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-09-14 22:57:26.842 [main] ERROR o.s.boot.SpringApplication - Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'gridMRRestController' defined in file [C:\Users\USUARIO\Desktop\UNIVERSIDAD\Septimo Semestre 2\Tópicos Especiales En Telemática\Proyecto1 Grid_MR\Project1-TET\gridmr-master\target\classes\com\gridmr\master\controller\GridMRRestController.class]: Failed to instantiate [com.gridmr.master.controller.GridMRRestController]: Constructor threw exception
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:1337)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1222)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:562)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:975)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:971)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:625)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:335)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1352)
+	at com.gridmr.master.GridMRMasterApplication.main(GridMRMasterApplication.java:11)
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.gridmr.master.controller.GridMRRestController]: Constructor threw exception
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:221)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:94)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:1331)
+	... 17 common frames omitted
+Caused by: java.lang.Error: Unresolved compilation problems: 
+	The type com.gridmr.master.components.ResourceManager cannot be resolved. It is indirectly referenced from required type com.gridmr.master.components.MasterPersistenceManager
+	The type com.gridmr.master.components.NodeManager cannot be resolved. It is indirectly referenced from required type com.gridmr.master.components.MasterPersistenceManager
+	The type com.gridmr.master.components.JobManager cannot be resolved. It is indirectly referenced from required type com.gridmr.master.components.MasterPersistenceManager
+	The type com.gridmr.master.model.MasterInfo cannot be resolved. It is indirectly referenced from required type com.gridmr.master.components.MasterFailoverManager
+	The import com.gridmr.master.components.JobManager cannot be resolved
+	The import com.gridmr.master.components.ResourceManager cannot be resolved
+	The import com.gridmr.master.components.NodeManager cannot be resolved
+	The import com.gridmr.master.model.Job cannot be resolved
+	The import com.gridmr.master.model.Worker cannot be resolved
+	The import com.gridmr.master.model.NodeInfo cannot be resolved
+	The import com.gridmr.master.model.MasterInfo cannot be resolved
+	JobManager cannot be resolved to a type
+	ResourceManager cannot be resolved to a type
+	NodeManager cannot be resolved to a type
+	ResourceManager cannot be resolved to a type
+	ResourceManager cannot be resolved to a type
+	Worker cannot be resolved to a type
+	ResourceManager cannot be resolved to a type
+	ResourceManager cannot be resolved to a type
+	Job cannot be resolved to a type
+	Job cannot be resolved to a type
+	JobManager cannot be resolved to a type
+	Job cannot be resolved to a type
+	JobManager cannot be resolved to a type
+	The method getStatus() is undefined for the type Object
+	The method getStatus() is undefined for the type Object
+	JobManager cannot be resolved to a type
+	ResourceManager cannot be resolved to a type
+	ResourceManager cannot be resolved to a type
+	JobManager cannot be resolved to a type
+	JobManager cannot be resolved to a type
+	JobManager cannot be resolved to a type
+	JobManager cannot be resolved to a type
+	ResourceManager cannot be resolved to a type
+	ResourceManager cannot be resolved to a type
+	NodeInfo cannot be resolved to a type
+	NodeManager cannot be resolved to a type
+	NodeManager cannot be resolved to a type
+	NodeManager cannot be resolved to a type
+	NodeManager cannot be resolved to a type
+	NodeManager cannot be resolved to a type
+	NodeManager cannot be resolved to a type
+	NodeManager cannot be resolved to a type
+	MasterInfo cannot be resolved to a type
+	The method getKnownMasters() from the type MasterFailoverManager refers to the missing type MasterInfo
+
+	at com.gridmr.master.controller.GridMRRestController.<init>(GridMRRestController.java:1)
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:195)
+	... 19 common frames omitted
+2025-09-14 23:00:19.696 [main] INFO  c.g.master.GridMRMasterApplication - Starting GridMRMasterApplication using Java 21.0.6 with PID 33080 (C:\Users\USUARIO\Desktop\UNIVERSIDAD\Septimo Semestre 2\Tópicos Especiales En Telemática\Proyecto1 Grid_MR\Project1-TET\gridmr-master\target\classes started by USUARIO in C:\Users\USUARIO\Desktop\UNIVERSIDAD\Septimo Semestre 2\Tópicos Especiales En Telemática\Proyecto1 Grid_MR\Project1-TET\gridmr-master)
+2025-09-14 23:00:19.699 [main] INFO  c.g.master.GridMRMasterApplication - No active profile set, falling back to 1 default profile: "default"
+2025-09-14 23:00:20.439 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-09-14 23:00:20.449 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-09-14 23:00:20.451 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-09-14 23:00:20.451 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.33]
+2025-09-14 23:00:20.508 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-09-14 23:00:20.509 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 761 ms
+2025-09-14 23:00:20.697 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - 31 mappings in 'requestMappingHandlerMapping'
+2025-09-14 23:00:20.743 [main] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping - Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2025-09-14 23:00:20.764 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerAdapter - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2025-09-14 23:00:20.794 [main] DEBUG o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+2025-09-14 23:00:20.859 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-09-14 23:00:20.885 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2025-09-14 23:00:20.891 [main] INFO  c.g.master.GridMRMasterApplication - Started GridMRMasterApplication in 1.47 seconds (process running for 1.869)
+2025-09-14 23:04:02.845 [main] INFO  c.g.master.GridMRMasterApplication - Starting GridMRMasterApplication using Java 21.0.6 with PID 32080 (C:\Users\USUARIO\Desktop\UNIVERSIDAD\Septimo Semestre 2\Tópicos Especiales En Telemática\Proyecto1 Grid_MR\Project1-TET\gridmr-master\target\classes started by USUARIO in C:\Users\USUARIO\Desktop\UNIVERSIDAD\Septimo Semestre 2\Tópicos Especiales En Telemática\Proyecto1 Grid_MR\Project1-TET\gridmr-master)
+2025-09-14 23:04:02.847 [main] INFO  c.g.master.GridMRMasterApplication - No active profile set, falling back to 1 default profile: "default"
+2025-09-14 23:04:03.570 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-09-14 23:04:03.579 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-09-14 23:04:03.581 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-09-14 23:04:03.581 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.33]
+2025-09-14 23:04:03.636 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-09-14 23:04:03.637 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 741 ms
+2025-09-14 23:04:03.809 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - 31 mappings in 'requestMappingHandlerMapping'
+2025-09-14 23:04:03.851 [main] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping - Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2025-09-14 23:04:03.868 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerAdapter - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2025-09-14 23:04:03.894 [main] DEBUG o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+2025-09-14 23:04:03.955 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-09-14 23:04:03.974 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2025-09-14 23:04:03.980 [main] INFO  c.g.master.GridMRMasterApplication - Started GridMRMasterApplication in 1.427 seconds (process running for 1.831)
+2025-09-14 23:04:16.979 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-09-14 23:04:16.979 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-09-14 23:04:16.979 [http-nio-8080-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - Detected StandardServletMultipartResolver
+2025-09-14 23:04:16.979 [http-nio-8080-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - Detected AcceptHeaderLocaleResolver
+2025-09-14 23:04:16.979 [http-nio-8080-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - Detected FixedThemeResolver
+2025-09-14 23:04:16.981 [http-nio-8080-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@cbb85e4
+2025-09-14 23:04:16.981 [http-nio-8080-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - Detected org.springframework.web.servlet.support.SessionFlashMapManager@69aac2
+2025-09-14 23:04:16.982 [http-nio-8080-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2025-09-14 23:04:16.982 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 3 ms
+2025-09-14 23:04:16.989 [http-nio-8080-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/health", parameters={}
+2025-09-14 23:04:16.997 [http-nio-8080-exec-2] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.gridmr.master.controller.GridMRRestController#health()
+2025-09-14 23:04:17.025 [http-nio-8080-exec-2] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-09-14 23:04:17.027 [http-nio-8080-exec-2] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [{total_workers=0, active_workers=0, status=UP, timestamp=2025-09-14T23:04:17.009048200, uptime=Runni (truncated)...]
+2025-09-14 23:04:17.042 [http-nio-8080-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-09-14 23:04:27.843 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/health", parameters={}
+2025-09-14 23:04:27.844 [http-nio-8080-exec-1] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.gridmr.master.controller.GridMRRestController#health()
+2025-09-14 23:04:27.846 [http-nio-8080-exec-1] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-09-14 23:04:27.846 [http-nio-8080-exec-1] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [{total_workers=0, active_workers=0, status=UP, timestamp=2025-09-14T23:04:27.844990800, uptime=Runni (truncated)...]
+2025-09-14 23:04:27.847 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-09-14 23:04:34.671 [http-nio-8080-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/fault-tolerance/text", parameters={}
+2025-09-14 23:04:34.672 [http-nio-8080-exec-4] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.gridmr.master.controller.GridMRRestController#getFaultToleranceStatusText()
+2025-09-14 23:04:34.673 [http-nio-8080-exec-4] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'text/plain', given [*/*] and supported [text/plain, */*, application/json, application/*+json]
+2025-09-14 23:04:34.674 [http-nio-8080-exec-4] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing ["=== ESTADÍSTICAS DEL SISTEMA (TOLERANCIA A FALLOS) ===<EOL>Workers registrados: 0<EOL>Workers activos: 0<EOL>Wor (truncated)..."]
+2025-09-14 23:04:34.675 [http-nio-8080-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-09-14 23:04:41.895 [http-nio-8080-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/nodes/statistics/text", parameters={}
+2025-09-14 23:04:41.895 [http-nio-8080-exec-5] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.gridmr.master.controller.GridMRRestController#getNodeStatisticsText()
+2025-09-14 23:04:41.897 [http-nio-8080-exec-5] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'text/plain', given [*/*] and supported [text/plain, */*, application/json, application/*+json]
+2025-09-14 23:04:41.897 [http-nio-8080-exec-5] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing ["=== ESTADÍSTICAS DE NODOS (TOLERANCIA A FALLOS) ===<EOL>Nodos registrados: 0<EOL>Nodos activos: 0<EOL>Nodos inac (truncated)..."]
+2025-09-14 23:04:41.898 [http-nio-8080-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-09-14 23:04:47.843 [http-nio-8080-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/persistence/status", parameters={}
+2025-09-14 23:04:47.844 [http-nio-8080-exec-3] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.gridmr.master.controller.GridMRRestController#getPersistenceStatus()
+2025-09-14 23:04:47.847 [http-nio-8080-exec-3] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-09-14 23:04:47.847 [http-nio-8080-exec-3] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [{state_file_exists=false, persistence_interval_ms=30000, backup_count=0, state_version=1.0, persiste (truncated)...]
+2025-09-14 23:04:47.853 [http-nio-8080-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-09-14 23:05:01.719 [http-nio-8080-exec-7] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/failover/status", parameters={}
+2025-09-14 23:05:01.719 [http-nio-8080-exec-7] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.gridmr.master.controller.GridMRRestController#getFailoverStatus()
+2025-09-14 23:05:01.722 [http-nio-8080-exec-7] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-09-14 23:05:01.722 [http-nio-8080-exec-7] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [{master_id=master-001, current_role=STANDALONE, known_masters=[{master_id=master-001, role=STANDALON (truncated)...]
+2025-09-14 23:05:01.724 [http-nio-8080-exec-7] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-09-14 23:05:12.537 [http-nio-8080-exec-8] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/failover/masters", parameters={}
+2025-09-14 23:05:12.537 [http-nio-8080-exec-8] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.gridmr.master.controller.GridMRRestController#listMasters()
+2025-09-14 23:05:12.538 [http-nio-8080-exec-8] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-09-14 23:05:12.541 [http-nio-8080-exec-8] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [{current_leader=null, total_count=1, masters=[MasterInfo{masterId='master-001', host='localhost', po (truncated)...]
+2025-09-14 23:05:12.564 [http-nio-8080-exec-8] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-09-14 23:05:18.625 [http-nio-8080-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/jobs", parameters={}
+2025-09-14 23:05:18.629 [http-nio-8080-exec-9] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping - Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2025-09-14 23:05:18.631 [http-nio-8080-exec-9] DEBUG o.s.w.s.r.ResourceHttpRequestHandler - Resource not found
+2025-09-14 23:05:18.634 [http-nio-8080-exec-9] DEBUG o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource api/jobs.]
+2025-09-14 23:05:18.635 [http-nio-8080-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - Completed 404 NOT_FOUND
+2025-09-14 23:05:18.641 [http-nio-8080-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - "ERROR" dispatch for GET "/error", parameters={}
+2025-09-14 23:05:18.643 [http-nio-8080-exec-9] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#error(HttpServletRequest)
+2025-09-14 23:05:18.647 [http-nio-8080-exec-9] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-09-14 23:05:18.648 [http-nio-8080-exec-9] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [{timestamp=Sun Sep 14 23:05:18 COT 2025, status=404, error=Not Found, path=/api/jobs}]
+2025-09-14 23:05:18.653 [http-nio-8080-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - Exiting from "ERROR" dispatch, status 404
+2025-09-14 23:06:27.036 [http-nio-8080-exec-10] DEBUG o.s.web.servlet.DispatcherServlet - POST "/api/workers/register", parameters={}
+2025-09-14 23:06:27.037 [http-nio-8080-exec-10] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping - Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2025-09-14 23:06:27.038 [http-nio-8080-exec-10] DEBUG o.s.w.s.r.ResourceHttpRequestHandler - Resource not found
+2025-09-14 23:06:27.039 [http-nio-8080-exec-10] DEBUG o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource api/workers/register.]
+2025-09-14 23:06:27.039 [http-nio-8080-exec-10] DEBUG o.s.web.servlet.DispatcherServlet - Completed 404 NOT_FOUND
+2025-09-14 23:06:27.039 [http-nio-8080-exec-10] DEBUG o.s.web.servlet.DispatcherServlet - "ERROR" dispatch for POST "/error", parameters={}
+2025-09-14 23:06:27.040 [http-nio-8080-exec-10] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#error(HttpServletRequest)
+2025-09-14 23:06:27.040 [http-nio-8080-exec-10] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-09-14 23:06:27.041 [http-nio-8080-exec-10] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [{timestamp=Sun Sep 14 23:06:27 COT 2025, status=404, error=Not Found, path=/api/workers/register}]
+2025-09-14 23:06:27.042 [http-nio-8080-exec-10] DEBUG o.s.web.servlet.DispatcherServlet - Exiting from "ERROR" dispatch, status 404
+2025-09-14 23:07:15.145 [http-nio-8080-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - POST "/api/nodes/register", parameters={}
+2025-09-14 23:07:15.146 [http-nio-8080-exec-2] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.gridmr.master.controller.GridMRRestController#registerNode(Map)
+2025-09-14 23:07:15.178 [http-nio-8080-exec-2] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Read "application/json;charset=UTF-8" to [{host=192.168.1.100, node_id=node-001, port=8081, max_workers=10, node_type=WORKER}]
+2025-09-14 23:07:15.197 [http-nio-8080-exec-2] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-09-14 23:07:15.197 [http-nio-8080-exec-2] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [{message=Nodo registrado exitosamente, node_id=node-001, status=REGISTERED}]
+2025-09-14 23:07:15.199 [http-nio-8080-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-09-14 23:11:15.004 [main] INFO  c.g.master.GridMRMasterApplication - Starting GridMRMasterApplication using Java 21.0.6 with PID 33420 (C:\Users\USUARIO\Desktop\UNIVERSIDAD\Septimo Semestre 2\Tópicos Especiales En Telemática\Proyecto1 Grid_MR\Project1-TET\gridmr-master\target\classes started by USUARIO in C:\Users\USUARIO\Desktop\UNIVERSIDAD\Septimo Semestre 2\Tópicos Especiales En Telemática\Proyecto1 Grid_MR\Project1-TET\gridmr-master)
+2025-09-14 23:11:15.006 [main] INFO  c.g.master.GridMRMasterApplication - No active profile set, falling back to 1 default profile: "default"
+2025-09-14 23:11:15.735 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-09-14 23:11:15.749 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-09-14 23:11:15.752 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-09-14 23:11:15.753 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.33]
+2025-09-14 23:11:15.817 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-09-14 23:11:15.818 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 755 ms
+2025-09-14 23:11:16.016 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - 33 mappings in 'requestMappingHandlerMapping'
+2025-09-14 23:11:16.058 [main] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping - Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2025-09-14 23:11:16.078 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerAdapter - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2025-09-14 23:11:16.102 [main] DEBUG o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+2025-09-14 23:11:16.170 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-09-14 23:11:16.192 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2025-09-14 23:11:16.197 [main] INFO  c.g.master.GridMRMasterApplication - Started GridMRMasterApplication in 1.493 seconds (process running for 1.937)
+2025-09-14 23:11:23.107 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-09-14 23:11:23.108 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-09-14 23:11:23.108 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Detected StandardServletMultipartResolver
+2025-09-14 23:11:23.108 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Detected AcceptHeaderLocaleResolver
+2025-09-14 23:11:23.109 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Detected FixedThemeResolver
+2025-09-14 23:11:23.109 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@44dfcecf
+2025-09-14 23:11:23.109 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Detected org.springframework.web.servlet.support.SessionFlashMapManager@47991191
+2025-09-14 23:11:23.111 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2025-09-14 23:11:23.111 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 3 ms
+2025-09-14 23:11:23.116 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/health", parameters={}
+2025-09-14 23:11:23.123 [http-nio-8080-exec-1] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.gridmr.master.controller.GridMRRestController#health()
+2025-09-14 23:11:23.145 [http-nio-8080-exec-1] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-09-14 23:11:23.146 [http-nio-8080-exec-1] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [{total_workers=0, active_workers=0, status=FUNCIONANDO, timestamp=2025-09-14T23:11:23.133072400, upt (truncated)...]
+2025-09-14 23:11:23.162 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-09-14 23:11:38.341 [http-nio-8080-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - POST "/api/workers/register", parameters={}
+2025-09-14 23:11:38.342 [http-nio-8080-exec-2] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.gridmr.master.controller.GridMRRestController#registerWorker(Map)
+2025-09-14 23:11:38.363 [http-nio-8080-exec-2] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Read "application/json;charset=UTF-8" to [{port=9090, compute_power=100, disk_space_gb=100, host=localhost, worker_id=worker-001, memory_mb=81 (truncated)...]
+2025-09-14 23:11:38.373 [http-nio-8080-exec-2] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-09-14 23:11:38.374 [http-nio-8080-exec-2] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [{message=Worker registrado exitosamente, worker_id=worker-001, status=REGISTERED}]
+2025-09-14 23:11:38.374 [http-nio-8080-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-09-14 23:11:43.871 [http-nio-8080-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/workers", parameters={}
+2025-09-14 23:11:43.872 [http-nio-8080-exec-3] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.gridmr.master.controller.GridMRRestController#listWorkers()
+2025-09-14 23:11:43.873 [http-nio-8080-exec-3] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-09-14 23:11:43.873 [http-nio-8080-exec-3] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [{total_count=1, active_count=1, workers=[com.gridmr.master.model.Worker@33cae8c8]}]
+2025-09-14 23:11:43.905 [http-nio-8080-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-09-14 23:11:55.211 [http-nio-8080-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/jobs", parameters={}
+2025-09-14 23:11:55.211 [http-nio-8080-exec-4] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.gridmr.master.controller.GridMRRestController#listJobs()
+2025-09-14 23:11:55.213 [http-nio-8080-exec-4] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2025-09-14 23:11:55.213 [http-nio-8080-exec-4] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing [{total_count=0, jobs=[], active_count=0, completed_count=0, message=Sistema de jobs en desarrollo}]
+2025-09-14 23:11:55.214 [http-nio-8080-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2025-09-14 23:11:59.921 [http-nio-8080-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - GET "/api/nodes/statistics/text", parameters={}
+2025-09-14 23:11:59.921 [http-nio-8080-exec-5] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to com.gridmr.master.controller.GridMRRestController#getNodeStatisticsText()
+2025-09-14 23:11:59.922 [http-nio-8080-exec-5] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'text/plain', given [*/*] and supported [text/plain, */*, application/json, application/*+json]
+2025-09-14 23:11:59.922 [http-nio-8080-exec-5] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing ["=== ESTADÍSTICAS DE NODOS (TOLERANCIA A FALLOS) ===<EOL>Nodos registrados: 0<EOL>Nodos activos: 0<EOL>Nodos inac (truncated)..."]
+2025-09-14 23:11:59.923 [http-nio-8080-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK

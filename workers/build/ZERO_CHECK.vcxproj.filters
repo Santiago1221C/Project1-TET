@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\USUARIO\Desktop\UNIVERSIDAD\Septimo Semestre 2\Tópicos Especiales En Telemática\Proyecto1 Grid_MR\Project1-TET\workers\build\CMakeFiles\7f2e3221f67b07c28e335b9d6de7c5e3\generate.stamp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{92C7BA87-27A5-3ADB-B2E4-EE496A4B3967}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

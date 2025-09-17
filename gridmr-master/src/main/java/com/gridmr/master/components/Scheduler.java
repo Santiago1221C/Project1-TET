@@ -4,6 +4,9 @@ import com.gridmr.master.model.Task;
 import com.gridmr.master.model.TaskType;
 import com.gridmr.master.model.TaskStatus;
 import com.gridmr.master.model.Worker;
+import jakarta.annotation.PostConstruct;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import java.util.*;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.Executors;
@@ -21,9 +24,11 @@ import java.util.concurrent.TimeUnit;
  * - Monitorear progreso de tareas asignadas
  * - Reasignar tareas si un worker falla
  */
+@Component
 public class Scheduler {
     
     // Referencia al ResourceManager para obtener workers
+    @Autowired
     private ResourceManager resourceManager;
     
     // Colas de tareas por tipo
@@ -48,8 +53,7 @@ public class Scheduler {
     private int totalTasksCompleted;
     private int totalTasksFailed;
     
-    public Scheduler(ResourceManager resourceManager) {
-        this.resourceManager = resourceManager;
+    public Scheduler() {
         this.mapTaskQueue = new ConcurrentLinkedQueue<>();
         this.reduceTaskQueue = new ConcurrentLinkedQueue<>();
         this.assignedTasks = new HashMap<>();
@@ -60,6 +64,13 @@ public class Scheduler {
         this.totalTasksFailed = 0;
         
         System.out.println("Scheduler inicializado");
+    }
+    
+    @PostConstruct
+    public void init() {
+        System.out.println("[DEBUG] @PostConstruct ejecutándose - Inicializando Scheduler...");
+        start();
+        System.out.println("[DEBUG] Scheduler inicializado completamente");
     }
     
     public void start() {

@@ -1,0 +1,514 @@
+
+---
+events:
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.0/Modules/CMakeDetermineSystem.cmake:205 (message)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      The system is: Windows - 10.0.26100 - AMD64
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.0/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "C:/Program Files/CMake/share/cmake-4.0/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "C:/Program Files/CMake/share/cmake-4.0/Modules/CMakeDetermineCCompiler.cmake:123 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+      Compiler:  
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      0
+      Versi├│n de MSBuild 17.14.19+164abd434 para .NET Framework
+      Compilaci├│n iniciada a las 16/09/2025 5:50:09ÔÇ»p.ÔÇ»m..
+      
+      Proyecto "C:\\Users\\USUARIO\\Desktop\\UNIVERSIDAD\\Septimo Semestre 2\\T├│picos Especiales En Telem├ítica\\Proyecto1 Grid_MR\\Project1-TET\\workers\\build\\CMakeFiles\\4.0.0\\CompilerIdC\\CompilerIdC.vcxproj" en nodo 1 (destinos predeterminados).
+      PrepareForBuild:
+        Creando directorio "Debug\\".
+        La salida estructurada est├í habilitada. El formato del diagn├│stico del compilador reflejar├í la jerarqu├¡a de errores. Consulte https://aka.ms/cpp/structured-output para obtener m├ís detalles.
+        Creando directorio "Debug\\CompilerIdC.tlog\\".
+      InitializeBuildStatus:
+        Se crear├í "Debug\\CompilerIdC.tlog\\unsuccessfulbuild" porque se especific├│ "AlwaysCreate".
+        Aplicando tarea Touch a "Debug\\CompilerIdC.tlog\\unsuccessfulbuild".
+      ClCompile:
+        C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /nologo /W0 /WX- /diagnostics:column /Od /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\\\" /Fd"Debug\\vc143.pdb" /external:W0 /Gd /TC /FC /errorReport:queue CMakeCCompilerId.c
+        CMakeCCompilerId.c
+      Link:
+        C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:".\\CompilerIdC.exe" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /PDB:".\\CompilerIdC.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:".\\CompilerIdC.lib" /MACHINE:X64 Debug\\CMakeCCompilerId.obj
+        CompilerIdC.vcxproj -> C:\\Users\\USUARIO\\Desktop\\UNIVERSIDAD\\Septimo Semestre 2\\T├│picos Especiales En Telem├ítica\\Proyecto1 Grid_MR\\Project1-TET\\workers\\build\\CMakeFiles\\4.0.0\\CompilerIdC\\CompilerIdC.exe
+      PostBuildEvent:
+        for %%i in (cl.exe) do @echo CMAKE_C_COMPILER=%%~$PATH:i
+        :VCEnd
+        CMAKE_C_COMPILER=C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.44.35207\\bin\\Hostx64\\x64\\cl.exe
+      FinalizeBuildStatus:
+        Se eliminar├í el archivo "Debug\\CompilerIdC.tlog\\unsuccessfulbuild".
+        Aplicando tarea Touch a "Debug\\CompilerIdC.tlog\\CompilerIdC.lastbuildstate".
+      Compilaci├│n del proyecto terminada "C:\\Users\\USUARIO\\Desktop\\UNIVERSIDAD\\Septimo Semestre 2\\T├│picos Especiales En Telem├ítica\\Proyecto1 Grid_MR\\Project1-TET\\workers\\build\\CMakeFiles\\4.0.0\\CompilerIdC\\CompilerIdC.vcxproj" (destinos predeterminados).
+      
+      Compilaci├│n correcta.
+          0 Advertencia(s)
+          0 Errores
+      
+      Tiempo transcurrido 00:00:00.95
+      
+      
+      Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CompilerIdC.exe"
+      
+      Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CompilerIdC.vcxproj"
+      
+      The C compiler identification is MSVC, found in:
+        C:/Users/USUARIO/Desktop/UNIVERSIDAD/Septimo Semestre 2/Tópicos Especiales En Telemática/Proyecto1 Grid_MR/Project1-TET/workers/build/CMakeFiles/4.0.0/CompilerIdC/CompilerIdC.exe
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.0/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "C:/Program Files/CMake/share/cmake-4.0/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "C:/Program Files/CMake/share/cmake-4.0/Modules/CMakeDetermineCXXCompiler.cmake:126 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+      Compiler:  
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      0
+      Versi├│n de MSBuild 17.14.19+164abd434 para .NET Framework
+      Compilaci├│n iniciada a las 16/09/2025 5:50:10ÔÇ»p.ÔÇ»m..
+      
+      Proyecto "C:\\Users\\USUARIO\\Desktop\\UNIVERSIDAD\\Septimo Semestre 2\\T├│picos Especiales En Telem├ítica\\Proyecto1 Grid_MR\\Project1-TET\\workers\\build\\CMakeFiles\\4.0.0\\CompilerIdCXX\\CompilerIdCXX.vcxproj" en nodo 1 (destinos predeterminados).
+      PrepareForBuild:
+        Creando directorio "Debug\\".
+        La salida estructurada est├í habilitada. El formato del diagn├│stico del compilador reflejar├í la jerarqu├¡a de errores. Consulte https://aka.ms/cpp/structured-output para obtener m├ís detalles.
+        Creando directorio "Debug\\CompilerIdCXX.tlog\\".
+      InitializeBuildStatus:
+        Se crear├í "Debug\\CompilerIdCXX.tlog\\unsuccessfulbuild" porque se especific├│ "AlwaysCreate".
+        Aplicando tarea Touch a "Debug\\CompilerIdCXX.tlog\\unsuccessfulbuild".
+      ClCompile:
+        C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /nologo /W0 /WX- /diagnostics:column /Od /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\\\" /Fd"Debug\\vc143.pdb" /external:W0 /Gd /TP /FC /errorReport:queue CMakeCXXCompilerId.cpp
+        CMakeCXXCompilerId.cpp
+      Link:
+        C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:".\\CompilerIdCXX.exe" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /PDB:".\\CompilerIdCXX.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:".\\CompilerIdCXX.lib" /MACHINE:X64 Debug\\CMakeCXXCompilerId.obj
+        CompilerIdCXX.vcxproj -> C:\\Users\\USUARIO\\Desktop\\UNIVERSIDAD\\Septimo Semestre 2\\T├│picos Especiales En Telem├ítica\\Proyecto1 Grid_MR\\Project1-TET\\workers\\build\\CMakeFiles\\4.0.0\\CompilerIdCXX\\CompilerIdCXX.exe
+      PostBuildEvent:
+        for %%i in (cl.exe) do @echo CMAKE_CXX_COMPILER=%%~$PATH:i
+        :VCEnd
+        CMAKE_CXX_COMPILER=C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.44.35207\\bin\\Hostx64\\x64\\cl.exe
+      FinalizeBuildStatus:
+        Se eliminar├í el archivo "Debug\\CompilerIdCXX.tlog\\unsuccessfulbuild".
+        Aplicando tarea Touch a "Debug\\CompilerIdCXX.tlog\\CompilerIdCXX.lastbuildstate".
+      Compilaci├│n del proyecto terminada "C:\\Users\\USUARIO\\Desktop\\UNIVERSIDAD\\Septimo Semestre 2\\T├│picos Especiales En Telem├ítica\\Proyecto1 Grid_MR\\Project1-TET\\workers\\build\\CMakeFiles\\4.0.0\\CompilerIdCXX\\CompilerIdCXX.vcxproj" (destinos predeterminados).
+      
+      Compilaci├│n correcta.
+          0 Advertencia(s)
+          0 Errores
+      
+      Tiempo transcurrido 00:00:00.62
+      
+      
+      Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CompilerIdCXX.exe"
+      
+      Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CompilerIdCXX.vcxproj"
+      
+      The CXX compiler identification is MSVC, found in:
+        C:/Users/USUARIO/Desktop/UNIVERSIDAD/Septimo Semestre 2/Tópicos Especiales En Telemática/Proyecto1 Grid_MR/Project1-TET/workers/build/CMakeFiles/4.0.0/CompilerIdCXX/CompilerIdCXX.exe
+      
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.0/Modules/CMakeDetermineCompilerABI.cmake:83 (try_compile)"
+      - "C:/Program Files/CMake/share/cmake-4.0/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    checks:
+      - "Detecting C compiler ABI info"
+    directories:
+      source: "C:/Users/USUARIO/Desktop/UNIVERSIDAD/Septimo Semestre 2/T\u00f3picos Especiales En Telem\u00e1tica/Proyecto1 Grid_MR/Project1-TET/workers/build/CMakeFiles/CMakeScratch/TryCompile-i0b76u"
+      binary: "C:/Users/USUARIO/Desktop/UNIVERSIDAD/Septimo Semestre 2/T\u00f3picos Especiales En Telem\u00e1tica/Proyecto1 Grid_MR/Project1-TET/workers/build/CMakeFiles/CMakeScratch/TryCompile-i0b76u"
+    cmakeVariables:
+      CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS"
+      CMAKE_C_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+      VCPKG_INSTALLED_DIR: "C:/vcpkg/installed"
+      VCPKG_PREFER_SYSTEM_LIBS: "OFF"
+      VCPKG_TARGET_TRIPLET: "x64-windows"
+      Z_VCPKG_ROOT_DIR: "C:/vcpkg"
+    buildResult:
+      variable: "CMAKE_C_ABI_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/USUARIO/Desktop/UNIVERSIDAD/Septimo Semestre 2/Tópicos Especiales En Telemática/Proyecto1 Grid_MR/Project1-TET/workers/build/CMakeFiles/CMakeScratch/TryCompile-i0b76u'
+        
+        Run Build Command(s): "C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_971e3.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        Versi├│n de MSBuild 17.14.19+164abd434 para .NET Framework
+        Compilaci├│n iniciada a las 16/09/2025 5:50:12ÔÇ»p.ÔÇ»m..
+        
+        Proyecto "C:\\Users\\USUARIO\\Desktop\\UNIVERSIDAD\\Septimo Semestre 2\\T├│picos Especiales En Telem├ítica\\Proyecto1 Grid_MR\\Project1-TET\\workers\\build\\CMakeFiles\\CMakeScratch\\TryCompile-i0b76u\\cmTC_971e3.vcxproj" en nodo 1 (destinos predeterminados).
+        PrepareForBuild:
+          Creando directorio "cmTC_971e3.dir\\Debug\\".
+          La salida estructurada est├í habilitada. El formato del diagn├│stico del compilador reflejar├í la jerarqu├¡a de errores. Consulte https://aka.ms/cpp/structured-output para obtener m├ís detalles.
+          Creando directorio "C:\\Users\\USUARIO\\Desktop\\UNIVERSIDAD\\Septimo Semestre 2\\T├│picos Especiales En Telem├ítica\\Proyecto1 Grid_MR\\Project1-TET\\workers\\build\\CMakeFiles\\CMakeScratch\\TryCompile-i0b76u\\Debug\\".
+          Creando directorio "cmTC_971e3.dir\\Debug\\cmTC_971e3.tlog\\".
+        InitializeBuildStatus:
+          Se crear├í "cmTC_971e3.dir\\Debug\\cmTC_971e3.tlog\\unsuccessfulbuild" porque se especific├│ "AlwaysCreate".
+          Aplicando tarea Touch a "cmTC_971e3.dir\\Debug\\cmTC_971e3.tlog\\unsuccessfulbuild".
+        ClCompile:
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_971e3.dir\\Debug\\\\" /Fd"cmTC_971e3.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.0\\Modules\\CMakeCCompilerABI.c"
+          Compilador de optimizaci├│n de C/C++ de Microsoft (R) versi├│n 19.44.35215 para x64
+          (C) Microsoft Corporation. Todos los derechos reservados.
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_971e3.dir\\Debug\\\\" /Fd"cmTC_971e3.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.0\\Modules\\CMakeCCompilerABI.c"
+          CMakeCCompilerABI.c
+        Link:
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"C:\\Users\\USUARIO\\Desktop\\UNIVERSIDAD\\Septimo Semestre 2\\T├│picos Especiales En Telem├ítica\\Proyecto1 Grid_MR\\Project1-TET\\workers\\build\\CMakeFiles\\CMakeScratch\\TryCompile-i0b76u\\Debug\\cmTC_971e3.exe" /INCREMENTAL /ILK:"cmTC_971e3.dir\\Debug\\cmTC_971e3.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/USUARIO/Desktop/UNIVERSIDAD/Septimo Semestre 2/T├│picos Especiales En Telem├ítica/Proyecto1 Grid_MR/Project1-TET/workers/build/CMakeFiles/CMakeScratch/TryCompile-i0b76u/Debug/cmTC_971e3.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/USUARIO/Desktop/UNIVERSIDAD/Septimo Semestre 2/T├│picos Especiales En Telem├ítica/Proyecto1 Grid_MR/Project1-TET/workers/build/CMakeFiles/CMakeScratch/TryCompile-i0b76u/Debug/cmTC_971e3.lib" /MACHINE:X64  /machine:x64 cmTC_971e3.dir\\Debug\\CMakeCCompilerABI.obj
+          cmTC_971e3.vcxproj -> C:\\Users\\USUARIO\\Desktop\\UNIVERSIDAD\\Septimo Semestre 2\\T├│picos Especiales En Telem├ítica\\Proyecto1 Grid_MR\\Project1-TET\\workers\\build\\CMakeFiles\\CMakeScratch\\TryCompile-i0b76u\\Debug\\cmTC_971e3.exe
+        FinalizeBuildStatus:
+          Se eliminar├í el archivo "cmTC_971e3.dir\\Debug\\cmTC_971e3.tlog\\unsuccessfulbuild".
+          Aplicando tarea Touch a "cmTC_971e3.dir\\Debug\\cmTC_971e3.tlog\\cmTC_971e3.lastbuildstate".
+        Compilaci├│n del proyecto terminada "C:\\Users\\USUARIO\\Desktop\\UNIVERSIDAD\\Septimo Semestre 2\\T├│picos Especiales En Telem├ítica\\Proyecto1 Grid_MR\\Project1-TET\\workers\\build\\CMakeFiles\\CMakeScratch\\TryCompile-i0b76u\\cmTC_971e3.vcxproj" (destinos predeterminados).
+        
+        Compilaci├│n correcta.
+            0 Advertencia(s)
+            0 Errores
+        
+        Tiempo transcurrido 00:00:00.58
+        
+      exitCode: 0
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.0/Modules/CMakeDetermineCompilerABI.cmake:227 (message)"
+      - "C:/Program Files/CMake/share/cmake-4.0/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Parsed C implicit link information:
+        link line regex: [^( *|.*[/\\])(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)|link\\.exe|lld-link(\\.exe)?|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
+        linker tool regex: [^[ 	]*(->|")?[ 	]*(([^"]*[/\\])?(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)|link\\.exe|lld-link(\\.exe)?))("|,| |$)]
+        linker tool for 'C': C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/VC/Tools/MSVC/14.44.35207/bin/HostX64/x64/link.exe
+        implicit libs: []
+        implicit objs: []
+        implicit dirs: []
+        implicit fwks: []
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.0/Modules/Internal/CMakeDetermineLinkerId.cmake:36 (message)"
+      - "C:/Program Files/CMake/share/cmake-4.0/Modules/CMakeDetermineCompilerABI.cmake:264 (cmake_determine_linker_id)"
+      - "C:/Program Files/CMake/share/cmake-4.0/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Running the C compiler's linker: "C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/VC/Tools/MSVC/14.44.35207/bin/HostX64/x64/link.exe" "-v"
+      Microsoft (R) Incremental Linker Version 14.44.35215.0
+      Copyright (C) Microsoft Corporation.  All rights reserved.
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.0/Modules/CMakeDetermineCompilerABI.cmake:83 (try_compile)"
+      - "C:/Program Files/CMake/share/cmake-4.0/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    checks:
+      - "Detecting CXX compiler ABI info"
+    directories:
+      source: "C:/Users/USUARIO/Desktop/UNIVERSIDAD/Septimo Semestre 2/T\u00f3picos Especiales En Telem\u00e1tica/Proyecto1 Grid_MR/Project1-TET/workers/build/CMakeFiles/CMakeScratch/TryCompile-lzonsb"
+      binary: "C:/Users/USUARIO/Desktop/UNIVERSIDAD/Septimo Semestre 2/T\u00f3picos Especiales En Telem\u00e1tica/Proyecto1 Grid_MR/Project1-TET/workers/build/CMakeFiles/CMakeScratch/TryCompile-lzonsb"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /EHsc"
+      CMAKE_CXX_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
+      CMAKE_CXX_SCAN_FOR_MODULES: "OFF"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+      VCPKG_INSTALLED_DIR: "C:/vcpkg/installed"
+      VCPKG_PREFER_SYSTEM_LIBS: "OFF"
+      VCPKG_TARGET_TRIPLET: "x64-windows"
+      Z_VCPKG_ROOT_DIR: "C:/vcpkg"
+    buildResult:
+      variable: "CMAKE_CXX_ABI_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/USUARIO/Desktop/UNIVERSIDAD/Septimo Semestre 2/Tópicos Especiales En Telemática/Proyecto1 Grid_MR/Project1-TET/workers/build/CMakeFiles/CMakeScratch/TryCompile-lzonsb'
+        
+        Run Build Command(s): "C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_aae98.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        Versi├│n de MSBuild 17.14.19+164abd434 para .NET Framework
+        Compilaci├│n iniciada a las 16/09/2025 5:50:13ÔÇ»p.ÔÇ»m..
+        
+        Proyecto "C:\\Users\\USUARIO\\Desktop\\UNIVERSIDAD\\Septimo Semestre 2\\T├│picos Especiales En Telem├ítica\\Proyecto1 Grid_MR\\Project1-TET\\workers\\build\\CMakeFiles\\CMakeScratch\\TryCompile-lzonsb\\cmTC_aae98.vcxproj" en nodo 1 (destinos predeterminados).
+        PrepareForBuild:
+          Creando directorio "cmTC_aae98.dir\\Debug\\".
+          La salida estructurada est├í habilitada. El formato del diagn├│stico del compilador reflejar├í la jerarqu├¡a de errores. Consulte https://aka.ms/cpp/structured-output para obtener m├ís detalles.
+          Creando directorio "C:\\Users\\USUARIO\\Desktop\\UNIVERSIDAD\\Septimo Semestre 2\\T├│picos Especiales En Telem├ítica\\Proyecto1 Grid_MR\\Project1-TET\\workers\\build\\CMakeFiles\\CMakeScratch\\TryCompile-lzonsb\\Debug\\".
+          Creando directorio "cmTC_aae98.dir\\Debug\\cmTC_aae98.tlog\\".
+        InitializeBuildStatus:
+          Se crear├í "cmTC_aae98.dir\\Debug\\cmTC_aae98.tlog\\unsuccessfulbuild" porque se especific├│ "AlwaysCreate".
+          Aplicando tarea Touch a "cmTC_aae98.dir\\Debug\\cmTC_aae98.tlog\\unsuccessfulbuild".
+        ClCompile:
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_aae98.dir\\Debug\\\\" /Fd"cmTC_aae98.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TP /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.0\\Modules\\CMakeCXXCompilerABI.cpp"
+          Compilador de optimizaci├│n de C/C++ de Microsoft (R) versi├│n 19.44.35215 para x64
+          (C) Microsoft Corporation. Todos los derechos reservados.
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_aae98.dir\\Debug\\\\" /Fd"cmTC_aae98.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TP /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.0\\Modules\\CMakeCXXCompilerABI.cpp"
+          CMakeCXXCompilerABI.cpp
+        Link:
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"C:\\Users\\USUARIO\\Desktop\\UNIVERSIDAD\\Septimo Semestre 2\\T├│picos Especiales En Telem├ítica\\Proyecto1 Grid_MR\\Project1-TET\\workers\\build\\CMakeFiles\\CMakeScratch\\TryCompile-lzonsb\\Debug\\cmTC_aae98.exe" /INCREMENTAL /ILK:"cmTC_aae98.dir\\Debug\\cmTC_aae98.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/USUARIO/Desktop/UNIVERSIDAD/Septimo Semestre 2/T├│picos Especiales En Telem├ítica/Proyecto1 Grid_MR/Project1-TET/workers/build/CMakeFiles/CMakeScratch/TryCompile-lzonsb/Debug/cmTC_aae98.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/USUARIO/Desktop/UNIVERSIDAD/Septimo Semestre 2/T├│picos Especiales En Telem├ítica/Proyecto1 Grid_MR/Project1-TET/workers/build/CMakeFiles/CMakeScratch/TryCompile-lzonsb/Debug/cmTC_aae98.lib" /MACHINE:X64  /machine:x64 cmTC_aae98.dir\\Debug\\CMakeCXXCompilerABI.obj
+          cmTC_aae98.vcxproj -> C:\\Users\\USUARIO\\Desktop\\UNIVERSIDAD\\Septimo Semestre 2\\T├│picos Especiales En Telem├ítica\\Proyecto1 Grid_MR\\Project1-TET\\workers\\build\\CMakeFiles\\CMakeScratch\\TryCompile-lzonsb\\Debug\\cmTC_aae98.exe
+        FinalizeBuildStatus:
+          Se eliminar├í el archivo "cmTC_aae98.dir\\Debug\\cmTC_aae98.tlog\\unsuccessfulbuild".
+          Aplicando tarea Touch a "cmTC_aae98.dir\\Debug\\cmTC_aae98.tlog\\cmTC_aae98.lastbuildstate".
+        Compilaci├│n del proyecto terminada "C:\\Users\\USUARIO\\Desktop\\UNIVERSIDAD\\Septimo Semestre 2\\T├│picos Especiales En Telem├ítica\\Proyecto1 Grid_MR\\Project1-TET\\workers\\build\\CMakeFiles\\CMakeScratch\\TryCompile-lzonsb\\cmTC_aae98.vcxproj" (destinos predeterminados).
+        
+        Compilaci├│n correcta.
+            0 Advertencia(s)
+            0 Errores
+        
+        Tiempo transcurrido 00:00:00.51
+        
+      exitCode: 0
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.0/Modules/CMakeDetermineCompilerABI.cmake:227 (message)"
+      - "C:/Program Files/CMake/share/cmake-4.0/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Parsed CXX implicit link information:
+        link line regex: [^( *|.*[/\\])(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)|link\\.exe|lld-link(\\.exe)?|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
+        linker tool regex: [^[ 	]*(->|")?[ 	]*(([^"]*[/\\])?(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)|link\\.exe|lld-link(\\.exe)?))("|,| |$)]
+        linker tool for 'CXX': C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/VC/Tools/MSVC/14.44.35207/bin/HostX64/x64/link.exe
+        implicit libs: []
+        implicit objs: []
+        implicit dirs: []
+        implicit fwks: []
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.0/Modules/Internal/CMakeDetermineLinkerId.cmake:36 (message)"
+      - "C:/Program Files/CMake/share/cmake-4.0/Modules/CMakeDetermineCompilerABI.cmake:264 (cmake_determine_linker_id)"
+      - "C:/Program Files/CMake/share/cmake-4.0/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Running the CXX compiler's linker: "C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/VC/Tools/MSVC/14.44.35207/bin/HostX64/x64/link.exe" "-v"
+      Microsoft (R) Incremental Linker Version 14.44.35215.0
+      Copyright (C) Microsoft Corporation.  All rights reserved.
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.0/Modules/Internal/CheckSourceCompiles.cmake:104 (try_compile)"
+      - "C:/Program Files/CMake/share/cmake-4.0/Modules/CheckCSourceCompiles.cmake:58 (cmake_check_source_compiles)"
+      - "C:/Program Files/CMake/share/cmake-4.0/Modules/FindThreads.cmake:97 (check_c_source_compiles)"
+      - "C:/Program Files/CMake/share/cmake-4.0/Modules/FindThreads.cmake:163 (_threads_check_libc)"
+      - "C:/vcpkg/scripts/buildsystems/vcpkg.cmake:896 (_find_package)"
+      - "C:/Program Files/CMake/share/cmake-4.0/Modules/CMakeFindDependencyMacro.cmake:78 (find_package)"
+      - "C:/vcpkg/installed/x64-windows/share/absl/abslConfig.cmake:4 (find_dependency)"
+      - "C:/vcpkg/scripts/buildsystems/vcpkg.cmake:896 (_find_package)"
+      - "C:/vcpkg/installed/x64-windows/share/protobuf/protobuf-config.cmake:7 (find_package)"
+      - "C:/vcpkg/installed/x64-windows/share/protobuf/vcpkg-cmake-wrapper.cmake:3 (_find_package)"
+      - "C:/vcpkg/scripts/buildsystems/vcpkg.cmake:850 (include)"
+      - "C:/Program Files/CMake/share/cmake-4.0/Modules/CMakeFindDependencyMacro.cmake:78 (find_package)"
+      - "C:/vcpkg/installed/x64-windows/share/grpc/gRPCConfig.cmake:9 (find_dependency)"
+      - "C:/vcpkg/scripts/buildsystems/vcpkg.cmake:894 (_find_package)"
+      - "CMakeLists.txt:11 (find_package)"
+    checks:
+      - "Performing Test CMAKE_HAVE_LIBC_PTHREAD"
+    directories:
+      source: "C:/Users/USUARIO/Desktop/UNIVERSIDAD/Septimo Semestre 2/T\u00f3picos Especiales En Telem\u00e1tica/Proyecto1 Grid_MR/Project1-TET/workers/build/CMakeFiles/CMakeScratch/TryCompile-aj4cxr"
+      binary: "C:/Users/USUARIO/Desktop/UNIVERSIDAD/Septimo Semestre 2/T\u00f3picos Especiales En Telem\u00e1tica/Proyecto1 Grid_MR/Project1-TET/workers/build/CMakeFiles/CMakeScratch/TryCompile-aj4cxr"
+    cmakeVariables:
+      CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS"
+      CMAKE_C_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+      CMAKE_MODULE_PATH: "C:/vcpkg/installed/x64-windows/share/grpc/modules"
+      VCPKG_INSTALLED_DIR: "C:/vcpkg/installed"
+      VCPKG_PREFER_SYSTEM_LIBS: "OFF"
+      VCPKG_TARGET_TRIPLET: "x64-windows"
+      Z_VCPKG_ROOT_DIR: "C:/vcpkg"
+    buildResult:
+      variable: "CMAKE_HAVE_LIBC_PTHREAD"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/USUARIO/Desktop/UNIVERSIDAD/Septimo Semestre 2/Tópicos Especiales En Telemática/Proyecto1 Grid_MR/Project1-TET/workers/build/CMakeFiles/CMakeScratch/TryCompile-aj4cxr'
+        
+        Run Build Command(s): "C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_96ba3.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        Versi├│n de MSBuild 17.14.19+164abd434 para .NET Framework
+        Compilaci├│n iniciada a las 16/09/2025 5:50:14ÔÇ»p.ÔÇ»m..
+        
+        Proyecto "C:\\Users\\USUARIO\\Desktop\\UNIVERSIDAD\\Septimo Semestre 2\\T├│picos Especiales En Telem├ítica\\Proyecto1 Grid_MR\\Project1-TET\\workers\\build\\CMakeFiles\\CMakeScratch\\TryCompile-aj4cxr\\cmTC_96ba3.vcxproj" en nodo 1 (destinos predeterminados).
+        PrepareForBuild:
+          Creando directorio "cmTC_96ba3.dir\\Debug\\".
+          La salida estructurada est├í habilitada. El formato del diagn├│stico del compilador reflejar├í la jerarqu├¡a de errores. Consulte https://aka.ms/cpp/structured-output para obtener m├ís detalles.
+          Creando directorio "C:\\Users\\USUARIO\\Desktop\\UNIVERSIDAD\\Septimo Semestre 2\\T├│picos Especiales En Telem├ítica\\Proyecto1 Grid_MR\\Project1-TET\\workers\\build\\CMakeFiles\\CMakeScratch\\TryCompile-aj4cxr\\Debug\\".
+          Creando directorio "cmTC_96ba3.dir\\Debug\\cmTC_96ba3.tlog\\".
+        InitializeBuildStatus:
+          Se crear├í "cmTC_96ba3.dir\\Debug\\cmTC_96ba3.tlog\\unsuccessfulbuild" porque se especific├│ "AlwaysCreate".
+          Aplicando tarea Touch a "cmTC_96ba3.dir\\Debug\\cmTC_96ba3.tlog\\unsuccessfulbuild".
+        ClCompile:
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CMAKE_HAVE_LIBC_PTHREAD /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_96ba3.dir\\Debug\\\\" /Fd"cmTC_96ba3.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Users\\USUARIO\\Desktop\\UNIVERSIDAD\\Septimo Semestre 2\\T├│picos Especiales En Telem├ítica\\Proyecto1 Grid_MR\\Project1-TET\\workers\\build\\CMakeFiles\\CMakeScratch\\TryCompile-aj4cxr\\src.c"
+          Compilador de optimizaci├│n de C/C++ de Microsoft (R) versi├│n 19.44.35215 para x64
+          (C) Microsoft Corporation. Todos los derechos reservados.
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CMAKE_HAVE_LIBC_PTHREAD /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_96ba3.dir\\Debug\\\\" /Fd"cmTC_96ba3.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Users\\USUARIO\\Desktop\\UNIVERSIDAD\\Septimo Semestre 2\\T├│picos Especiales En Telem├ítica\\Proyecto1 Grid_MR\\Project1-TET\\workers\\build\\CMakeFiles\\CMakeScratch\\TryCompile-aj4cxr\\src.c"
+          src.c
+        C:\\Users\\USUARIO\\Desktop\\UNIVERSIDAD\\Septimo Semestre 2\\T├│picos Especiales En Telem├ítica\\Proyecto1 Grid_MR\\Project1-TET\\workers\\build\\CMakeFiles\\CMakeScratch\\TryCompile-aj4cxr\\src.c(1,10): error C1083: No se puede abrir el archivo incluir: 'pthread.h': No such file or directory [C:\\Users\\USUARIO\\Desktop\\UNIVERSIDAD\\Septimo Semestre 2\\T├│picos Especiales En Telem├ítica\\Proyecto1 Grid_MR\\Project1-TET\\workers\\build\\CMakeFiles\\CMakeScratch\\TryCompile-aj4cxr\\cmTC_96ba3.vcxproj]
+        Compilaci├│n del proyecto terminada "C:\\Users\\USUARIO\\Desktop\\UNIVERSIDAD\\Septimo Semestre 2\\T├│picos Especiales En Telem├ítica\\Proyecto1 Grid_MR\\Project1-TET\\workers\\build\\CMakeFiles\\CMakeScratch\\TryCompile-aj4cxr\\cmTC_96ba3.vcxproj" (destinos predeterminados) -- ERROR.
+        
+        ERROR al compilar.
+        
+        "C:\\Users\\USUARIO\\Desktop\\UNIVERSIDAD\\Septimo Semestre 2\\T├│picos Especiales En Telem├ítica\\Proyecto1 Grid_MR\\Project1-TET\\workers\\build\\CMakeFiles\\CMakeScratch\\TryCompile-aj4cxr\\cmTC_96ba3.vcxproj" (destino predeterminado) (1) ->
+        (ClCompile destino) -> 
+          C:\\Users\\USUARIO\\Desktop\\UNIVERSIDAD\\Septimo Semestre 2\\T├│picos Especiales En Telem├ítica\\Proyecto1 Grid_MR\\Project1-TET\\workers\\build\\CMakeFiles\\CMakeScratch\\TryCompile-aj4cxr\\src.c(1,10): error C1083: No se puede abrir el archivo incluir: 'pthread.h': No such file or directory [C:\\Users\\USUARIO\\Desktop\\UNIVERSIDAD\\Septimo Semestre 2\\T├│picos Especiales En Telem├ítica\\Proyecto1 Grid_MR\\Project1-TET\\workers\\build\\CMakeFiles\\CMakeScratch\\TryCompile-aj4cxr\\cmTC_96ba3.vcxproj]
+        
+            0 Advertencia(s)
+            1 Errores
+        
+        Tiempo transcurrido 00:00:00.39
+        
+      exitCode: 1
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.0/Modules/CheckLibraryExists.cmake:112 (try_compile)"
+      - "C:/Program Files/CMake/share/cmake-4.0/Modules/FindThreads.cmake:112 (check_library_exists)"
+      - "C:/Program Files/CMake/share/cmake-4.0/Modules/FindThreads.cmake:175 (_threads_check_lib)"
+      - "C:/vcpkg/scripts/buildsystems/vcpkg.cmake:896 (_find_package)"
+      - "C:/Program Files/CMake/share/cmake-4.0/Modules/CMakeFindDependencyMacro.cmake:78 (find_package)"
+      - "C:/vcpkg/installed/x64-windows/share/absl/abslConfig.cmake:4 (find_dependency)"
+      - "C:/vcpkg/scripts/buildsystems/vcpkg.cmake:896 (_find_package)"
+      - "C:/vcpkg/installed/x64-windows/share/protobuf/protobuf-config.cmake:7 (find_package)"
+      - "C:/vcpkg/installed/x64-windows/share/protobuf/vcpkg-cmake-wrapper.cmake:3 (_find_package)"
+      - "C:/vcpkg/scripts/buildsystems/vcpkg.cmake:850 (include)"
+      - "C:/Program Files/CMake/share/cmake-4.0/Modules/CMakeFindDependencyMacro.cmake:78 (find_package)"
+      - "C:/vcpkg/installed/x64-windows/share/grpc/gRPCConfig.cmake:9 (find_dependency)"
+      - "C:/vcpkg/scripts/buildsystems/vcpkg.cmake:894 (_find_package)"
+      - "CMakeLists.txt:11 (find_package)"
+    checks:
+      - "Looking for pthread_create in pthreads"
+    directories:
+      source: "C:/Users/USUARIO/Desktop/UNIVERSIDAD/Septimo Semestre 2/T\u00f3picos Especiales En Telem\u00e1tica/Proyecto1 Grid_MR/Project1-TET/workers/build/CMakeFiles/CMakeScratch/TryCompile-fxlrof"
+      binary: "C:/Users/USUARIO/Desktop/UNIVERSIDAD/Septimo Semestre 2/T\u00f3picos Especiales En Telem\u00e1tica/Proyecto1 Grid_MR/Project1-TET/workers/build/CMakeFiles/CMakeScratch/TryCompile-fxlrof"
+    cmakeVariables:
+      CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS"
+      CMAKE_C_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+      CMAKE_MODULE_PATH: "C:/vcpkg/installed/x64-windows/share/grpc/modules"
+      VCPKG_INSTALLED_DIR: "C:/vcpkg/installed"
+      VCPKG_PREFER_SYSTEM_LIBS: "OFF"
+      VCPKG_TARGET_TRIPLET: "x64-windows"
+      Z_VCPKG_ROOT_DIR: "C:/vcpkg"
+    buildResult:
+      variable: "CMAKE_HAVE_PTHREADS_CREATE"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/USUARIO/Desktop/UNIVERSIDAD/Septimo Semestre 2/Tópicos Especiales En Telemática/Proyecto1 Grid_MR/Project1-TET/workers/build/CMakeFiles/CMakeScratch/TryCompile-fxlrof'
+        
+        Run Build Command(s): "C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_3e289.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        Versi├│n de MSBuild 17.14.19+164abd434 para .NET Framework
+        Compilaci├│n iniciada a las 16/09/2025 5:50:15ÔÇ»p.ÔÇ»m..
+        
+        Proyecto "C:\\Users\\USUARIO\\Desktop\\UNIVERSIDAD\\Septimo Semestre 2\\T├│picos Especiales En Telem├ítica\\Proyecto1 Grid_MR\\Project1-TET\\workers\\build\\CMakeFiles\\CMakeScratch\\TryCompile-fxlrof\\cmTC_3e289.vcxproj" en nodo 1 (destinos predeterminados).
+        PrepareForBuild:
+          Creando directorio "cmTC_3e289.dir\\Debug\\".
+          La salida estructurada est├í habilitada. El formato del diagn├│stico del compilador reflejar├í la jerarqu├¡a de errores. Consulte https://aka.ms/cpp/structured-output para obtener m├ís detalles.
+          Creando directorio "C:\\Users\\USUARIO\\Desktop\\UNIVERSIDAD\\Septimo Semestre 2\\T├│picos Especiales En Telem├ítica\\Proyecto1 Grid_MR\\Project1-TET\\workers\\build\\CMakeFiles\\CMakeScratch\\TryCompile-fxlrof\\Debug\\".
+          Creando directorio "cmTC_3e289.dir\\Debug\\cmTC_3e289.tlog\\".
+        InitializeBuildStatus:
+          Se crear├í "cmTC_3e289.dir\\Debug\\cmTC_3e289.tlog\\unsuccessfulbuild" porque se especific├│ "AlwaysCreate".
+          Aplicando tarea Touch a "cmTC_3e289.dir\\Debug\\cmTC_3e289.tlog\\unsuccessfulbuild".
+        ClCompile:
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_3e289.dir\\Debug\\\\" /Fd"cmTC_3e289.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Users\\USUARIO\\Desktop\\UNIVERSIDAD\\Septimo Semestre 2\\T├│picos Especiales En Telem├ítica\\Proyecto1 Grid_MR\\Project1-TET\\workers\\build\\CMakeFiles\\CMakeScratch\\TryCompile-fxlrof\\CheckFunctionExists.c"
+          Compilador de optimizaci├│n de C/C++ de Microsoft (R) versi├│n 19.44.35215 para x64
+          (C) Microsoft Corporation. Todos los derechos reservados.
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_3e289.dir\\Debug\\\\" /Fd"cmTC_3e289.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Users\\USUARIO\\Desktop\\UNIVERSIDAD\\Septimo Semestre 2\\T├│picos Especiales En Telem├ítica\\Proyecto1 Grid_MR\\Project1-TET\\workers\\build\\CMakeFiles\\CMakeScratch\\TryCompile-fxlrof\\CheckFunctionExists.c"
+          CheckFunctionExists.c
+        Link:
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"C:\\Users\\USUARIO\\Desktop\\UNIVERSIDAD\\Septimo Semestre 2\\T├│picos Especiales En Telem├ítica\\Proyecto1 Grid_MR\\Project1-TET\\workers\\build\\CMakeFiles\\CMakeScratch\\TryCompile-fxlrof\\Debug\\cmTC_3e289.exe" /INCREMENTAL /ILK:"cmTC_3e289.dir\\Debug\\cmTC_3e289.ilk" /NOLOGO pthreads.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/USUARIO/Desktop/UNIVERSIDAD/Septimo Semestre 2/T├│picos Especiales En Telem├ítica/Proyecto1 Grid_MR/Project1-TET/workers/build/CMakeFiles/CMakeScratch/TryCompile-fxlrof/Debug/cmTC_3e289.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/USUARIO/Desktop/UNIVERSIDAD/Septimo Semestre 2/T├│picos Especiales En Telem├ítica/Proyecto1 Grid_MR/Project1-TET/workers/build/CMakeFiles/CMakeScratch/TryCompile-fxlrof/Debug/cmTC_3e289.lib" /MACHINE:X64  /machine:x64 cmTC_3e289.dir\\Debug\\CheckFunctionExists.obj
+        LINK : fatal error LNK1104: no se puede abrir el archivo 'pthreads.lib' [C:\\Users\\USUARIO\\Desktop\\UNIVERSIDAD\\Septimo Semestre 2\\T├│picos Especiales En Telem├ítica\\Proyecto1 Grid_MR\\Project1-TET\\workers\\build\\CMakeFiles\\CMakeScratch\\TryCompile-fxlrof\\cmTC_3e289.vcxproj]
+        Compilaci├│n del proyecto terminada "C:\\Users\\USUARIO\\Desktop\\UNIVERSIDAD\\Septimo Semestre 2\\T├│picos Especiales En Telem├ítica\\Proyecto1 Grid_MR\\Project1-TET\\workers\\build\\CMakeFiles\\CMakeScratch\\TryCompile-fxlrof\\cmTC_3e289.vcxproj" (destinos predeterminados) -- ERROR.
+        
+        ERROR al compilar.
+        
+        "C:\\Users\\USUARIO\\Desktop\\UNIVERSIDAD\\Septimo Semestre 2\\T├│picos Especiales En Telem├ítica\\Proyecto1 Grid_MR\\Project1-TET\\workers\\build\\CMakeFiles\\CMakeScratch\\TryCompile-fxlrof\\cmTC_3e289.vcxproj" (destino predeterminado) (1) ->
+        (Link destino) -> 
+          LINK : fatal error LNK1104: no se puede abrir el archivo 'pthreads.lib' [C:\\Users\\USUARIO\\Desktop\\UNIVERSIDAD\\Septimo Semestre 2\\T├│picos Especiales En Telem├ítica\\Proyecto1 Grid_MR\\Project1-TET\\workers\\build\\CMakeFiles\\CMakeScratch\\TryCompile-fxlrof\\cmTC_3e289.vcxproj]
+        
+            0 Advertencia(s)
+            1 Errores
+        
+        Tiempo transcurrido 00:00:00.45
+        
+      exitCode: 1
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/CMake/share/cmake-4.0/Modules/CheckLibraryExists.cmake:112 (try_compile)"
+      - "C:/Program Files/CMake/share/cmake-4.0/Modules/FindThreads.cmake:112 (check_library_exists)"
+      - "C:/Program Files/CMake/share/cmake-4.0/Modules/FindThreads.cmake:176 (_threads_check_lib)"
+      - "C:/vcpkg/scripts/buildsystems/vcpkg.cmake:896 (_find_package)"
+      - "C:/Program Files/CMake/share/cmake-4.0/Modules/CMakeFindDependencyMacro.cmake:78 (find_package)"
+      - "C:/vcpkg/installed/x64-windows/share/absl/abslConfig.cmake:4 (find_dependency)"
+      - "C:/vcpkg/scripts/buildsystems/vcpkg.cmake:896 (_find_package)"
+      - "C:/vcpkg/installed/x64-windows/share/protobuf/protobuf-config.cmake:7 (find_package)"
+      - "C:/vcpkg/installed/x64-windows/share/protobuf/vcpkg-cmake-wrapper.cmake:3 (_find_package)"
+      - "C:/vcpkg/scripts/buildsystems/vcpkg.cmake:850 (include)"
+      - "C:/Program Files/CMake/share/cmake-4.0/Modules/CMakeFindDependencyMacro.cmake:78 (find_package)"
+      - "C:/vcpkg/installed/x64-windows/share/grpc/gRPCConfig.cmake:9 (find_dependency)"
+      - "C:/vcpkg/scripts/buildsystems/vcpkg.cmake:894 (_find_package)"
+      - "CMakeLists.txt:11 (find_package)"
+    checks:
+      - "Looking for pthread_create in pthread"
+    directories:
+      source: "C:/Users/USUARIO/Desktop/UNIVERSIDAD/Septimo Semestre 2/T\u00f3picos Especiales En Telem\u00e1tica/Proyecto1 Grid_MR/Project1-TET/workers/build/CMakeFiles/CMakeScratch/TryCompile-jrq5ky"
+      binary: "C:/Users/USUARIO/Desktop/UNIVERSIDAD/Septimo Semestre 2/T\u00f3picos Especiales En Telem\u00e1tica/Proyecto1 Grid_MR/Project1-TET/workers/build/CMakeFiles/CMakeScratch/TryCompile-jrq5ky"
+    cmakeVariables:
+      CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS"
+      CMAKE_C_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+      CMAKE_MODULE_PATH: "C:/vcpkg/installed/x64-windows/share/grpc/modules"
+      VCPKG_INSTALLED_DIR: "C:/vcpkg/installed"
+      VCPKG_PREFER_SYSTEM_LIBS: "OFF"
+      VCPKG_TARGET_TRIPLET: "x64-windows"
+      Z_VCPKG_ROOT_DIR: "C:/vcpkg"
+    buildResult:
+      variable: "CMAKE_HAVE_PTHREAD_CREATE"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/USUARIO/Desktop/UNIVERSIDAD/Septimo Semestre 2/Tópicos Especiales En Telemática/Proyecto1 Grid_MR/Project1-TET/workers/build/CMakeFiles/CMakeScratch/TryCompile-jrq5ky'
+        
+        Run Build Command(s): "C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_4470d.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        Versi├│n de MSBuild 17.14.19+164abd434 para .NET Framework
+        Compilaci├│n iniciada a las 16/09/2025 5:50:15ÔÇ»p.ÔÇ»m..
+        
+        Proyecto "C:\\Users\\USUARIO\\Desktop\\UNIVERSIDAD\\Septimo Semestre 2\\T├│picos Especiales En Telem├ítica\\Proyecto1 Grid_MR\\Project1-TET\\workers\\build\\CMakeFiles\\CMakeScratch\\TryCompile-jrq5ky\\cmTC_4470d.vcxproj" en nodo 1 (destinos predeterminados).
+        PrepareForBuild:
+          Creando directorio "cmTC_4470d.dir\\Debug\\".
+          La salida estructurada est├í habilitada. El formato del diagn├│stico del compilador reflejar├í la jerarqu├¡a de errores. Consulte https://aka.ms/cpp/structured-output para obtener m├ís detalles.
+          Creando directorio "C:\\Users\\USUARIO\\Desktop\\UNIVERSIDAD\\Septimo Semestre 2\\T├│picos Especiales En Telem├ítica\\Proyecto1 Grid_MR\\Project1-TET\\workers\\build\\CMakeFiles\\CMakeScratch\\TryCompile-jrq5ky\\Debug\\".
+          Creando directorio "cmTC_4470d.dir\\Debug\\cmTC_4470d.tlog\\".
+        InitializeBuildStatus:
+          Se crear├í "cmTC_4470d.dir\\Debug\\cmTC_4470d.tlog\\unsuccessfulbuild" porque se especific├│ "AlwaysCreate".
+          Aplicando tarea Touch a "cmTC_4470d.dir\\Debug\\cmTC_4470d.tlog\\unsuccessfulbuild".
+        ClCompile:
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_4470d.dir\\Debug\\\\" /Fd"cmTC_4470d.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Users\\USUARIO\\Desktop\\UNIVERSIDAD\\Septimo Semestre 2\\T├│picos Especiales En Telem├ítica\\Proyecto1 Grid_MR\\Project1-TET\\workers\\build\\CMakeFiles\\CMakeScratch\\TryCompile-jrq5ky\\CheckFunctionExists.c"
+          Compilador de optimizaci├│n de C/C++ de Microsoft (R) versi├│n 19.44.35215 para x64
+          (C) Microsoft Corporation. Todos los derechos reservados.
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_4470d.dir\\Debug\\\\" /Fd"cmTC_4470d.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Users\\USUARIO\\Desktop\\UNIVERSIDAD\\Septimo Semestre 2\\T├│picos Especiales En Telem├ítica\\Proyecto1 Grid_MR\\Project1-TET\\workers\\build\\CMakeFiles\\CMakeScratch\\TryCompile-jrq5ky\\CheckFunctionExists.c"
+          CheckFunctionExists.c
+        Link:
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"C:\\Users\\USUARIO\\Desktop\\UNIVERSIDAD\\Septimo Semestre 2\\T├│picos Especiales En Telem├ítica\\Proyecto1 Grid_MR\\Project1-TET\\workers\\build\\CMakeFiles\\CMakeScratch\\TryCompile-jrq5ky\\Debug\\cmTC_4470d.exe" /INCREMENTAL /ILK:"cmTC_4470d.dir\\Debug\\cmTC_4470d.ilk" /NOLOGO pthread.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/USUARIO/Desktop/UNIVERSIDAD/Septimo Semestre 2/T├│picos Especiales En Telem├ítica/Proyecto1 Grid_MR/Project1-TET/workers/build/CMakeFiles/CMakeScratch/TryCompile-jrq5ky/Debug/cmTC_4470d.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/USUARIO/Desktop/UNIVERSIDAD/Septimo Semestre 2/T├│picos Especiales En Telem├ítica/Proyecto1 Grid_MR/Project1-TET/workers/build/CMakeFiles/CMakeScratch/TryCompile-jrq5ky/Debug/cmTC_4470d.lib" /MACHINE:X64  /machine:x64 cmTC_4470d.dir\\Debug\\CheckFunctionExists.obj
+        LINK : fatal error LNK1104: no se puede abrir el archivo 'pthread.lib' [C:\\Users\\USUARIO\\Desktop\\UNIVERSIDAD\\Septimo Semestre 2\\T├│picos Especiales En Telem├ítica\\Proyecto1 Grid_MR\\Project1-TET\\workers\\build\\CMakeFiles\\CMakeScratch\\TryCompile-jrq5ky\\cmTC_4470d.vcxproj]
+        Compilaci├│n del proyecto terminada "C:\\Users\\USUARIO\\Desktop\\UNIVERSIDAD\\Septimo Semestre 2\\T├│picos Especiales En Telem├ítica\\Proyecto1 Grid_MR\\Project1-TET\\workers\\build\\CMakeFiles\\CMakeScratch\\TryCompile-jrq5ky\\cmTC_4470d.vcxproj" (destinos predeterminados) -- ERROR.
+        
+        ERROR al compilar.
+        
+        "C:\\Users\\USUARIO\\Desktop\\UNIVERSIDAD\\Septimo Semestre 2\\T├│picos Especiales En Telem├ítica\\Proyecto1 Grid_MR\\Project1-TET\\workers\\build\\CMakeFiles\\CMakeScratch\\TryCompile-jrq5ky\\cmTC_4470d.vcxproj" (destino predeterminado) (1) ->
+        (Link destino) -> 
+          LINK : fatal error LNK1104: no se puede abrir el archivo 'pthread.lib' [C:\\Users\\USUARIO\\Desktop\\UNIVERSIDAD\\Septimo Semestre 2\\T├│picos Especiales En Telem├ítica\\Proyecto1 Grid_MR\\Project1-TET\\workers\\build\\CMakeFiles\\CMakeScratch\\TryCompile-jrq5ky\\cmTC_4470d.vcxproj]
+        
+            0 Advertencia(s)
+            1 Errores
+        
+        Tiempo transcurrido 00:00:00.41
+        
+      exitCode: 1
+...

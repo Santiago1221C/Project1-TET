@@ -19,10 +19,12 @@
 #include <grpcpp/server_context.h>
 #include <grpcpp/impl/service_type.h>
 #include <grpcpp/support/sync_stream.h>
-namespace gridmr {
+namespace worker {
 
 static const char* WorkerService_method_names[] = {
-  "/gridmr.WorkerService/ProcessTask",
+  "/worker.WorkerService/ProcessMap",
+  "/worker.WorkerService/ProcessReduce",
+  "/worker.WorkerService/CheckHealth",
 };
 
 std::unique_ptr< WorkerService::Stub> WorkerService::NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options) {
@@ -32,28 +34,76 @@ std::unique_ptr< WorkerService::Stub> WorkerService::NewStub(const std::shared_p
 }
 
 WorkerService::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options)
-  : channel_(channel), rpcmethod_ProcessTask_(WorkerService_method_names[0], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  : channel_(channel), rpcmethod_ProcessMap_(WorkerService_method_names[0], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_ProcessReduce_(WorkerService_method_names[1], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_CheckHealth_(WorkerService_method_names[2], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   {}
 
-::grpc::Status WorkerService::Stub::ProcessTask(::grpc::ClientContext* context, const ::gridmr::TaskRequest& request, ::gridmr::TaskResponse* response) {
-  return ::grpc::internal::BlockingUnaryCall< ::gridmr::TaskRequest, ::gridmr::TaskResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_ProcessTask_, context, request, response);
+::grpc::Status WorkerService::Stub::ProcessMap(::grpc::ClientContext* context, const ::worker::MapRequest& request, ::worker::MapResponse* response) {
+  return ::grpc::internal::BlockingUnaryCall< ::worker::MapRequest, ::worker::MapResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_ProcessMap_, context, request, response);
 }
 
-void WorkerService::Stub::async::ProcessTask(::grpc::ClientContext* context, const ::gridmr::TaskRequest* request, ::gridmr::TaskResponse* response, std::function<void(::grpc::Status)> f) {
-  ::grpc::internal::CallbackUnaryCall< ::gridmr::TaskRequest, ::gridmr::TaskResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_ProcessTask_, context, request, response, std::move(f));
+void WorkerService::Stub::async::ProcessMap(::grpc::ClientContext* context, const ::worker::MapRequest* request, ::worker::MapResponse* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall< ::worker::MapRequest, ::worker::MapResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_ProcessMap_, context, request, response, std::move(f));
 }
 
-void WorkerService::Stub::async::ProcessTask(::grpc::ClientContext* context, const ::gridmr::TaskRequest* request, ::gridmr::TaskResponse* response, ::grpc::ClientUnaryReactor* reactor) {
-  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_ProcessTask_, context, request, response, reactor);
+void WorkerService::Stub::async::ProcessMap(::grpc::ClientContext* context, const ::worker::MapRequest* request, ::worker::MapResponse* response, ::grpc::ClientUnaryReactor* reactor) {
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_ProcessMap_, context, request, response, reactor);
 }
 
-::grpc::ClientAsyncResponseReader< ::gridmr::TaskResponse>* WorkerService::Stub::PrepareAsyncProcessTaskRaw(::grpc::ClientContext* context, const ::gridmr::TaskRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::gridmr::TaskResponse, ::gridmr::TaskRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_ProcessTask_, context, request);
+::grpc::ClientAsyncResponseReader< ::worker::MapResponse>* WorkerService::Stub::PrepareAsyncProcessMapRaw(::grpc::ClientContext* context, const ::worker::MapRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::worker::MapResponse, ::worker::MapRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_ProcessMap_, context, request);
 }
 
-::grpc::ClientAsyncResponseReader< ::gridmr::TaskResponse>* WorkerService::Stub::AsyncProcessTaskRaw(::grpc::ClientContext* context, const ::gridmr::TaskRequest& request, ::grpc::CompletionQueue* cq) {
+::grpc::ClientAsyncResponseReader< ::worker::MapResponse>* WorkerService::Stub::AsyncProcessMapRaw(::grpc::ClientContext* context, const ::worker::MapRequest& request, ::grpc::CompletionQueue* cq) {
   auto* result =
-    this->PrepareAsyncProcessTaskRaw(context, request, cq);
+    this->PrepareAsyncProcessMapRaw(context, request, cq);
+  result->StartCall();
+  return result;
+}
+
+::grpc::Status WorkerService::Stub::ProcessReduce(::grpc::ClientContext* context, const ::worker::ReduceRequest& request, ::worker::ReduceResponse* response) {
+  return ::grpc::internal::BlockingUnaryCall< ::worker::ReduceRequest, ::worker::ReduceResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_ProcessReduce_, context, request, response);
+}
+
+void WorkerService::Stub::async::ProcessReduce(::grpc::ClientContext* context, const ::worker::ReduceRequest* request, ::worker::ReduceResponse* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall< ::worker::ReduceRequest, ::worker::ReduceResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_ProcessReduce_, context, request, response, std::move(f));
+}
+
+void WorkerService::Stub::async::ProcessReduce(::grpc::ClientContext* context, const ::worker::ReduceRequest* request, ::worker::ReduceResponse* response, ::grpc::ClientUnaryReactor* reactor) {
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_ProcessReduce_, context, request, response, reactor);
+}
+
+::grpc::ClientAsyncResponseReader< ::worker::ReduceResponse>* WorkerService::Stub::PrepareAsyncProcessReduceRaw(::grpc::ClientContext* context, const ::worker::ReduceRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::worker::ReduceResponse, ::worker::ReduceRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_ProcessReduce_, context, request);
+}
+
+::grpc::ClientAsyncResponseReader< ::worker::ReduceResponse>* WorkerService::Stub::AsyncProcessReduceRaw(::grpc::ClientContext* context, const ::worker::ReduceRequest& request, ::grpc::CompletionQueue* cq) {
+  auto* result =
+    this->PrepareAsyncProcessReduceRaw(context, request, cq);
+  result->StartCall();
+  return result;
+}
+
+::grpc::Status WorkerService::Stub::CheckHealth(::grpc::ClientContext* context, const ::worker::HealthCheckRequest& request, ::worker::HealthCheckResponse* response) {
+  return ::grpc::internal::BlockingUnaryCall< ::worker::HealthCheckRequest, ::worker::HealthCheckResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_CheckHealth_, context, request, response);
+}
+
+void WorkerService::Stub::async::CheckHealth(::grpc::ClientContext* context, const ::worker::HealthCheckRequest* request, ::worker::HealthCheckResponse* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall< ::worker::HealthCheckRequest, ::worker::HealthCheckResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_CheckHealth_, context, request, response, std::move(f));
+}
+
+void WorkerService::Stub::async::CheckHealth(::grpc::ClientContext* context, const ::worker::HealthCheckRequest* request, ::worker::HealthCheckResponse* response, ::grpc::ClientUnaryReactor* reactor) {
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_CheckHealth_, context, request, response, reactor);
+}
+
+::grpc::ClientAsyncResponseReader< ::worker::HealthCheckResponse>* WorkerService::Stub::PrepareAsyncCheckHealthRaw(::grpc::ClientContext* context, const ::worker::HealthCheckRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::worker::HealthCheckResponse, ::worker::HealthCheckRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_CheckHealth_, context, request);
+}
+
+::grpc::ClientAsyncResponseReader< ::worker::HealthCheckResponse>* WorkerService::Stub::AsyncCheckHealthRaw(::grpc::ClientContext* context, const ::worker::HealthCheckRequest& request, ::grpc::CompletionQueue* cq) {
+  auto* result =
+    this->PrepareAsyncCheckHealthRaw(context, request, cq);
   result->StartCall();
   return result;
 }
@@ -62,19 +112,53 @@ WorkerService::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       WorkerService_method_names[0],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< WorkerService::Service, ::gridmr::TaskRequest, ::gridmr::TaskResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
+      new ::grpc::internal::RpcMethodHandler< WorkerService::Service, ::worker::MapRequest, ::worker::MapResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
           [](WorkerService::Service* service,
              ::grpc::ServerContext* ctx,
-             const ::gridmr::TaskRequest* req,
-             ::gridmr::TaskResponse* resp) {
-               return service->ProcessTask(ctx, req, resp);
+             const ::worker::MapRequest* req,
+             ::worker::MapResponse* resp) {
+               return service->ProcessMap(ctx, req, resp);
+             }, this)));
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      WorkerService_method_names[1],
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< WorkerService::Service, ::worker::ReduceRequest, ::worker::ReduceResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
+          [](WorkerService::Service* service,
+             ::grpc::ServerContext* ctx,
+             const ::worker::ReduceRequest* req,
+             ::worker::ReduceResponse* resp) {
+               return service->ProcessReduce(ctx, req, resp);
+             }, this)));
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      WorkerService_method_names[2],
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< WorkerService::Service, ::worker::HealthCheckRequest, ::worker::HealthCheckResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
+          [](WorkerService::Service* service,
+             ::grpc::ServerContext* ctx,
+             const ::worker::HealthCheckRequest* req,
+             ::worker::HealthCheckResponse* resp) {
+               return service->CheckHealth(ctx, req, resp);
              }, this)));
 }
 
 WorkerService::Service::~Service() {
 }
 
-::grpc::Status WorkerService::Service::ProcessTask(::grpc::ServerContext* context, const ::gridmr::TaskRequest* request, ::gridmr::TaskResponse* response) {
+::grpc::Status WorkerService::Service::ProcessMap(::grpc::ServerContext* context, const ::worker::MapRequest* request, ::worker::MapResponse* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status WorkerService::Service::ProcessReduce(::grpc::ServerContext* context, const ::worker::ReduceRequest* request, ::worker::ReduceResponse* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status WorkerService::Service::CheckHealth(::grpc::ServerContext* context, const ::worker::HealthCheckRequest* request, ::worker::HealthCheckResponse* response) {
   (void) context;
   (void) request;
   (void) response;
@@ -82,5 +166,5 @@ WorkerService::Service::~Service() {
 }
 
 
-}  // namespace gridmr
+}  // namespace worker
 

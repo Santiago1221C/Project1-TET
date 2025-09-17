@@ -18,7 +18,7 @@ public class GridMRMaster {
         // Inicialización de los 5 componentes esenciales
         this.resourceManager = new ResourceManager();
         this.chunkManager = new ChunkManager();
-        this.scheduler = new Scheduler(resourceManager); // Pasar ResourceManager al Scheduler
+        this.scheduler = new Scheduler(); // Scheduler ahora es un componente de Spring
         this.jobManager = new JobManager(scheduler);
         this.domainAuthentication = new DomainAuthentication();
     }

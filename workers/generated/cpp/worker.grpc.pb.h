@@ -26,51 +26,92 @@
 #include <grpcpp/support/sync_stream.h>
 #include <grpcpp/ports_def.inc>
 
-namespace gridmr {
+namespace worker {
 
+// Servicio principal del Worker
 class WorkerService final {
  public:
   static constexpr char const* service_full_name() {
-    return "gridmr.WorkerService";
+    return "worker.WorkerService";
   }
   class StubInterface {
    public:
     virtual ~StubInterface() {}
-    virtual ::grpc::Status ProcessTask(::grpc::ClientContext* context, const ::gridmr::TaskRequest& request, ::gridmr::TaskResponse* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::gridmr::TaskResponse>> AsyncProcessTask(::grpc::ClientContext* context, const ::gridmr::TaskRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::gridmr::TaskResponse>>(AsyncProcessTaskRaw(context, request, cq));
+    virtual ::grpc::Status ProcessMap(::grpc::ClientContext* context, const ::worker::MapRequest& request, ::worker::MapResponse* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::worker::MapResponse>> AsyncProcessMap(::grpc::ClientContext* context, const ::worker::MapRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::worker::MapResponse>>(AsyncProcessMapRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::gridmr::TaskResponse>> PrepareAsyncProcessTask(::grpc::ClientContext* context, const ::gridmr::TaskRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::gridmr::TaskResponse>>(PrepareAsyncProcessTaskRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::worker::MapResponse>> PrepareAsyncProcessMap(::grpc::ClientContext* context, const ::worker::MapRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::worker::MapResponse>>(PrepareAsyncProcessMapRaw(context, request, cq));
+    }
+    virtual ::grpc::Status ProcessReduce(::grpc::ClientContext* context, const ::worker::ReduceRequest& request, ::worker::ReduceResponse* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::worker::ReduceResponse>> AsyncProcessReduce(::grpc::ClientContext* context, const ::worker::ReduceRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::worker::ReduceResponse>>(AsyncProcessReduceRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::worker::ReduceResponse>> PrepareAsyncProcessReduce(::grpc::ClientContext* context, const ::worker::ReduceRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::worker::ReduceResponse>>(PrepareAsyncProcessReduceRaw(context, request, cq));
+    }
+    virtual ::grpc::Status CheckHealth(::grpc::ClientContext* context, const ::worker::HealthCheckRequest& request, ::worker::HealthCheckResponse* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::worker::HealthCheckResponse>> AsyncCheckHealth(::grpc::ClientContext* context, const ::worker::HealthCheckRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::worker::HealthCheckResponse>>(AsyncCheckHealthRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::worker::HealthCheckResponse>> PrepareAsyncCheckHealth(::grpc::ClientContext* context, const ::worker::HealthCheckRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::worker::HealthCheckResponse>>(PrepareAsyncCheckHealthRaw(context, request, cq));
     }
     class async_interface {
      public:
       virtual ~async_interface() {}
-      virtual void ProcessTask(::grpc::ClientContext* context, const ::gridmr::TaskRequest* request, ::gridmr::TaskResponse* response, std::function<void(::grpc::Status)>) = 0;
-      virtual void ProcessTask(::grpc::ClientContext* context, const ::gridmr::TaskRequest* request, ::gridmr::TaskResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      virtual void ProcessMap(::grpc::ClientContext* context, const ::worker::MapRequest* request, ::worker::MapResponse* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void ProcessMap(::grpc::ClientContext* context, const ::worker::MapRequest* request, ::worker::MapResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      virtual void ProcessReduce(::grpc::ClientContext* context, const ::worker::ReduceRequest* request, ::worker::ReduceResponse* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void ProcessReduce(::grpc::ClientContext* context, const ::worker::ReduceRequest* request, ::worker::ReduceResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      virtual void CheckHealth(::grpc::ClientContext* context, const ::worker::HealthCheckRequest* request, ::worker::HealthCheckResponse* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void CheckHealth(::grpc::ClientContext* context, const ::worker::HealthCheckRequest* request, ::worker::HealthCheckResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
     };
     typedef class async_interface experimental_async_interface;
     virtual class async_interface* async() { return nullptr; }
     class async_interface* experimental_async() { return async(); }
    private:
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::gridmr::TaskResponse>* AsyncProcessTaskRaw(::grpc::ClientContext* context, const ::gridmr::TaskRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::gridmr::TaskResponse>* PrepareAsyncProcessTaskRaw(::grpc::ClientContext* context, const ::gridmr::TaskRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::worker::MapResponse>* AsyncProcessMapRaw(::grpc::ClientContext* context, const ::worker::MapRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::worker::MapResponse>* PrepareAsyncProcessMapRaw(::grpc::ClientContext* context, const ::worker::MapRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::worker::ReduceResponse>* AsyncProcessReduceRaw(::grpc::ClientContext* context, const ::worker::ReduceRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::worker::ReduceResponse>* PrepareAsyncProcessReduceRaw(::grpc::ClientContext* context, const ::worker::ReduceRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::worker::HealthCheckResponse>* AsyncCheckHealthRaw(::grpc::ClientContext* context, const ::worker::HealthCheckRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::worker::HealthCheckResponse>* PrepareAsyncCheckHealthRaw(::grpc::ClientContext* context, const ::worker::HealthCheckRequest& request, ::grpc::CompletionQueue* cq) = 0;
   };
   class Stub final : public StubInterface {
    public:
     Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
-    ::grpc::Status ProcessTask(::grpc::ClientContext* context, const ::gridmr::TaskRequest& request, ::gridmr::TaskResponse* response) override;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::gridmr::TaskResponse>> AsyncProcessTask(::grpc::ClientContext* context, const ::gridmr::TaskRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::gridmr::TaskResponse>>(AsyncProcessTaskRaw(context, request, cq));
+    ::grpc::Status ProcessMap(::grpc::ClientContext* context, const ::worker::MapRequest& request, ::worker::MapResponse* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::worker::MapResponse>> AsyncProcessMap(::grpc::ClientContext* context, const ::worker::MapRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::worker::MapResponse>>(AsyncProcessMapRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::gridmr::TaskResponse>> PrepareAsyncProcessTask(::grpc::ClientContext* context, const ::gridmr::TaskRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::gridmr::TaskResponse>>(PrepareAsyncProcessTaskRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::worker::MapResponse>> PrepareAsyncProcessMap(::grpc::ClientContext* context, const ::worker::MapRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::worker::MapResponse>>(PrepareAsyncProcessMapRaw(context, request, cq));
+    }
+    ::grpc::Status ProcessReduce(::grpc::ClientContext* context, const ::worker::ReduceRequest& request, ::worker::ReduceResponse* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::worker::ReduceResponse>> AsyncProcessReduce(::grpc::ClientContext* context, const ::worker::ReduceRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::worker::ReduceResponse>>(AsyncProcessReduceRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::worker::ReduceResponse>> PrepareAsyncProcessReduce(::grpc::ClientContext* context, const ::worker::ReduceRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::worker::ReduceResponse>>(PrepareAsyncProcessReduceRaw(context, request, cq));
+    }
+    ::grpc::Status CheckHealth(::grpc::ClientContext* context, const ::worker::HealthCheckRequest& request, ::worker::HealthCheckResponse* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::worker::HealthCheckResponse>> AsyncCheckHealth(::grpc::ClientContext* context, const ::worker::HealthCheckRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::worker::HealthCheckResponse>>(AsyncCheckHealthRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::worker::HealthCheckResponse>> PrepareAsyncCheckHealth(::grpc::ClientContext* context, const ::worker::HealthCheckRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::worker::HealthCheckResponse>>(PrepareAsyncCheckHealthRaw(context, request, cq));
     }
     class async final :
       public StubInterface::async_interface {
      public:
-      void ProcessTask(::grpc::ClientContext* context, const ::gridmr::TaskRequest* request, ::gridmr::TaskResponse* response, std::function<void(::grpc::Status)>) override;
-      void ProcessTask(::grpc::ClientContext* context, const ::gridmr::TaskRequest* request, ::gridmr::TaskResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
+      void ProcessMap(::grpc::ClientContext* context, const ::worker::MapRequest* request, ::worker::MapResponse* response, std::function<void(::grpc::Status)>) override;
+      void ProcessMap(::grpc::ClientContext* context, const ::worker::MapRequest* request, ::worker::MapResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
+      void ProcessReduce(::grpc::ClientContext* context, const ::worker::ReduceRequest* request, ::worker::ReduceResponse* response, std::function<void(::grpc::Status)>) override;
+      void ProcessReduce(::grpc::ClientContext* context, const ::worker::ReduceRequest* request, ::worker::ReduceResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
+      void CheckHealth(::grpc::ClientContext* context, const ::worker::HealthCheckRequest* request, ::worker::HealthCheckResponse* response, std::function<void(::grpc::Status)>) override;
+      void CheckHealth(::grpc::ClientContext* context, const ::worker::HealthCheckRequest* request, ::worker::HealthCheckResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
      private:
       friend class Stub;
       explicit async(Stub* stub): stub_(stub) { }
@@ -82,9 +123,15 @@ class WorkerService final {
    private:
     std::shared_ptr< ::grpc::ChannelInterface> channel_;
     class async async_stub_{this};
-    ::grpc::ClientAsyncResponseReader< ::gridmr::TaskResponse>* AsyncProcessTaskRaw(::grpc::ClientContext* context, const ::gridmr::TaskRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::gridmr::TaskResponse>* PrepareAsyncProcessTaskRaw(::grpc::ClientContext* context, const ::gridmr::TaskRequest& request, ::grpc::CompletionQueue* cq) override;
-    const ::grpc::internal::RpcMethod rpcmethod_ProcessTask_;
+    ::grpc::ClientAsyncResponseReader< ::worker::MapResponse>* AsyncProcessMapRaw(::grpc::ClientContext* context, const ::worker::MapRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::worker::MapResponse>* PrepareAsyncProcessMapRaw(::grpc::ClientContext* context, const ::worker::MapRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::worker::ReduceResponse>* AsyncProcessReduceRaw(::grpc::ClientContext* context, const ::worker::ReduceRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::worker::ReduceResponse>* PrepareAsyncProcessReduceRaw(::grpc::ClientContext* context, const ::worker::ReduceRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::worker::HealthCheckResponse>* AsyncCheckHealthRaw(::grpc::ClientContext* context, const ::worker::HealthCheckRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::worker::HealthCheckResponse>* PrepareAsyncCheckHealthRaw(::grpc::ClientContext* context, const ::worker::HealthCheckRequest& request, ::grpc::CompletionQueue* cq) override;
+    const ::grpc::internal::RpcMethod rpcmethod_ProcessMap_;
+    const ::grpc::internal::RpcMethod rpcmethod_ProcessReduce_;
+    const ::grpc::internal::RpcMethod rpcmethod_CheckHealth_;
   };
   static std::unique_ptr<Stub> NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
 
@@ -92,150 +139,418 @@ class WorkerService final {
    public:
     Service();
     virtual ~Service();
-    virtual ::grpc::Status ProcessTask(::grpc::ServerContext* context, const ::gridmr::TaskRequest* request, ::gridmr::TaskResponse* response);
+    virtual ::grpc::Status ProcessMap(::grpc::ServerContext* context, const ::worker::MapRequest* request, ::worker::MapResponse* response);
+    virtual ::grpc::Status ProcessReduce(::grpc::ServerContext* context, const ::worker::ReduceRequest* request, ::worker::ReduceResponse* response);
+    virtual ::grpc::Status CheckHealth(::grpc::ServerContext* context, const ::worker::HealthCheckRequest* request, ::worker::HealthCheckResponse* response);
   };
   template <class BaseClass>
-  class WithAsyncMethod_ProcessTask : public BaseClass {
+  class WithAsyncMethod_ProcessMap : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithAsyncMethod_ProcessTask() {
+    WithAsyncMethod_ProcessMap() {
       ::grpc::Service::MarkMethodAsync(0);
     }
-    ~WithAsyncMethod_ProcessTask() override {
+    ~WithAsyncMethod_ProcessMap() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status ProcessTask(::grpc::ServerContext* /*context*/, const ::gridmr::TaskRequest* /*request*/, ::gridmr::TaskResponse* /*response*/) override {
+    ::grpc::Status ProcessMap(::grpc::ServerContext* /*context*/, const ::worker::MapRequest* /*request*/, ::worker::MapResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestProcessTask(::grpc::ServerContext* context, ::gridmr::TaskRequest* request, ::grpc::ServerAsyncResponseWriter< ::gridmr::TaskResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestProcessMap(::grpc::ServerContext* context, ::worker::MapRequest* request, ::grpc::ServerAsyncResponseWriter< ::worker::MapResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(0, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
-  typedef WithAsyncMethod_ProcessTask<Service > AsyncService;
   template <class BaseClass>
-  class WithCallbackMethod_ProcessTask : public BaseClass {
+  class WithAsyncMethod_ProcessReduce : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithCallbackMethod_ProcessTask() {
+    WithAsyncMethod_ProcessReduce() {
+      ::grpc::Service::MarkMethodAsync(1);
+    }
+    ~WithAsyncMethod_ProcessReduce() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status ProcessReduce(::grpc::ServerContext* /*context*/, const ::worker::ReduceRequest* /*request*/, ::worker::ReduceResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestProcessReduce(::grpc::ServerContext* context, ::worker::ReduceRequest* request, ::grpc::ServerAsyncResponseWriter< ::worker::ReduceResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(1, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithAsyncMethod_CheckHealth : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithAsyncMethod_CheckHealth() {
+      ::grpc::Service::MarkMethodAsync(2);
+    }
+    ~WithAsyncMethod_CheckHealth() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status CheckHealth(::grpc::ServerContext* /*context*/, const ::worker::HealthCheckRequest* /*request*/, ::worker::HealthCheckResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestCheckHealth(::grpc::ServerContext* context, ::worker::HealthCheckRequest* request, ::grpc::ServerAsyncResponseWriter< ::worker::HealthCheckResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(2, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  typedef WithAsyncMethod_ProcessMap<WithAsyncMethod_ProcessReduce<WithAsyncMethod_CheckHealth<Service > > > AsyncService;
+  template <class BaseClass>
+  class WithCallbackMethod_ProcessMap : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithCallbackMethod_ProcessMap() {
       ::grpc::Service::MarkMethodCallback(0,
-          new ::grpc::internal::CallbackUnaryHandler< ::gridmr::TaskRequest, ::gridmr::TaskResponse>(
+          new ::grpc::internal::CallbackUnaryHandler< ::worker::MapRequest, ::worker::MapResponse>(
             [this](
-                   ::grpc::CallbackServerContext* context, const ::gridmr::TaskRequest* request, ::gridmr::TaskResponse* response) { return this->ProcessTask(context, request, response); }));}
-    void SetMessageAllocatorFor_ProcessTask(
-        ::grpc::MessageAllocator< ::gridmr::TaskRequest, ::gridmr::TaskResponse>* allocator) {
+                   ::grpc::CallbackServerContext* context, const ::worker::MapRequest* request, ::worker::MapResponse* response) { return this->ProcessMap(context, request, response); }));}
+    void SetMessageAllocatorFor_ProcessMap(
+        ::grpc::MessageAllocator< ::worker::MapRequest, ::worker::MapResponse>* allocator) {
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(0);
-      static_cast<::grpc::internal::CallbackUnaryHandler< ::gridmr::TaskRequest, ::gridmr::TaskResponse>*>(handler)
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::worker::MapRequest, ::worker::MapResponse>*>(handler)
               ->SetMessageAllocator(allocator);
     }
-    ~WithCallbackMethod_ProcessTask() override {
+    ~WithCallbackMethod_ProcessMap() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status ProcessTask(::grpc::ServerContext* /*context*/, const ::gridmr::TaskRequest* /*request*/, ::gridmr::TaskResponse* /*response*/) override {
+    ::grpc::Status ProcessMap(::grpc::ServerContext* /*context*/, const ::worker::MapRequest* /*request*/, ::worker::MapResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual ::grpc::ServerUnaryReactor* ProcessTask(
-      ::grpc::CallbackServerContext* /*context*/, const ::gridmr::TaskRequest* /*request*/, ::gridmr::TaskResponse* /*response*/)  { return nullptr; }
+    virtual ::grpc::ServerUnaryReactor* ProcessMap(
+      ::grpc::CallbackServerContext* /*context*/, const ::worker::MapRequest* /*request*/, ::worker::MapResponse* /*response*/)  { return nullptr; }
   };
-  typedef WithCallbackMethod_ProcessTask<Service > CallbackService;
+  template <class BaseClass>
+  class WithCallbackMethod_ProcessReduce : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithCallbackMethod_ProcessReduce() {
+      ::grpc::Service::MarkMethodCallback(1,
+          new ::grpc::internal::CallbackUnaryHandler< ::worker::ReduceRequest, ::worker::ReduceResponse>(
+            [this](
+                   ::grpc::CallbackServerContext* context, const ::worker::ReduceRequest* request, ::worker::ReduceResponse* response) { return this->ProcessReduce(context, request, response); }));}
+    void SetMessageAllocatorFor_ProcessReduce(
+        ::grpc::MessageAllocator< ::worker::ReduceRequest, ::worker::ReduceResponse>* allocator) {
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(1);
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::worker::ReduceRequest, ::worker::ReduceResponse>*>(handler)
+              ->SetMessageAllocator(allocator);
+    }
+    ~WithCallbackMethod_ProcessReduce() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status ProcessReduce(::grpc::ServerContext* /*context*/, const ::worker::ReduceRequest* /*request*/, ::worker::ReduceResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual ::grpc::ServerUnaryReactor* ProcessReduce(
+      ::grpc::CallbackServerContext* /*context*/, const ::worker::ReduceRequest* /*request*/, ::worker::ReduceResponse* /*response*/)  { return nullptr; }
+  };
+  template <class BaseClass>
+  class WithCallbackMethod_CheckHealth : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithCallbackMethod_CheckHealth() {
+      ::grpc::Service::MarkMethodCallback(2,
+          new ::grpc::internal::CallbackUnaryHandler< ::worker::HealthCheckRequest, ::worker::HealthCheckResponse>(
+            [this](
+                   ::grpc::CallbackServerContext* context, const ::worker::HealthCheckRequest* request, ::worker::HealthCheckResponse* response) { return this->CheckHealth(context, request, response); }));}
+    void SetMessageAllocatorFor_CheckHealth(
+        ::grpc::MessageAllocator< ::worker::HealthCheckRequest, ::worker::HealthCheckResponse>* allocator) {
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(2);
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::worker::HealthCheckRequest, ::worker::HealthCheckResponse>*>(handler)
+              ->SetMessageAllocator(allocator);
+    }
+    ~WithCallbackMethod_CheckHealth() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status CheckHealth(::grpc::ServerContext* /*context*/, const ::worker::HealthCheckRequest* /*request*/, ::worker::HealthCheckResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual ::grpc::ServerUnaryReactor* CheckHealth(
+      ::grpc::CallbackServerContext* /*context*/, const ::worker::HealthCheckRequest* /*request*/, ::worker::HealthCheckResponse* /*response*/)  { return nullptr; }
+  };
+  typedef WithCallbackMethod_ProcessMap<WithCallbackMethod_ProcessReduce<WithCallbackMethod_CheckHealth<Service > > > CallbackService;
   typedef CallbackService ExperimentalCallbackService;
   template <class BaseClass>
-  class WithGenericMethod_ProcessTask : public BaseClass {
+  class WithGenericMethod_ProcessMap : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithGenericMethod_ProcessTask() {
+    WithGenericMethod_ProcessMap() {
       ::grpc::Service::MarkMethodGeneric(0);
     }
-    ~WithGenericMethod_ProcessTask() override {
+    ~WithGenericMethod_ProcessMap() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status ProcessTask(::grpc::ServerContext* /*context*/, const ::gridmr::TaskRequest* /*request*/, ::gridmr::TaskResponse* /*response*/) override {
+    ::grpc::Status ProcessMap(::grpc::ServerContext* /*context*/, const ::worker::MapRequest* /*request*/, ::worker::MapResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
   };
   template <class BaseClass>
-  class WithRawMethod_ProcessTask : public BaseClass {
+  class WithGenericMethod_ProcessReduce : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithRawMethod_ProcessTask() {
-      ::grpc::Service::MarkMethodRaw(0);
+    WithGenericMethod_ProcessReduce() {
+      ::grpc::Service::MarkMethodGeneric(1);
     }
-    ~WithRawMethod_ProcessTask() override {
+    ~WithGenericMethod_ProcessReduce() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status ProcessTask(::grpc::ServerContext* /*context*/, const ::gridmr::TaskRequest* /*request*/, ::gridmr::TaskResponse* /*response*/) override {
+    ::grpc::Status ProcessReduce(::grpc::ServerContext* /*context*/, const ::worker::ReduceRequest* /*request*/, ::worker::ReduceResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestProcessTask(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+  };
+  template <class BaseClass>
+  class WithGenericMethod_CheckHealth : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithGenericMethod_CheckHealth() {
+      ::grpc::Service::MarkMethodGeneric(2);
+    }
+    ~WithGenericMethod_CheckHealth() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status CheckHealth(::grpc::ServerContext* /*context*/, const ::worker::HealthCheckRequest* /*request*/, ::worker::HealthCheckResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
+  class WithRawMethod_ProcessMap : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawMethod_ProcessMap() {
+      ::grpc::Service::MarkMethodRaw(0);
+    }
+    ~WithRawMethod_ProcessMap() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status ProcessMap(::grpc::ServerContext* /*context*/, const ::worker::MapRequest* /*request*/, ::worker::MapResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestProcessMap(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(0, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
-  class WithRawCallbackMethod_ProcessTask : public BaseClass {
+  class WithRawMethod_ProcessReduce : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithRawCallbackMethod_ProcessTask() {
+    WithRawMethod_ProcessReduce() {
+      ::grpc::Service::MarkMethodRaw(1);
+    }
+    ~WithRawMethod_ProcessReduce() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status ProcessReduce(::grpc::ServerContext* /*context*/, const ::worker::ReduceRequest* /*request*/, ::worker::ReduceResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestProcessReduce(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(1, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithRawMethod_CheckHealth : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawMethod_CheckHealth() {
+      ::grpc::Service::MarkMethodRaw(2);
+    }
+    ~WithRawMethod_CheckHealth() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status CheckHealth(::grpc::ServerContext* /*context*/, const ::worker::HealthCheckRequest* /*request*/, ::worker::HealthCheckResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestCheckHealth(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(2, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithRawCallbackMethod_ProcessMap : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawCallbackMethod_ProcessMap() {
       ::grpc::Service::MarkMethodRawCallback(0,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
-                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->ProcessTask(context, request, response); }));
+                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->ProcessMap(context, request, response); }));
     }
-    ~WithRawCallbackMethod_ProcessTask() override {
+    ~WithRawCallbackMethod_ProcessMap() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status ProcessTask(::grpc::ServerContext* /*context*/, const ::gridmr::TaskRequest* /*request*/, ::gridmr::TaskResponse* /*response*/) override {
+    ::grpc::Status ProcessMap(::grpc::ServerContext* /*context*/, const ::worker::MapRequest* /*request*/, ::worker::MapResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual ::grpc::ServerUnaryReactor* ProcessTask(
+    virtual ::grpc::ServerUnaryReactor* ProcessMap(
       ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class WithStreamedUnaryMethod_ProcessTask : public BaseClass {
+  class WithRawCallbackMethod_ProcessReduce : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithStreamedUnaryMethod_ProcessTask() {
+    WithRawCallbackMethod_ProcessReduce() {
+      ::grpc::Service::MarkMethodRawCallback(1,
+          new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->ProcessReduce(context, request, response); }));
+    }
+    ~WithRawCallbackMethod_ProcessReduce() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status ProcessReduce(::grpc::ServerContext* /*context*/, const ::worker::ReduceRequest* /*request*/, ::worker::ReduceResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual ::grpc::ServerUnaryReactor* ProcessReduce(
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
+  };
+  template <class BaseClass>
+  class WithRawCallbackMethod_CheckHealth : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawCallbackMethod_CheckHealth() {
+      ::grpc::Service::MarkMethodRawCallback(2,
+          new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->CheckHealth(context, request, response); }));
+    }
+    ~WithRawCallbackMethod_CheckHealth() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status CheckHealth(::grpc::ServerContext* /*context*/, const ::worker::HealthCheckRequest* /*request*/, ::worker::HealthCheckResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual ::grpc::ServerUnaryReactor* CheckHealth(
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
+  };
+  template <class BaseClass>
+  class WithStreamedUnaryMethod_ProcessMap : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithStreamedUnaryMethod_ProcessMap() {
       ::grpc::Service::MarkMethodStreamed(0,
         new ::grpc::internal::StreamedUnaryHandler<
-          ::gridmr::TaskRequest, ::gridmr::TaskResponse>(
+          ::worker::MapRequest, ::worker::MapResponse>(
             [this](::grpc::ServerContext* context,
                    ::grpc::ServerUnaryStreamer<
-                     ::gridmr::TaskRequest, ::gridmr::TaskResponse>* streamer) {
-                       return this->StreamedProcessTask(context,
+                     ::worker::MapRequest, ::worker::MapResponse>* streamer) {
+                       return this->StreamedProcessMap(context,
                          streamer);
                   }));
     }
-    ~WithStreamedUnaryMethod_ProcessTask() override {
+    ~WithStreamedUnaryMethod_ProcessMap() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status ProcessTask(::grpc::ServerContext* /*context*/, const ::gridmr::TaskRequest* /*request*/, ::gridmr::TaskResponse* /*response*/) override {
+    ::grpc::Status ProcessMap(::grpc::ServerContext* /*context*/, const ::worker::MapRequest* /*request*/, ::worker::MapResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     // replace default version of method with streamed unary
-    virtual ::grpc::Status StreamedProcessTask(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::gridmr::TaskRequest,::gridmr::TaskResponse>* server_unary_streamer) = 0;
+    virtual ::grpc::Status StreamedProcessMap(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::worker::MapRequest,::worker::MapResponse>* server_unary_streamer) = 0;
   };
-  typedef WithStreamedUnaryMethod_ProcessTask<Service > StreamedUnaryService;
+  template <class BaseClass>
+  class WithStreamedUnaryMethod_ProcessReduce : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithStreamedUnaryMethod_ProcessReduce() {
+      ::grpc::Service::MarkMethodStreamed(1,
+        new ::grpc::internal::StreamedUnaryHandler<
+          ::worker::ReduceRequest, ::worker::ReduceResponse>(
+            [this](::grpc::ServerContext* context,
+                   ::grpc::ServerUnaryStreamer<
+                     ::worker::ReduceRequest, ::worker::ReduceResponse>* streamer) {
+                       return this->StreamedProcessReduce(context,
+                         streamer);
+                  }));
+    }
+    ~WithStreamedUnaryMethod_ProcessReduce() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status ProcessReduce(::grpc::ServerContext* /*context*/, const ::worker::ReduceRequest* /*request*/, ::worker::ReduceResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedProcessReduce(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::worker::ReduceRequest,::worker::ReduceResponse>* server_unary_streamer) = 0;
+  };
+  template <class BaseClass>
+  class WithStreamedUnaryMethod_CheckHealth : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithStreamedUnaryMethod_CheckHealth() {
+      ::grpc::Service::MarkMethodStreamed(2,
+        new ::grpc::internal::StreamedUnaryHandler<
+          ::worker::HealthCheckRequest, ::worker::HealthCheckResponse>(
+            [this](::grpc::ServerContext* context,
+                   ::grpc::ServerUnaryStreamer<
+                     ::worker::HealthCheckRequest, ::worker::HealthCheckResponse>* streamer) {
+                       return this->StreamedCheckHealth(context,
+                         streamer);
+                  }));
+    }
+    ~WithStreamedUnaryMethod_CheckHealth() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status CheckHealth(::grpc::ServerContext* /*context*/, const ::worker::HealthCheckRequest* /*request*/, ::worker::HealthCheckResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedCheckHealth(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::worker::HealthCheckRequest,::worker::HealthCheckResponse>* server_unary_streamer) = 0;
+  };
+  typedef WithStreamedUnaryMethod_ProcessMap<WithStreamedUnaryMethod_ProcessReduce<WithStreamedUnaryMethod_CheckHealth<Service > > > StreamedUnaryService;
   typedef Service SplitStreamedService;
-  typedef WithStreamedUnaryMethod_ProcessTask<Service > StreamedService;
+  typedef WithStreamedUnaryMethod_ProcessMap<WithStreamedUnaryMethod_ProcessReduce<WithStreamedUnaryMethod_CheckHealth<Service > > > StreamedService;
 };
 
-}  // namespace gridmr
+}  // namespace worker
 
 
 #include <grpcpp/ports_undef.inc>
